@@ -13,6 +13,7 @@ namespace Schraubenshop
             Console.WriteLine("Willkommen im Schraubenshop GJ!");    //Begrüßung
             SchraubenOderMuttern();
 
+
             //fehlt noch Ausgaben, Preis, etc.
         }
 
@@ -49,7 +50,8 @@ namespace Schraubenshop
             int auswahl;
 
             Console.WriteLine("Wollen Sie Schrauben nach Norm oder nach Sonderanfertigung?");
-            Console.WriteLine("Für Norm geben Sie bitte die 1, für Sonderanfertigung bitte die 2 ein. Mit 3 kommen Sie zurück zur vorherigen Auswahl.");
+            Console.WriteLine("Für Norm geben Sie bitte die 1, für Sonderanfertigung bitte die 2 ein.");
+            Console.WriteLine("Mit 3 kommen Sie zurück zur vorherigen Auswahl.");
             
             auswahl = Convert.ToInt32(Console.ReadLine());
            
@@ -83,8 +85,9 @@ namespace Schraubenshop
             int auswahl;
 
             Console.WriteLine("Wollen Sie eine Mutter nach Norm oder nach Sonderanfertigung?");
-            Console.WriteLine("Für Norm geben Sie bitte die 1, für Sonderanfertigung bitte die 2 ein. Mit 3 kommen Sie zurück zur vorherigen Auswahl.");
-            
+            Console.WriteLine("Für Norm geben Sie bitte die 1, für Sonderanfertigung bitte die 2 ein.");
+            Console.WriteLine("Mit 3 kommen Sie zurück zur vorherigen Auswahl.");
+
             auswahl = Convert.ToInt32(Console.ReadLine());
            
             if (auswahl == 1)
@@ -119,8 +122,8 @@ namespace Schraubenshop
             int auswahl;
 
             Console.WriteLine("Wollen Sie Sechskantschrauben oder Zylinderkopfschrauben kaufen?");
-            Console.WriteLine("Für Sechskantschrauben geben Sie bitte die 1, für Zylinderkopfschrauben bitte die 2 ein. " +
-                "Mit 3 kommen Sie zurück zur vorherigen Auswahl und mit 4 zurück zum Hauptmenü.");
+            Console.WriteLine("Für Sechskantschrauben geben Sie bitte die 1, für Zylinderkopfschrauben bitte die 2 ein. ");
+            Console.WriteLine("Mit 3 kommen Sie zurück zur vorherigen Auswahl und mit 4 zurück zum Hauptmenü.");
 
             auswahl = Convert.ToInt32(Console.ReadLine());
 
@@ -165,8 +168,9 @@ namespace Schraubenshop
             int auswahl;
 
             Console.WriteLine("Wollen Sie Sechskantschrauben nach ISO 4017 (durchgehendes Gewinde) oder Sechskantschrauben nach ISO 4014 (mit Schaft) kaufen?");
-            Console.WriteLine("Für ISO 4017 (durchgehendes Gewinde) geben Sie bitte die 1, für ISO 4014 (mit Schaft) bitte die 2 ein." +
-                " Mit 3 kommen Sie zurück zur vorherigen Auswahl und mit 4 zurück zum Hauptmenü.");
+            Console.WriteLine("Für ISO 4017 (durchgehendes Gewinde) geben Sie bitte die 1, für ISO 4014 (mit Schaft) bitte die 2 ein.");
+            Console.WriteLine("Mit 3 kommen Sie zurück zur vorherigen Auswahl und mit 4 zurück zum Hauptmenü.");
+
 
             auswahl = Convert.ToInt32(Console.ReadLine());
 
@@ -205,8 +209,9 @@ namespace Schraubenshop
             int auswahl;
 
             Console.WriteLine("Wollen Sie Zylinderkopfschrauben nach ISO 4762 (normaler Schraubenkopf) oder nach ISO 6912 (niedrieger Schraubenkopf) kaufen?");
-            Console.WriteLine("Für ISO 4762 (normaler Schraubenkopf) geben Sie bitte die 1, für ISO 6912 (niedriger Kopf) bitte die 2 ein." +
-                " Mit 3 kommen Sie zurück zur vorherigen Auswahl und mit 4 zurück zum Hauptmenü.");
+            Console.WriteLine("Für ISO 4762 (normaler Schraubenkopf) geben Sie bitte die 1, für ISO 6912 (niedriger Kopf) bitte die 2 ein.");
+            Console.WriteLine("Mit 3 kommen Sie zurück zur vorherigen Auswahl und mit 4 zurück zum Hauptmenü.");
+
 
             auswahl = Convert.ToInt32(Console.ReadLine());
 
@@ -240,24 +245,31 @@ namespace Schraubenshop
             }
         }
 
-        static void ISO4017()
+        static void ISO4017()           //Sechskantschrauben nach ISO 4017 (durchgehendes Gewinde)
         {
+            Console.WriteLine("Bitte geben Sie ihre Gewindegröße ein (z.B. M6).");
+            Console.WriteLine("Mit 3 kommen Sie zurück zur vorherigen Auswahl und mit 4 zurück zum Hauptmenü.");        //noch nicht realiesiert
 
         }
 
-        static void ISO4014()
+        static void ISO4014()           //Sechskantschrauben nach ISO 4014 (Schaft)
         {
+            Console.WriteLine("Bitte geben Sie ihre Gewindegröße ein (z.B. M6).");
+            Console.WriteLine("Mit 3 kommen Sie zurück zur vorherigen Auswahl und mit 4 zurück zum Hauptmenü.");        //noch nicht realiesiert
 
         }
 
-        static void ISO4762()
+        static void ISO4762()           //Zylinderkopfschrauben nach ISO 4762 (normaler Schraubenkopf)
         {
+            Console.WriteLine("Bitte geben Sie ihre Gewindegröße ein (z.B. M6).");
+            Console.WriteLine("Mit 3 kommen Sie zurück zur vorherigen Auswahl und mit 4 zurück zum Hauptmenü.");        //noch nicht realiesiert
 
         }
 
-        static void ISO6912()
+        static void ISO6912()           //Zylinderkopfschrauben nach ISO 6912 (niedriger Schraubenkopf)
         {
-
+            Console.WriteLine("Bitte geben Sie ihre Gewindegröße ein (z.B. M6).");
+            Console.WriteLine("Mit 3 kommen Sie zurück zur vorherigen Auswahl und mit 4 zurück zum Hauptmenü.");        //noch nicht realiesiert
         }
 
     }
