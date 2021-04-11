@@ -48,7 +48,7 @@ namespace Schraubenshop
         {
             int auswahl;
 
-            Console.WriteLine("Wollen Sie eine Schraube nach Norm oder nach Sonderanfertigung?");
+            Console.WriteLine("Wollen Sie Schrauben nach Norm oder nach Sonderanfertigung?");
             Console.WriteLine("Für Norm geben Sie bitte die 1, für Sonderanfertigung bitte die 2 ein. Mit 3 kommen Sie zurück zur vorherigen Auswahl.");
             
             auswahl = Convert.ToInt32(Console.ReadLine());
