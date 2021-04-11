@@ -10,108 +10,255 @@ namespace Schraubenshop
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Willkommen im Schraubenshop!");    //Begrüßung
-            auswahlSM();
-            //Ausgabe
-            //Preis etc.
+            Console.WriteLine("Willkommen im Schraubenshop GJ!");    //Begrüßung
+            SchraubenOderMuttern();
+
+            //fehlt noch Ausgaben, Preis, etc.
         }
 
-        static void auswahlSM()
+        static void SchraubenOderMuttern()          //Hauptmenü
         {
             int auswahl;
-            Console.WriteLine("Wollen Sie eine Mutter oder Schraube kaufen?");
-            Console.WriteLine("Für Schrauben geben Sie bitte die 1, für Muttern bitte die 2 ein");
+
+            Console.WriteLine("Wollen Sie Muttern oder Schrauben kaufen?");
+            Console.WriteLine("Für Schrauben geben Sie bitte die 1, für Muttern bitte die 2 ein.");
+           
             auswahl = Convert.ToInt32(Console.ReadLine());
 
             if (auswahl == 1)
             {
+                Console.Clear();
                 Console.WriteLine("Schrauben");
-                schraube();
+                Schrauben();
             }
             else if (auswahl == 2)
             {
+                Console.Clear();
                 Console.WriteLine("Muttern");
-                muttern();
+                Muttern();
             }
             else
             {
+                Console.Clear();
                 Console.WriteLine("Bitte wählen Sie eine der beiden vorgeschlagenen Möglichkeiten aus!");
-                auswahlSM();
+                SchraubenOderMuttern();
             }
         }
-        static void schraube()
+        static void Schrauben()
         {
             int auswahl;
-            Console.WriteLine("Norm oder Sonderanfertigung?");
-            Console.WriteLine("Für Norm geben Sie bitte die 1, für Sonderanfertigung bitte die 2 ein. Mit 3 gelangen Sie zum Hauptmenü!");
+
+            Console.WriteLine("Wollen Sie eine Schraube nach Norm oder nach Sonderanfertigung?");
+            Console.WriteLine("Für Norm geben Sie bitte die 1, für Sonderanfertigung bitte die 2 ein. Mit 3 kommen Sie zurück zur vorherigen Auswahl.");
+            
             auswahl = Convert.ToInt32(Console.ReadLine());
+           
             if (auswahl == 1)
             {
-                Console.WriteLine("Norm");
-                schraube();
+                Console.Clear();
+                Console.WriteLine("Schrauben nach Norm");
+                NormSchrauben();
             }
             else if (auswahl == 2)
             {
+                Console.Clear();
+                Console.WriteLine("Schrauben nach Sonderanfertigung");
+                SonderanfertigungSchrauben();
+            }
+            else if (auswahl == 3)          //Zurück zur vorherigen Auswahl
+            {
+                Console.Clear();
+                SchraubenOderMuttern();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Bitte wählen Sie eine der vorgeschlagenen Möglichkeiten aus!");
+                Schrauben();
+            }
+        }
+
+        static void Muttern()
+        {
+            int auswahl;
+
+            Console.WriteLine("Wollen Sie eine Mutter nach Norm oder nach Sonderanfertigung?");
+            Console.WriteLine("Für Norm geben Sie bitte die 1, für Sonderanfertigung bitte die 2 ein. Mit 3 kommen Sie zurück zur vorherigen Auswahl.");
+            
+            auswahl = Convert.ToInt32(Console.ReadLine());
+           
+            if (auswahl == 1)
+            {
+                Console.Clear();
+                Console.WriteLine("Norm");
+                Schrauben();
+            }
+            else if (auswahl == 2)
+            {
+                Console.Clear();
                 Console.WriteLine("Sonderanfertigung");
-                muttern();
+                Muttern();
             }
             else if (auswahl == 3)
             {
-                auswahlSM();
+                Console.Clear();
+                SchraubenOderMuttern();
             }
             else
             {
-                Console.WriteLine("Bitte wählen Sie eine der vorgeschlagenen Möglichkeiten aus!");
-                schraube();
+                Console.Clear();
+                Console.WriteLine("Bitte wählen Sie eine der beiden vorgeschlagenen Möglichkeiten aus!");
+                Muttern();
             }
+
+
         }
-        static void muttern()
+
+        static void NormSchrauben()
         {
             int auswahl;
-            Console.WriteLine("Norm oder Sonderanfertigung?");
-            Console.WriteLine("Für Norm geben Sie bitte die 1, für Sonderanfertigung bitte die 2 ein");
+
+            Console.WriteLine("Wollen Sie Sechskantschrauben oder Zylinderkopfschrauben kaufen?");
+            Console.WriteLine("Für Sechskantschrauben geben Sie bitte die 1, für Zylinderkopfschrauben bitte die 2 ein. " +
+                "Mit 3 kommen Sie zurück zur vorherigen Auswahl und mit 4 zurück zum Hauptmenü.");
+
             auswahl = Convert.ToInt32(Console.ReadLine());
+
             if (auswahl == 1)
             {
-                Console.WriteLine("Norm");
-                schraube();
+                Console.Clear();
+                Console.WriteLine("Sechskantschrauben");
+                Sechskantschrauben();
             }
             else if (auswahl == 2)
             {
-                Console.WriteLine("Sonderanfertigung");
-                muttern();
+                Console.Clear();
+                Console.WriteLine("Zylinderkopfschrauben mit Innensechskant");
+                Zylinderkopfschrauben();
+            }
+            else if (auswahl == 3)          //Zurück zur vorherigen Auswahl
+            {
+                Console.Clear();
+                Schrauben();
+            }
+            else if (auswahl == 4)          //Zurück zum Hauptmenü
+            {
+                Console.Clear();
+                SchraubenOderMuttern();
             }
             else
             {
-                Console.WriteLine("Bitte wählen Sie eine der beiden vorgeschlagenen Möglichkeiten aus!");
-                schraube();
+                Console.Clear();
+                Console.WriteLine("Bitte wählen Sie eine der vorgeschlagenen Möglichkeiten aus!");
+                NormSchrauben();
             }
-
-
         }
 
-        static void SechskantZylinderkopf()
+        static void SonderanfertigungSchrauben()
+        {
+           
+        }
+
+
+        static void Sechskantschrauben()
+        {
+            int auswahl;
+
+            Console.WriteLine("Wollen Sie Sechskantschrauben nach ISO 4017 (durchgehendes Gewinde) oder Sechskantschrauben nach ISO 4014 (mit Schaft) kaufen?");
+            Console.WriteLine("Für ISO 4017 (durchgehendes Gewinde) geben Sie bitte die 1, für ISO 4014 (mit Schaft) bitte die 2 ein." +
+                " Mit 3 kommen Sie zurück zur vorherigen Auswahl und mit 4 zurück zum Hauptmenü.");
+
+            auswahl = Convert.ToInt32(Console.ReadLine());
+
+            if (auswahl == 1)
+            {
+                Console.Clear();
+                Console.WriteLine("Sechskantschrauben nach ISO 4017 (durchgehendes Gewinde)");
+                ISO4017();
+            }
+            else if (auswahl == 2)
+            {
+                Console.Clear();
+                Console.WriteLine("Sechskantschrauben nach ISO 4014 (mit Schaft)");
+                ISO4014();
+            }
+            else if (auswahl == 3)          //Zurück zur vorherigen Auswahl
+            {
+                Console.Clear();
+                NormSchrauben();
+            }
+            else if (auswahl == 4)          //Zurück zum Hauptmenü
+            {
+                Console.Clear();
+                SchraubenOderMuttern();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Bitte wählen Sie eine der vorgeschlagenen Möglichkeiten aus!");
+                Sechskantschrauben();
+            }
+        }
+
+        static void Zylinderkopfschrauben()
+        {
+            int auswahl;
+
+            Console.WriteLine("Wollen Sie Zylinderkopfschrauben nach ISO 4762 (normaler Schraubenkopf) oder nach ISO 6912 (niedrieger Schraubenkopf) kaufen?");
+            Console.WriteLine("Für ISO 4762 (normaler Schraubenkopf) geben Sie bitte die 1, für ISO 6912 (niedriger Kopf) bitte die 2 ein." +
+                " Mit 3 kommen Sie zurück zur vorherigen Auswahl und mit 4 zurück zum Hauptmenü.");
+
+            auswahl = Convert.ToInt32(Console.ReadLine());
+
+            if (auswahl == 1)
+            {
+                Console.Clear();
+                Console.WriteLine("Zylinderkopfschrauben nach ISO 4762 (normaler Schraubenkopf)");
+                ISO4762();
+            }
+            else if (auswahl == 2)
+            {
+                Console.Clear();
+                Console.WriteLine("Zylinderkopfschrauben nach ISO 6912 (niedrieger Schraubenkopf)");
+                ISO6912();
+            }
+            else if (auswahl == 3)          //Zurück zur vorherigen Auswahl
+            {
+                Console.Clear();
+                NormSchrauben();
+            }
+            else if (auswahl == 4)          //Zurück zum Hauptmenü
+            {
+                Console.Clear();
+                SchraubenOderMuttern();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Bitte wählen Sie eine der vorgeschlagenen Möglichkeiten aus!");
+                Zylinderkopfschrauben();
+            }
+        }
+
+        static void ISO4017()
         {
 
         }
 
-        static void Zylinderkopf()
+        static void ISO4014()
         {
 
         }
 
-        static void Sechskant()
+        static void ISO4762()
         {
 
         }
 
-
-        static void SonderanfertigungSchraube()
+        static void ISO6912()
         {
 
         }
-
-
 
     }
 }
