@@ -159,7 +159,26 @@ namespace Schraubenshop
 
         static void SonderanfertigungSchrauben()
         {
-           
+            int auswahl;
+
+            Console.WriteLine("Welchen Schraubenkopf möchten bzw. mit welchem Antrieb");
+            Console.WriteLine("Für Sechskanntschraube geben Sie bitte die 1, für Zylinderkopfschraube mit Innensechskannt die 2 ein.");
+            Console.WriteLine("Mit 3 kommen Sie zurück zur vorherigen Auswahl und mit 4 zurück zum Hauptmenü.");
+
+            auswahl = Convert.ToInt32(Console.ReadLine());
+
+            if (auswahl == 1)
+            {
+                Console.Clear();
+                Console.WriteLine("Sechskantschrauben");
+                //in Struct Schraube das Zylinderkopfschraube schreiben und breaken
+            }
+            else if (auswahl == 2)
+            {
+                Console.Clear();
+                Console.WriteLine("Innensechskannt");
+                //in Struct Schraube das Zylinderkopft schreiben und breaken
+            }
         }
 
 
@@ -272,5 +291,16 @@ namespace Schraubenshop
             Console.WriteLine("Mit 3 kommen Sie zurück zur vorherigen Auswahl und mit 4 zurück zum Hauptmenü.");        //noch nicht realiesiert
         }
 
+        struct Schraube //Struktur Kunde
+        {
+            public string kopfart; //welcher Kopf (Sechskannt, Zylinderkopf...)
+            public double kopfdicke; //wie hoch ist der Kopf
+            public double antreibsgroeße; //SW bzw. Innensechskannt größe
+            public double gewindedurchmesser; //bei Metrischen Gewinde ergibt sich das
+            public double gewindesteigung; //bei Metrischen Gewinde ergibt sich das
+            public double gewindelaenge; //muss kürzer bzw. gleich Schaft sein
+            public double schaftlaenge; //
+
+        }
     }
 }
