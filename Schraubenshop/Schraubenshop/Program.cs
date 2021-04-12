@@ -8,6 +8,15 @@ namespace Schraubenshop
 {
     class Program
     {
+        struct SechskantISO4017          // Struktur Sechskantschraube durchgehendes Gewinde            //????
+        {
+            public string Gewindgroeße;
+            public int Gewindelaenge;
+            public int Kopfhoehe;
+            public int Schluesselweite;
+
+        }
+            
         static void Main(string[] args)
         {
             Console.WriteLine("Willkommen im Schraubenshop GJ!");    //Begrüßung
