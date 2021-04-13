@@ -8,14 +8,14 @@ namespace Schraubenshop
 {
     class Program 
     {
-        struct Schraube //Struktur für eine Schraube
+        struct Schraube //Struktur für eine Schraube (bisher nur Sonderschrauben)
         {
             public string kopfart; //welcher Kopf (Sechskannt, Zylinderkopf...)
             public double kopfdicke; //wie hoch ist der Kopf
             public double antreibsgroeße; //SW bzw. Innensechskannt größe
-            public double gewindedurchmesser; //bei Metrischen Gewinde ergibt sich das
-            public double gewindesteigung; //bei Metrischen Gewinde ergibt sich das
+            public double schaftdicke; //die Dicke des Schaftes
             public double schaftlaenge; //muss länger bzw. gleich des Gewindes sein
+            public double gewindesteigung; //die Steigung des Gewindes (bei Metrischen Gewinden ergibt sich das)            
             public double gewindelaenge; //muss kürzer bzw. gleich Schaft sein
         }
         struct SechskantISO4017          // Struktur Sechskantschraube durchgehendes Gewinde            //????
@@ -181,8 +181,10 @@ namespace Schraubenshop
             Schraube sonderschraube = new Schraube(); //in diese Struktur werden die Informationen der geschreiben //was passiert wenn bei der Eingabe eine Minuszahl/0/Buchstaben eingibt eingegeben wird???
 
             int auswahl; //Variable zur Auswahl
+            int anzahl; //Variable zur Anzahl der Schrauben
+            int preis = 0; ////Variable für den Preis der Schraube
 
-            step1:
+            step1: //zur wiederholten Eingabe des Antriebs
 
             Console.WriteLine("Welchen Schraubenkopf möchten bzw. mit welchem Antrieb");
             Console.WriteLine("Für Sechskanntschraube geben Sie bitte die 1, für Zylinderkopfschraube mit Innensechskannt die 2 ein.");
@@ -194,13 +196,13 @@ namespace Schraubenshop
             {
                 Console.Clear();
                 Console.WriteLine("Sechskantschrauben");
-                sonderschraube.kopfart = "Sechskantschrauben";                
+                sonderschraube.kopfart = "Sechskantschrauben"; //Sechskanntschraube ist ausgewählt und wird in "sonderschraube" gespeichert               
             }
             else if (auswahl == 2)
             {
                 Console.Clear();
                 Console.WriteLine("Innensechskannt");
-                sonderschraube.kopfart = "Innensechskannt";
+                sonderschraube.kopfart = "Innensechskannt"; //Innensechskann ist ausgewählt und wird in "sonderschraube" gespeichert    
             }
             else if (auswahl == 3)          //Zurück zur vorherigen Auswahl 
             {
@@ -219,8 +221,8 @@ namespace Schraubenshop
                 goto step1; //springt am Anfang dieser Auswahl
             }
 
-            step2:
-            
+            step2: //zur wiederholten Eingabe der Kopfdicke
+
             auswahl = 0;//Zur Sicherheit Variable clearen
 
             Console.WriteLine("Wie hoch soll der Kopf werden"); 
@@ -232,7 +234,7 @@ namespace Schraubenshop
             {
                 Console.Clear();
                 Console.WriteLine("Dicke eingegeben");
-                sonderschraube.kopfdicke = auswahl;
+                sonderschraube.kopfdicke = auswahl; //Kopfdicke ist eingegben und wird in "sonderschraube" gespeichert
             }
             else
             {
@@ -241,7 +243,7 @@ namespace Schraubenshop
                 goto step2; //springt am Anfang dieser Auswahl
             }
 
-            step3:
+            step3: //zur wiederholten Eingabe des Antriebs
 
             auswahl = 0;//Zur Sicherheit Variable clearen
 
@@ -254,7 +256,7 @@ namespace Schraubenshop
             {
                 Console.Clear();
                 Console.WriteLine("Der Antrieb ist vollständig angegegben");
-                sonderschraube.antreibsgroeße = auswahl;
+                sonderschraube.antreibsgroeße = auswahl; //Kopfdicke ist eingegben und wird in "sonderschraube" gespeichert
             }
             else
             {
@@ -263,6 +265,152 @@ namespace Schraubenshop
                 goto step3; //springt am Anfang dieser Auswahl
             }
 
+            step4: //zur wiederholten Eingabe der Schaftdicke
+
+            auswahl = 0;//Zur Sicherheit Variable clearen
+
+            Console.WriteLine("Welchen Durchmesser soll der Schaft haben?");
+            Console.WriteLine("Bitte geben Sie den Durchmesser in mm ein (Mindestdurchmesser:3mmm)");
+
+            auswahl = Convert.ToInt32(Console.ReadLine());
+
+            if (auswahl >= 3)
+            {
+                Console.Clear();
+                Console.WriteLine("Die Schaftdicke ist eingegegben"); 
+                sonderschraube.schaftdicke = auswahl; //Schaftdicke ist eingegben und wird in "sonderschraube" gespeichert
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("ungültiger Wert!");
+                goto step4; //springt am Anfang dieser Auswahl
+            }
+
+            step5: //zur wiederholten Eingabe der Schaftlänge
+
+            auswahl = 0;//Zur Sicherheit Variable clearen
+
+            Console.WriteLine("Wie lang soll der Schaft sein?");
+            Console.WriteLine("Bitte geben Sie die Länge in mm ein (Mindestlänge: 5mm)");
+
+            auswahl = Convert.ToInt32(Console.ReadLine());
+
+            if (auswahl >= 5)
+            {
+                Console.Clear();
+                Console.WriteLine("Die Schaftlänge ist eingegegben");
+                sonderschraube.schaftlaenge = auswahl; //Schaftlänge ist eingegben und wird in "sonderschraube" gespeichert
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("ungültiger Wert!");
+                goto step5; //springt am Anfang dieser Auswahl
+            }
+
+            step6: //zur wiederholten Eingabe der Gewindesteigung ein
+
+            auswahl = 0;//Zur Sicherheit Variable clearen
+
+            Console.WriteLine("Welche Steigung soll das Gewinde haben?");
+            Console.WriteLine("Bitte geben Sie die Steigung ein");
+
+            auswahl = Convert.ToInt32(Console.ReadLine());
+
+            if (auswahl > 0)
+            {
+                Console.Clear();
+                Console.WriteLine("Die Steigung des Gewindes ist eingegegben");
+                sonderschraube.gewindesteigung = auswahl; //die Steigung des Gewindes ist eingegben und wird in "sonderschraube" gespeichert
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("ungültiger Wert!");
+                goto step6; //springt am Anfang dieser Auswahl
+            }
+
+            step7: //zur wiederholten Eingabe der Gewindelänge
+
+            auswahl = 0;//Zur Sicherheit Variable clearen
+
+            Console.WriteLine("Wie lang soll das Gewinde gehen?");
+            Console.WriteLine("Bitte geben Sie die Gewindelänge in mm ein");
+            Console.WriteLine("Beachten Sie, das die Länge des Gewindes nicht länger als der Schaft sein!");
+            Console.WriteLine("Schaftlänge:"+Convert.ToString(sonderschraube.schaftlaenge)+ "mm"); //Ausgae der Schaftlänge (geht noch nicht)
+
+            auswahl = Convert.ToInt32(Console.ReadLine());
+
+            if (auswahl <= sonderschraube.schaftlaenge)
+            {
+                Console.Clear();
+                Console.WriteLine("Die Länge des Gewindes ist eingegeben");
+                sonderschraube.gewindelaenge = auswahl; //die Länge des Gewindes ist eingegben und wird in "sonderschraube" gespeichert
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("ungültiger Wert!");
+                goto step7; //springt am Anfang dieser Auswahl
+            }
+
+            step8: //zur wiederholten Eingabe der Anzahl
+
+            auswahl = 0;//Zur Sicherheit Variable clearen
+
+            Console.WriteLine("Wie oft möchten sie die Scharube haben?");
+            Console.WriteLine("Bitte geben Sie die gewünschte Anzahl einfach als Zahl ein");
+
+            anzahl = Convert.ToInt32(Console.ReadLine());
+
+            if (anzahl > 0)
+            {
+                Console.Clear();
+                Console.WriteLine("Die Anzahl ist eigegen ist eingegeben");
+                
+            }
+            else if (anzahl == 0) //keine Schraube
+            {
+                Console.Clear();
+                Console.WriteLine("Sind sie sich Sicher keine Schraube haben zu wollen");
+                Console.WriteLine("Wenn Sie keine Schraube haben wollen geben Sie bitte die 1 ein , für eine erneute Eingabe geben Sie 2 ein.");
+
+                auswahl = Convert.ToInt32(Console.ReadLine());
+
+                if (auswahl==1)
+                {
+                    Console.Clear();
+                    SchraubenOderMuttern();
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("erneute Eingabe");
+                    goto step8; //springt am Anfang dieser Auswahl
+                }
+
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("ungültiger Wert!");
+                goto step8; //springt am Anfang dieser Auswahl
+            }
+
+            Console.WriteLine("Schraubenkopfart:");
+            Console.WriteLine("Schraubenkopfdicke");
+            Console.WriteLine("Antriebsgröße:");
+            Console.WriteLine("Schaftdicke:");
+            Console.WriteLine("Schaftlänge");
+            Console.WriteLine("Gewindesteigung:");
+            Console.WriteLine("Gewindelänge:");
+            Console.WriteLine("Anzahl:");
+
+            preis = 3 * anzahl;
+
+            Console.WriteLine("Preis:");
+            Console.ReadLine();
 
         }
 
