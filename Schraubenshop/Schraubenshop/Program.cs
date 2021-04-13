@@ -183,6 +183,7 @@ namespace Schraubenshop
             int auswahl; //Variable zur Auswahl
             int anzahl; //Variable zur Anzahl der Schrauben
             int preis = 0; ////Variable für den Preis der Schraube
+            double steigung;
 
             step1: //zur wiederholten Eingabe des Antriebs
 
@@ -311,18 +312,18 @@ namespace Schraubenshop
 
             step6: //zur wiederholten Eingabe der Gewindesteigung ein
 
-            auswahl = 0;//Zur Sicherheit Variable clearen
+            steigung = 0;//Zur Sicherheit Variable clearen
 
             Console.WriteLine("Welche Steigung soll das Gewinde haben?");
             Console.WriteLine("Bitte geben Sie die Steigung ein");
 
-            auswahl = Convert.ToInt32(Console.ReadLine());
+            steigung = Convert.ToInt32(Console.ReadLine());
 
             if (auswahl > 0)
             {
                 Console.Clear();
                 Console.WriteLine("Die Steigung des Gewindes ist eingegegben");
-                sonderschraube.gewindesteigung = auswahl; //die Steigung des Gewindes ist eingegben und wird in "sonderschraube" gespeichert
+                sonderschraube.gewindesteigung = steigung; //die Steigung des Gewindes ist eingegben und wird in "sonderschraube" gespeichert
             }
             else
             {
@@ -398,18 +399,19 @@ namespace Schraubenshop
                 goto step8; //springt am Anfang dieser Auswahl
             }
 
-            Console.WriteLine("Schraubenkopfart:");
-            Console.WriteLine("Schraubenkopfdicke");
-            Console.WriteLine("Antriebsgröße:");
-            Console.WriteLine("Schaftdicke:");
-            Console.WriteLine("Schaftlänge");
-            Console.WriteLine("Gewindesteigung:");
-            Console.WriteLine("Gewindelänge:");
-            Console.WriteLine("Anzahl:");
+            //Ausgabe
+            Console.WriteLine("Schraubenkopfart:" + sonderschraube.kopfart);
+            Console.WriteLine("Schraubenkopfdicke" + Convert.ToString(sonderschraube.kopfdicke) + "mm");
+            Console.WriteLine("Antriebsgröße:" + Convert.ToString(sonderschraube.antreibsgroeße));
+            Console.WriteLine("Schaftdurchmesser:" + Convert.ToString(sonderschraube.schaftdicke) + "mm");
+            Console.WriteLine("Schaftlänge" + Convert.ToString(sonderschraube.schaftlaenge) + "mm");
+            Console.WriteLine("Gewindesteigung:" + Convert.ToString(sonderschraube.gewindesteigung));
+            Console.WriteLine("Gewindelänge:" + Convert.ToString(sonderschraube.gewindelaenge) + "mm");
+            Console.WriteLine("Anzahl:" + Convert.ToString(anzahl) + "x");
 
             preis = 3 * anzahl;
 
-            Console.WriteLine("Preis:");
+            Console.WriteLine("Preis:" + Convert.ToString(preis) + "EURO");
             Console.ReadLine();
 
         }
@@ -523,7 +525,6 @@ namespace Schraubenshop
             Console.WriteLine("Bitte geben Sie ihre Gewindegröße ein (z.B. M6).");
             Console.WriteLine("Mit 3 kommen Sie zurück zur vorherigen Auswahl und mit 4 zurück zum Hauptmenü.");        //noch nicht realiesiert
         }
-
-        
+                
     }
 }
