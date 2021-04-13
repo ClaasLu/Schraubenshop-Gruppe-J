@@ -6,8 +6,18 @@ using System.Threading.Tasks;
 
 namespace Schraubenshop
 {
-    class Program
+    class Program 
     {
+        struct Schraube //Struktur für eine Schraube
+        {
+            public string kopfart; //welcher Kopf (Sechskannt, Zylinderkopf...)
+            public double kopfdicke; //wie hoch ist der Kopf
+            public double antreibsgroeße; //SW bzw. Innensechskannt größe
+            public double gewindedurchmesser; //bei Metrischen Gewinde ergibt sich das
+            public double gewindesteigung; //bei Metrischen Gewinde ergibt sich das
+            public double schaftlaenge; //muss länger bzw. gleich des Gewindes sein
+            public double gewindelaenge; //muss kürzer bzw. gleich Schaft sein
+        }
         struct SechskantISO4017          // Struktur Sechskantschraube durchgehendes Gewinde            //????
         {
             public string Gewindgroeße;
@@ -168,7 +178,11 @@ namespace Schraubenshop
 
         static void SonderanfertigungSchrauben()
         {
-            int auswahl;
+            Schraube sonderschraube = new Schraube(); //in diese Struktur werden die Informationen der geschreiben //was passiert wenn bei der Eingabe eine Minuszahl/0/Buchstaben eingibt eingegeben wird???
+
+            int auswahl; //Variable zur Auswahl
+
+            step1:
 
             Console.WriteLine("Welchen Schraubenkopf möchten bzw. mit welchem Antrieb");
             Console.WriteLine("Für Sechskanntschraube geben Sie bitte die 1, für Zylinderkopfschraube mit Innensechskannt die 2 ein.");
@@ -180,14 +194,76 @@ namespace Schraubenshop
             {
                 Console.Clear();
                 Console.WriteLine("Sechskantschrauben");
-                //in Struct Schraube das Zylinderkopfschraube schreiben und breaken
+                sonderschraube.kopfart = "Sechskantschrauben";                
             }
             else if (auswahl == 2)
             {
                 Console.Clear();
                 Console.WriteLine("Innensechskannt");
-                //in Struct Schraube das Zylinderkopft schreiben und breaken
+                sonderschraube.kopfart = "Innensechskannt";
             }
+            else if (auswahl == 3)          //Zurück zur vorherigen Auswahl 
+            {
+                Console.Clear();
+                goto step1; //springt am Anfang dieser Auswahl
+            }
+            else if (auswahl == 4)          //Zurück zum Hauptmenü
+            {
+                Console.Clear();
+                SchraubenOderMuttern();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Bitte wählen Sie eine der vorgeschlagenen Möglichkeiten aus!");
+                goto step1; //springt am Anfang dieser Auswahl
+            }
+
+            step2:
+            
+            auswahl = 0;//Zur Sicherheit Variable clearen
+
+            Console.WriteLine("Wie hoch soll der Kopf werden"); 
+            Console.WriteLine("Bitte geben Sie die Länge in mm ein (Mindestdicke:4mmm)");
+
+            auswahl = Convert.ToInt32(Console.ReadLine());
+
+            if(auswahl>=4)
+            {
+                Console.Clear();
+                Console.WriteLine("Dicke eingegeben");
+                sonderschraube.kopfdicke = auswahl;
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("ungültiger Wert!");
+                goto step2; //springt am Anfang dieser Auswahl
+            }
+
+            step3:
+
+            auswahl = 0;//Zur Sicherheit Variable clearen
+
+            Console.WriteLine("Wie groß soll der Innensechskannt/die Schlüsselweite sein?");
+            Console.WriteLine("Bitte geben sie für Ihre Schraube den passenden Wert ein (Minimum: SW3/Innenschechskant von 3");
+
+            auswahl = Convert.ToInt32(Console.ReadLine());
+
+            if (auswahl >= 3)
+            {
+                Console.Clear();
+                Console.WriteLine("Der Antrieb ist vollständig angegegben");
+                sonderschraube.antreibsgroeße = auswahl;
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("ungültiger Wert!");
+                goto step3; //springt am Anfang dieser Auswahl
+            }
+
+
         }
 
 
@@ -300,16 +376,6 @@ namespace Schraubenshop
             Console.WriteLine("Mit 3 kommen Sie zurück zur vorherigen Auswahl und mit 4 zurück zum Hauptmenü.");        //noch nicht realiesiert
         }
 
-        struct Schraube //Struktur Kunde
-        {
-            public string kopfart; //welcher Kopf (Sechskannt, Zylinderkopf...)
-            public double kopfdicke; //wie hoch ist der Kopf
-            public double antreibsgroeße; //SW bzw. Innensechskannt größe
-            public double gewindedurchmesser; //bei Metrischen Gewinde ergibt sich das
-            public double gewindesteigung; //bei Metrischen Gewinde ergibt sich das
-            public double gewindelaenge; //muss kürzer bzw. gleich Schaft sein
-            public double schaftlaenge; //
-
-        }
+        
     }
 }
