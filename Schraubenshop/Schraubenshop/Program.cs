@@ -25,14 +25,16 @@ namespace Schraubenshop
             {
             
                 // Daten einlesen
-                Console.WriteLine("Bitte selektieren Sie die KOPFART durch Angabe der Ziffer: 1=Sechskant 2=Zylinderkopf");        //Kontrollstruktur, was ist bei einer ungültigen Eingabe? UNTERPROGRAMME
-                int kopfart = Convert.ToInt32(Console.ReadLine());
                 
-                if (kopfart != 1 & kopfart != 2) 
+               
+                    Console.WriteLine("Bitte selektieren Sie die KOPFART durch Angabe der Ziffer: 1=Sechskant 2=Zylinderkopf");        //Kontrollstruktur, was ist bei einer ungültigen Eingabe? UNTERPROGRAMME
+                    int kopfart = Convert.ToInt32(Console.ReadLine());
+                
+                if (kopfart != 1 & kopfart != 2)
                 {
-                   Console.WriteLine("Falsche Eingabe");
-
+                    Console.WriteLine("Falsche Eingabe!");
                 }
+
 
                 Console.WriteLine("Bitte geben Sie ihre gewünschte KOPFHÖHE in mm an.");
                 double kopfhoehe = Convert.ToDouble(Console.ReadLine());
