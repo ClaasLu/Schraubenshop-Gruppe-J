@@ -33,19 +33,26 @@ namespace Schraubenshop
             Gewindelaenge = gewindelaenge;
         }
 
-        public void Berechnung()
+        public void BerechnungSK()
         {
-            this.Volumen = 5;
-            this.Gewicht = 4;
-            this.Preis = 3;
+            this.Volumen = (6 * 0.5 * Kopfhoehe * (Kopfdurchmesser / 2)) + (Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2) * Gewindelaenge);
+            this.Gewicht = 0.00000785*Volumen;
+            this.Preis = 2*Gewicht;
 
+        }
+
+        public void BerechnungZK()
+        {
+            this.Volumen = Math.PI * Kopfhoehe * (Kopfdurchmesser / 2) + Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2);
+            this.Gewicht = 0.00000785 * Volumen;
+            this.Preis = 2 * Gewicht;
         }
 
         public void Ausgabe()
         {
-            Console.WriteLine(Volumen);
-            Console.WriteLine(Gewicht);
-            Console.WriteLine(Preis);
+            Console.WriteLine("Volumen:"+Volumen+"in mm^3");
+            Console.WriteLine("Gewicht:"+Gewicht+"in kg");
+            Console.WriteLine("Preis:"+Preis+"in Euro");
 
 
         }
