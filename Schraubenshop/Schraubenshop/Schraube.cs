@@ -50,12 +50,15 @@ namespace Schraubenshop
 
         public void Ausgabe()
         {
+            Console.WriteLine();
             Console.WriteLine("Volumen:"+Volumen+"in mm^3");
             Console.WriteLine("Gewicht:"+Gewicht+"in kg");
             Console.WriteLine("Preis:"+Preis+"in Euro");
-
+            Console.WriteLine("Diese Schraube ist eine Qualitätsschraube!");
+            Console.WriteLine();
 
         }
+        
 
 
     }
