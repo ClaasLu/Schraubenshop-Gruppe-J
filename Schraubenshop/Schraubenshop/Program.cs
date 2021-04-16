@@ -23,40 +23,105 @@ namespace Schraubenshop
 
             while (Einkauf ==1)
             {
-            
+
                 // Daten einlesen
-                
-               
-                    Console.WriteLine("Bitte selektieren Sie die KOPFART durch Angabe der Ziffer: 1=Sechskant 2=Zylinderkopf");        //Kontrollstruktur, was ist bei einer ungültigen Eingabe? UNTERPROGRAMME
-                    int kopfart = Convert.ToInt32(Console.ReadLine());
-                
-                if (kopfart != 1 & kopfart != 2)
+
+                int kopfart;
+                double kopfhoehe;
+                double kd;
+                double gd;
+                double laenge;
+
+
+                do
                 {
-                    Console.WriteLine("Falsche Eingabe!");
+                    Console.WriteLine("Bitte selektieren Sie die KOPFART durch Angabe der Ziffer: 1=Sechskant 2=Zylinderkopf");        //Kontrollstruktur, was ist bei einer ungültigen Eingabe? UNTERPROGRAMME
+                    kopfart = Convert.ToInt32(Console.ReadLine());
+                    
+                    if (kopfart != 1 & kopfart != 2)
+                    {
+                        Console.WriteLine("Falsche Eingabe!");
+                        Thread.Sleep(3000);
+                        Console.Clear();
+                    }
+
                 }
+                while (kopfart != 1 & kopfart != 2);
+
+                do
+                {
+                    Console.Clear();
+                    Console.WriteLine("Bitte geben Sie ihre gewünschte KOPFHÖHE in mm an (min. 3mm).");
+                    kopfhoehe = Convert.ToDouble(Console.ReadLine());
+
+                    if (kopfhoehe < 3) 
+                    {
+                        Console.WriteLine("Falsche Eingabe!");
+                        Thread.Sleep(3000);
+                        Console.Clear();
+                    }
+                }
+                while (kopfhoehe < 3);
+
+                do
+                {
+                    Console.Clear();
+                    Console.WriteLine("Bitte geben Sie ihren gewünschten KOPFDURCHMESSER in mm an (min. 5mm).");
+                    kd = Convert.ToDouble(Console.ReadLine());
+
+                    if (kd < 5)
+                    {
+                        Console.WriteLine("Falsche Eingabe!");
+                        Thread.Sleep(3000);
+                        Console.Clear();
+                    }
+                }
+                while (kd < 5);
+
+                do
+                {
+                    Console.Clear();
+                    Console.WriteLine("Bitte geben Sie ihren gewünschten GEWINDEDURCHMESSER für das metrische Standardgewinde ein (min. 1mm).");
+                    gd = Convert.ToDouble(Console.ReadLine());
+
+                    if (gd < 1)
+                    {
+                        Console.WriteLine("Falsche Eingabe!");
+                        Thread.Sleep(3000);
+                        Console.Clear();
+                    }
+
+                }
+                while (gd < 1);
+
+                do
+                {
+                    Console.Clear();
+                    Console.WriteLine("Bitte geben Sie ihre gewünschte GEWINDELÄNGE in mm ein (min. 5mm).");
+                    laenge = Convert.ToDouble(Console.ReadLine());
+
+                    if (laenge < 5)
+                    {
+                        Console.WriteLine("Falsche Eingabe!");
+                        Thread.Sleep(3000);
+                        Console.Clear();
+                    }
+                }
+                while (laenge < 5);
 
 
-                Console.WriteLine("Bitte geben Sie ihre gewünschte KOPFHÖHE in mm an.");
-                double kopfhoehe = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("Bitte geben Sie ihren gewünschten KOPFDURCHMESSER in mm an.");
-                double kd = Convert.ToDouble(Console.ReadLine());                   //Wie klappt das mit den Abkürzungen????
-                Console.WriteLine("Bitte geben Sie ihren gewünschten GEWINDEDURCHMESSER für das metrische Standardgewinde ein.");
-                double gd = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("Bitte geben Sie ihre gewünschte GEWINDELÄNGE in mm ein.");
-                double laenge = Convert.ToDouble(Console.ReadLine());
+            //Material
+            //Zugfestigkeit
 
-                //Material
-                //Zugfestigkeit
-
-                // neue Schraube anlegen
-               Schraube SelectedPart = new Schraube(kopfart, kopfhoehe, kd, gd, laenge);
+            //neue Schraube anlegen
+            Schraube SelectedPart = new Schraube(kopfart, kopfhoehe, kd, gd, laenge);
 
                 // Schraubendaten berechnen
                 if (kopfart == 1)   
                 {
                     SelectedPart.BerechnungSK();
                 }
-                else                                                  
+                else    //also Kopfart = 2                                           
                 {
                     SelectedPart.BerechnungZK();
                 }

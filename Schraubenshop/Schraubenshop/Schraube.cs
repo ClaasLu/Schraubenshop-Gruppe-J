@@ -50,6 +50,17 @@ namespace Schraubenshop
 
         public void Ausgabe()
         {
+            Console.WriteLine("Sie haben ausgewählt:");
+            if ( Kopfart == 1)
+            {
+                Console.WriteLine("Sechskantschraube");
+            }
+            else
+            {
+                Console.WriteLine("Zylinderkopfschraube");
+            }
+            Console.WriteLine("Kopfhoehe:" +Kopfhoehe+ "mm;" + "Kopfdurchmesser:" +Kopfdurchmesser+ "mm;");
+            Console.WriteLine("M" + Gewindedurchmesser + "x" + Gewindelaenge);
             Console.WriteLine();
             Console.WriteLine("Volumen:"+Volumen+"in mm^3");
             Console.WriteLine("Gewicht:"+Gewicht+"in kg");
