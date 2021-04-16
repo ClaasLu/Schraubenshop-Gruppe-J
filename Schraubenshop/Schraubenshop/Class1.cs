@@ -22,12 +22,13 @@ namespace Schraubenshop
 
         }
 
+        //Konstruktor
         public Material(int materialschraube)
         {
             Materialschraube = materialschraube;
         }
 
-        //Dichte 
+        //Dichte auswählen
         public double Dichteauswahl ()
         {
             if (Materialschraube == 1 | Materialschraube == 2)

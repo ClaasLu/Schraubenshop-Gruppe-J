@@ -28,6 +28,7 @@ namespace Schraubenshop
         }
 
 
+        //Konstruktor
         public Schraube(int kopfart, double kopfhoehe, double kopfdurchmesser, double gewindedurchmesser, double gewindelaenge, double dichte, double preisfaktor)
         {
             Kopfart = kopfart;
@@ -40,6 +41,7 @@ namespace Schraubenshop
             
         }
 
+        // Berechnung Sechskant
         public void BerechnungSK()
         {
             this.Volumen = (6 * 0.5 * Kopfhoehe * (Kopfdurchmesser / 2)) + (Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2) * Gewindelaenge);
@@ -48,6 +50,7 @@ namespace Schraubenshop
 
         }
 
+        // Berechnung Zylinderkopf
         public void BerechnungZK()
         {
             this.Volumen = Math.PI * Kopfhoehe * (Kopfdurchmesser / 2) + Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2);
@@ -55,6 +58,7 @@ namespace Schraubenshop
             this.Preis = 2 + Preisfaktor * Gewicht;
         }
 
+        // Ausgabe der Schraubendaten
         public void Ausgabe()
         {
             Console.WriteLine("Sie haben ausgewählt:");
@@ -90,7 +94,6 @@ namespace Schraubenshop
             Console.WriteLine("Volumen:"+Volumen+" mm^3");
             Console.WriteLine("Gewicht:"+Gewicht+" kg");
             Console.WriteLine("Preis:"+Preis+" Euro");
-            Console.WriteLine("Diese Schraube ist eine Qualitätsschraube!");
             Console.WriteLine();
 
         }
