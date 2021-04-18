@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading; //für Thread.Sleep();
-
-
+using System.Threading;
 
 namespace Schraubenshop
 {
 
-    class Program
+    public static class Program
     {
 
         //Magic numbers für die Mindestgrößen
@@ -22,183 +16,207 @@ namespace Schraubenshop
 
         static void Main()
         {
-
-            // für die Einkaufsschleife 
-            int Einkauf = 1;          
-
             // Begrüßung
-            Console.WriteLine("Herzlich Willkommen beim Schrauben-Assistenten GJ_V1!");    
-            Thread.Sleep(5000);
+            Console.WriteLine("Herzlich Willkommen beim Schrauben-Assistenten GJ_V1!");
             Console.Clear();
 
-            while (Einkauf == 1)
+            //Einkaufsschleife
+            do
             {
+                Einkauf();
+            } while (EinkaufFortsetzen());
 
-                // Daten einlesen
-                int kopfart;
-                double kopfhoehe;
-                double kd;
-                double gd;
-                double laenge;
-                int material;
-                double dichte;
-                double preisfaktor;
-
-
-                do
-                {
-                    Console.WriteLine("Bitte wählen Sie die KOPFART aus: 1=Sechskant 2=Zylinderkopf"); 
-                    kopfart = Convert.ToInt32(Console.ReadLine());
-
-                    if (kopfart != 1 & kopfart != 2)
-                    {
-                        FalscheEingabe();
-                    }
-
-                }
-                while (kopfart != 1 & kopfart != 2);
-
-                do
-                {
-                    Console.Clear();
-                    Console.WriteLine("Bitte geben Sie ihre gewünschte KOPFHÖHE in mm an (min. 3mm).");
-                    kopfhoehe = Convert.ToDouble(Console.ReadLine());
-
-                    if (kopfhoehe < minKh) 
-                    {
-                        FalscheEingabe();
-                    }
-                }
-                while (kopfhoehe < minKh);
-
-                do
-                {
-                    Console.Clear();
-                    Console.WriteLine("Bitte geben Sie ihren gewünschten KOPFDURCHMESSER in mm an (min. 5mm).");
-                    kd = Convert.ToDouble(Console.ReadLine());
-
-                    if (kd < minKd)
-                    {
-                        FalscheEingabe();
-                    }
-                }
-                while (kd < minKd);
-
-                do
-                {
-                    Console.Clear();
-                    Console.WriteLine("Bitte geben Sie ihren gewünschten GEWINDEDURCHMESSER für das metrische Standardgewinde ein (min. 1).");
-                    gd = Convert.ToDouble(Console.ReadLine());
-
-                    if (gd < minGd)
-                    {
-                        FalscheEingabe();
-                    }
-
-                }
-                while (gd < minGd);
-
-                do
-                {
-                    Console.Clear();
-                    Console.WriteLine("Bitte geben Sie ihre gewünschte GEWINDELÄNGE in mm ein (min. 5mm).");
-                    laenge = Convert.ToDouble(Console.ReadLine());
-
-                    if (laenge < minGl)
-                    {
-                        FalscheEingabe();
-                    }
-                }
-                while (laenge < minGl);
-
-                do
-                {
-                    Console.Clear();
-                    Console.WriteLine("Bitte wählen Sie ihr MATERIAL aus: 1=Stahl (verz.) 2=Edelstahl 3=Titan 4=Messing");
-                    material = Convert.ToInt32(Console.ReadLine());
-
-                    if (material != 1 & material != 2 & material != 3 & material != 4)
-                    {
-                        FalscheEingabe();
-                    }
-
-                }
-                while (material != 1 & material != 2 & material != 3 & material != 4);
-                
-
-                // neues Material anlegen
-                Material SelectedMaterial = new Material(material);
-
-               dichte = SelectedMaterial.Dichteauswahl();
-               preisfaktor = SelectedMaterial.Preisfaktorauswahl();
-
-
-                //neue Schraube anlegen
-                Schraube SelectedPart = new Schraube(kopfart, kopfhoehe, kd, gd, laenge, dichte, preisfaktor);
-
-
-                // Schraubendaten berechnen
-                if (kopfart == 1)   
-                {
-                    SelectedPart.BerechnungSK();
-                }
-                else    // Kopfart == 2                                           
-                {
-                    SelectedPart.BerechnungZK();
-                }
-                        
-
-                //Schraubendaten ausgeben
-                SelectedPart.Ausgabe();
-
-
-                //Einkaufsschleife
-                Console.WriteLine("Für eine weitere Berechnung drücken Sie die 1, mit der 2 schließen sie das Programm."); 
-                Einkauf = Convert.ToInt32(Console.ReadLine());
-                Console.Clear();
-
-                               
-                //Wiederholung Einkaufsschleife
-                if (Einkauf == 1)
-                {
-
-                }
-
-
-                //Ende Einkaufsschleife
-                if (Einkauf == 2)
-                {
-                    Console.Clear();
-                    Console.WriteLine("Vielen Dank für ihren Besuch. Auf Wiedersehen!");
-                    Thread.Sleep(5000);
-                }
-
-
-                //Kontrolle Einkaufschleife
-                else
-                {
-                    Console.Clear();
-                    Console.WriteLine("Ungültige Eingabe. Bitte wählen Sie eine der beiden vorgeschlagenen Möglichkeiten aus!");
-                    Thread.Sleep(5000);
-                    Console.WriteLine("Für eine weitere Berechnung mit Ihrem Schrauben-Assistenten GJ_V1 drücken Sie die 1, mit der 2 schließen sie das Programm.");
-                    Einkauf = Convert.ToInt32(Console.ReadLine());
-                    Console.Clear();
-                }
-
-            }
-
-           
+            //Verabschiedung
+            Console.Clear();
+            Console.WriteLine("Vielen Dank für ihren Besuch. Auf Wiedersehen!");
+            Console.ReadKey();
         }
-            
+
         //Unterprogramm bei falscher Eingabe
         static void FalscheEingabe()
         {
-            Console.WriteLine("Falsche Eingabe!");
-            Thread.Sleep(5000);
+            Console.WriteLine("Falsche Eingabe! Bitte kurz warten.");
+            Thread.Sleep(1000);
             Console.Clear();
         }
-    }
 
+        static bool EinkaufFortsetzen()
+        {
+            int eingabe;
+
+            //Einkaufsschleife
+            while (true)
+            {
+                Console.WriteLine("Für eine weitere Berechnung drücken Sie die 1, mit der 2 schließen sie das Programm.");
+                if (int.TryParse(Console.ReadLine(), out eingabe))
+                {
+                    Console.Clear();
+                    if (eingabe == 1)
+                    {
+                        return true;
+                    }
+                    else if (eingabe == 2)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    FalscheEingabe();
+                }
+            }
+        }
+
+        static void Einkauf()
+        {
+
+            // Daten setzen
+            int kopfart = EingabeKopfart();
+            double kopfhoehe = EingabeKopfhoehe();
+            double kd = EingabeKd();
+            double gd = EingabeGd();
+            double laenge = EingabeLaenge();
+            Material selectedMaterial = WahlMaterial();
+            double dichte = selectedMaterial.Dichteauswahl();
+            double preisfaktor = selectedMaterial.Preisfaktorauswahl();
+
+            //neue Schraube anlegen
+            Schraube selectedPart = new Schraube(kopfart, kopfhoehe, kd, gd, laenge, dichte, preisfaktor);
+
+
+            // Schraubendaten berechnen
+            if (kopfart == 1)
+            {
+                selectedPart.BerechnungSK();
+            }
+            else    // Kopfart == 2                                           
+            {
+                selectedPart.BerechnungZK();
+            }
+
+            //Schraubendaten ausgeben
+            selectedPart.Ausgabe();
+        }
+
+        static int EingabeKopfart()
+        {
+            int kopfart;
+
+            while (true)
+            {
+                Console.WriteLine("Bitte wählen Sie die KOPFART aus: 1=Sechskant 2=Zylinderkopf");
+
+                //Abfrage, ob überhaupt eine Zahl eingegeben wurde um Fehlermeldungen zu vermeiden
+                if (int.TryParse(Console.ReadLine(), out kopfart) && kopfart == 1 || kopfart == 2)
+                {
+                    return kopfart;
+                }
+                else
+                {
+                    FalscheEingabe();
+                }
+            }
+        }
+
+        static double EingabeKopfhoehe()
+        {
+            double kopfhoehe;
+
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Bitte geben Sie ihre gewünschte KOPFHÖHE in mm an (min. 3mm).");
+
+                if (double.TryParse(Console.ReadLine(), out kopfhoehe) && kopfhoehe >= minKh)
+                {
+                    return kopfhoehe;
+                }
+                else
+                {
+                    FalscheEingabe();
+                }
+            }
+        }
+
+        static double EingabeKd()
+        {
+            double kd;
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Bitte geben Sie ihren gewünschten KOPFDURCHMESSER in mm an (min. 5mm).");
+                if (double.TryParse(Console.ReadLine(), out kd) && kd >= minKd)
+                {
+                    return kd;
+                }
+                else
+                {
+                    FalscheEingabe();
+                }
+            }
+        }
+
+        static double EingabeGd()
+        {
+            double gd;
+
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Bitte geben Sie ihren gewünschten GEWINDEDURCHMESSER für das metrische Standardgewinde ein (min. 1).");
+
+                if (double.TryParse(Console.ReadLine(), out gd) && gd >= minGd)
+                {
+                    return gd;
+                }
+                else
+                {
+                    FalscheEingabe();
+                }
+            }
+        }
+
+        static double EingabeLaenge()
+        {
+            double laenge;
+
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Bitte geben Sie ihre gewünschte GEWINDELÄNGE in mm ein (min. 5mm).");
+
+                if (double.TryParse(Console.ReadLine(), out laenge) && laenge >= minGl)
+                {
+                    return laenge;
+                }
+                else
+                {
+                    FalscheEingabe();
+                }
+            }
+        }
+
+        static Material WahlMaterial()
+        {
+            int material;
+
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Bitte wählen Sie ihr MATERIAL aus: 1=Stahl (verz.) 2=Edelstahl 3=Titan 4=Messing");
+
+                if (int.TryParse(Console.ReadLine(), out material) && material <= 4 && material > 0)
+                {
+                    Material selectedMAterial = new Material(material);
+                    return selectedMAterial;
+                }
+                else
+                {
+                    FalscheEingabe();
+                }
+            }
+        }
+    }
 }
-    
+
 

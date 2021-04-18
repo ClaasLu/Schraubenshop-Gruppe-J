@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Schraubenshop
 {
-    class Schraube
+    public class Schraube
     {
 
         public int Kopfart { get; set; }
@@ -20,14 +16,6 @@ namespace Schraubenshop
         public double Dichte { get; set; }
         public double Preisfaktor { get; set; }
 
-
-        //Schraube wird gelöscht
-        ~Schraube()         
-        {
-
-        }
-
-
         //Konstruktor
         public Schraube(int kopfart, double kopfhoehe, double kopfdurchmesser, double gewindedurchmesser, double gewindelaenge, double dichte, double preisfaktor)
         {
@@ -38,16 +26,14 @@ namespace Schraubenshop
             Gewindelaenge = gewindelaenge;
             Dichte = dichte;
             Preisfaktor = preisfaktor;
-            
         }
 
         // Berechnung Sechskant
         public void BerechnungSK()
         {
             this.Volumen = (6 * 0.5 * Kopfhoehe * (Kopfdurchmesser / 2)) + (Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2) * Gewindelaenge);
-            this.Gewicht = Dichte*Volumen;
+            this.Gewicht = Dichte * Volumen;
             this.Preis = Preisfaktor * Gewicht;
-
         }
 
         // Berechnung Zylinderkopf
@@ -61,8 +47,9 @@ namespace Schraubenshop
         // Ausgabe der Schraubendaten
         public void Ausgabe()
         {
+            Console.Clear();
             Console.WriteLine("Sie haben ausgewählt:");
-            if ( Kopfart == 1)
+            if (Kopfart == 1)
             {
                 Console.WriteLine("Sechskantschraube");
             }
@@ -70,35 +57,32 @@ namespace Schraubenshop
             {
                 Console.WriteLine("Zylinderkopfschraube");
             }
-            
-            if (Preisfaktor==1)
+
+            // überarbeiten
+
+            switch (Preisfaktor)
             {
-                Console.WriteLine("Material: Stahl (verz.)");
-            }
-            else if (Preisfaktor == 2)
-            {
-                Console.WriteLine("Material: Edelstahl");
-            }
-            else if (Preisfaktor == 4)
-            {
-                Console.WriteLine("Material: Titan");
-            }
-            else 
-            {
-                Console.WriteLine("Material: Messing");                    
+                case 1:
+                    Console.WriteLine("Material: Stahl (verz.)");
+                    break;
+                case 2:
+                    Console.WriteLine("Material: Edelstahl");
+                    break;
+                case 3:
+                    Console.WriteLine("Material: Titan");
+                    break;
+                default:
+                    Console.WriteLine("Material: Messing");
+                    break;
             }
 
-            Console.WriteLine("Kopf: h=" +Kopfhoehe+ "mm;" + "d=" +Kopfdurchmesser+ "mm;");
+            Console.WriteLine("Kopf: h=" + Kopfhoehe + "mm;" + "d=" + Kopfdurchmesser + "mm;");
             Console.WriteLine("M" + Gewindedurchmesser + "x" + Gewindelaenge);
             Console.WriteLine();
-            Console.WriteLine("Volumen:"+Volumen+" mm^3");
-            Console.WriteLine("Gewicht:"+Gewicht+" kg");
-            Console.WriteLine("Preis:"+Preis+" Euro");
+            Console.WriteLine("Volumen:" + Volumen + " mm^3");
+            Console.WriteLine("Gewicht:" + Gewicht + " kg");
+            Console.WriteLine("Preis:" + Preis + " Euro");
             Console.WriteLine();
-
         }
-        
-
-
     }
 }

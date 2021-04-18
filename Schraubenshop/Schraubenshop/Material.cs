@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Schraubenshop
+﻿namespace Schraubenshop
 {
     class Material
     {
@@ -16,12 +10,6 @@ namespace Schraubenshop
         public double Dichte { get; set; }
         public double Preisfaktor { get; set; }
 
-        // Material wird gelöscht
-        ~Material()
-        {
-
-        }
-
         //Konstruktor
         public Material(int materialschraube)
         {
@@ -29,11 +17,11 @@ namespace Schraubenshop
         }
 
         //Dichte auswählen
-        public double Dichteauswahl ()
+        public double Dichteauswahl()
         {
             if (Materialschraube == 1 | Materialschraube == 2)
             {
-                this.Dichte = dichteStahl;               
+                this.Dichte = dichteStahl;
             }
             else if (Materialschraube == 3)
             {
@@ -46,27 +34,20 @@ namespace Schraubenshop
             return (Dichte);
         }
 
+
+        //Nochmal angucken!!
         //Preisfaktor auswählen
         public double Preisfaktorauswahl()
         {
-            if (Materialschraube == 1)
-            {
-                this.Preisfaktor = 1;
-            }
-            else if (Materialschraube == 2)
-            {
-                this.Preisfaktor = 2;
-            }
-            else if (Materialschraube == 3)
-            {
-                this.Preisfaktor = 4;
-            }
-            else
+            if (Materialschraube > 4)
             {
                 this.Preisfaktor = 1.5;
             }
+            else
+            {
+                this.Preisfaktor = Materialschraube;
+            }
             return (Preisfaktor);
         }
-      
-}
+    }
 }
