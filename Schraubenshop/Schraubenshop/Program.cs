@@ -18,6 +18,7 @@ namespace Schraubenshop
         {
             // Begrüßung
             Console.WriteLine("Herzlich Willkommen beim Schrauben-Assistenten GJ_V1!");
+            Thread.Sleep(3000);
             Console.Clear();
 
             //Einkaufsschleife
@@ -29,7 +30,7 @@ namespace Schraubenshop
             //Verabschiedung
             Console.Clear();
             Console.WriteLine("Vielen Dank für ihren Besuch. Auf Wiedersehen!");
-            Console.ReadKey();
+            Thread.Sleep(3000);           
         }
 
         //Unterprogramm bei falscher Eingabe
