@@ -5,6 +5,11 @@
         const double dichteStahl = 0.00000785;
         const double dichtetitan = 0.0000045;
         const double dichtemessing = 0.00000896;
+        const double faktorStahl = 10;
+        const double faktorEdelstahl = 20;
+        const double faktorTitan = 40;
+        const double faktorMessing = 10.5;
+        
 
         public int Materialschraube { get; set; }
         public double Dichte { get; set; }
@@ -39,15 +44,21 @@
         //Preisfaktor auswählen
         public double Preisfaktorauswahl()
         {
-            if (Materialschraube > 4)
+            switch (Materialschraube)
             {
-                this.Preisfaktor = 1.5;
+                case 1:
+                    this.Preisfaktor = faktorStahl;
+                    return Preisfaktor;                   
+                case 2:
+                    this.Preisfaktor = faktorEdelstahl;
+                    return Preisfaktor;                    
+                case 3:
+                    this.Preisfaktor = faktorTitan;
+                    return Preisfaktor;                    
+                default:
+                    this.Preisfaktor = faktorMessing;
+                    return Preisfaktor;                    
             }
-            else
-            {
-                this.Preisfaktor = Materialschraube;
-            }
-            return (Preisfaktor);
         }
     }
 }

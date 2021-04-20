@@ -58,7 +58,6 @@ namespace Schraubenshop
                 Console.WriteLine("Zylinderkopfschraube");
             }
 
-            // überarbeiten
 
             switch (Preisfaktor)
             {

@@ -17,9 +17,10 @@ namespace Schraubenshop
         static void Main()
         {
             // Begrüßung
-            Console.WriteLine("Herzlich Willkommen beim Schrauben-Assistenten GJ_V1!");
-            Thread.Sleep(3000);
+            Console.WriteLine("Herzlich Willkommen beim Schrauben-Assistenten GJ_V1! Drücken Sie eine beliebige Taste zum Starten.");
+            Console.ReadKey();
             Console.Clear();
+
 
             //Einkaufsschleife
             do
@@ -49,7 +50,7 @@ namespace Schraubenshop
             while (true)
             {
                 Console.WriteLine("Für eine weitere Berechnung drücken Sie die 1, mit der 2 schließen sie das Programm.");
-                if (int.TryParse(Console.ReadLine(), out eingabe))
+                if (int.TryParse(Console.ReadLine(), out eingabe) && eingabe == 1 || eingabe == 2)
                 {
                     Console.Clear();
                     if (eingabe == 1)
@@ -60,6 +61,7 @@ namespace Schraubenshop
                     {
                         return false;
                     }
+                   
                 }
                 else
                 {
@@ -77,7 +79,10 @@ namespace Schraubenshop
             double kd = EingabeKd();
             double gd = EingabeGd();
             double laenge = EingabeLaenge();
+
+            //Konstruktor Material
             Material selectedMaterial = WahlMaterial();
+
             double dichte = selectedMaterial.Dichteauswahl();
             double preisfaktor = selectedMaterial.Preisfaktorauswahl();
 
@@ -99,6 +104,7 @@ namespace Schraubenshop
             selectedPart.Ausgabe();
         }
 
+        //Daten einlesen 
         static int EingabeKopfart()
         {
             int kopfart;
