@@ -2,13 +2,14 @@
 {
     class Material
     {
+        // Konstanten für Dichte und Faktor
         const double dichteStahl = 0.00000785;
         const double dichtetitan = 0.0000045;
         const double dichtemessing = 0.00000896;
-        const double faktorStahl = 10;
-        const double faktorEdelstahl = 20;
-        const double faktorTitan = 40;
-        const double faktorMessing = 10.5;
+        const double faktorStahl = 1;
+        const double faktorEdelstahl = 2;
+        const double faktorTitan = 4;
+        const double faktorMessing = 1.5;
         
 
         public int Materialschraube { get; set; }
@@ -38,9 +39,7 @@
             }
             return (Dichte);
         }
-
-
-        //Nochmal angucken!!
+   
         //Preisfaktor auswählen
         public double Preisfaktorauswahl()
         {

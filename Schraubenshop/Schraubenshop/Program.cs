@@ -17,7 +17,10 @@ namespace Schraubenshop
         static void Main()
         {
             // Begrüßung
-            Console.WriteLine("Herzlich Willkommen beim Schrauben-Assistenten GJ_V1! Drücken Sie eine beliebige Taste zum Starten.");
+            Console.WriteLine("Herzlich Willkommen beim Schrauben-Assistenten GJ_V1!");
+            Console.WriteLine("Hier können Sie Ihre Schraube individuell gestalten und berechnen lassen.");
+            Console.WriteLine();
+            Console.WriteLine("Drücken Sie eine beliebige Taste zum Starten.");
             Console.ReadKey();
             Console.Clear();
 
@@ -42,11 +45,11 @@ namespace Schraubenshop
             Console.Clear();
         }
 
+        // Boolean zum Einkauf fortsetzen
         static bool EinkaufFortsetzen()
         {
             int eingabe;
-
-            //Einkaufsschleife
+            
             while (true)
             {
                 Console.WriteLine("Für eine weitere Berechnung drücken Sie die 1, mit der 2 schließen sie das Programm.");
@@ -70,6 +73,7 @@ namespace Schraubenshop
             }
         }
 
+        // Einkaufsprogramm
         static void Einkauf()
         {
 
@@ -104,7 +108,7 @@ namespace Schraubenshop
             selectedPart.Ausgabe();
         }
 
-        //Daten einlesen 
+        //Daten einlesen in mehreren Unterprogrammen
         static int EingabeKopfart()
         {
             int kopfart;

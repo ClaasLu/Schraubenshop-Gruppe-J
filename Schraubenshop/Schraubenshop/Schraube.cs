@@ -33,7 +33,7 @@ namespace Schraubenshop
         {
             this.Volumen = (6 * 0.5 * Kopfhoehe * (Kopfdurchmesser / 2)) + (Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2) * Gewindelaenge);
             this.Gewicht = Dichte * Volumen;
-            this.Preis = Preisfaktor * Gewicht;
+            this.Preis = 2 + Preisfaktor * Gewicht;
         }
 
         // Berechnung Zylinderkopf
@@ -58,7 +58,7 @@ namespace Schraubenshop
                 Console.WriteLine("Zylinderkopfschraube");
             }
 
-
+            
             switch (Preisfaktor)
             {
                 case 1:
@@ -67,7 +67,7 @@ namespace Schraubenshop
                 case 2:
                     Console.WriteLine("Material: Edelstahl");
                     break;
-                case 3:
+                case 4:
                     Console.WriteLine("Material: Titan");
                     break;
                 default:
