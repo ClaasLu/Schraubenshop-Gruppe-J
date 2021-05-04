@@ -23,9 +23,9 @@
             <Label Content="Wählen Sie zwischen Sechskant und Zylinderkopf aus." HorizontalAlignment="Left" Margin="99,37,0,0" VerticalAlignment="Top" Height="53" Width="450" FontSize="18"/>
         </Grid>
         <Button x:Name="btn_Exit" Content="Exit" HorizontalAlignment="Left" Margin="654,396,0,0" VerticalAlignment="Top" Width="75" Click="btn_Exit_Click"/>
-        <Grid x:Name="grid_Sechskant" HorizontalAlignment="Left" Height="215" Margin="39,176,0,0" VerticalAlignment="Top" Width="685" Focusable="True">
+        <Grid x:Name="grid_Sechskant" HorizontalAlignment="Left" Height="215" Margin="39,176,0,0" VerticalAlignment="Top" Width="734" Focusable="True">
             <Label Content="Kopfhöhe:" HorizontalAlignment="Left" Margin="181,96,0,0" VerticalAlignment="Top" Width="70"/>
-            <TextBox x:Name="tb_Kopfhoehe" HorizontalAlignment="Left" Height="23" Margin="271,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="tb_Kopfhoehe" HorizontalAlignment="Left" Height="23" Margin="271,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_Kopfhoehe_LostFocus"/>
             <Label Content="Kopfdurchmesser:" HorizontalAlignment="Left" Margin="141,123,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="tb_Kopfdurchmesser" HorizontalAlignment="Left" Height="23" Margin="271,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <Label x:Name="lab_Gewindedurchmesser" Content="Gewindedurchmesser:" HorizontalAlignment="Left" Margin="125,69,0,0" VerticalAlignment="Top"/>
@@ -57,6 +57,7 @@
                 <ComboBoxItem Content = "Messing"/>
 
             </ComboBox>
+            <Button x:Name="btn_CalculateSK" Content="Calculate" HorizontalAlignment="Left" Margin="616,187,0,0" VerticalAlignment="Top" Width="75" Click="btn_CalculateSK_Click"/>
         </Grid>
 
         <Grid x:Name="grid_Zylinderkopf" HorizontalAlignment="Left" Height="215" Margin="39,176,0,0" VerticalAlignment="Top" Width="685" Focusable="True" Visibility="Hidden">

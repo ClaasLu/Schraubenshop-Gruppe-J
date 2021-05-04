@@ -20,7 +20,9 @@ namespace Schraubenshop
     /// </summary>
     public partial class UserControl1 : UserControl
     {
-        
+
+        double kopfhoehe;
+
         public UserControl1()
         {
             InitializeComponent();
@@ -48,6 +50,29 @@ namespace Schraubenshop
         private void Gewindedurchmesser_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void btn_CalculateSK_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        static void tb_Kopfhoehe_LostFocus(object sender, RoutedEventArgs e)
+        {
+
+            TextBox tb_Kopfhoehe = (TextBox)sender;
+            double kopfhoehe;
+
+
+                if (double.TryParse(tb_Kopfhoehe.Text, out kopfhoehe)) // && kopfhoehe  >= minKh)
+                {
+                    tb_Kopfhoehe.Background = Brushes.LightGreen;
+                    //return kopfhoehe;    
+                }
+                else
+                {
+                    tb_Kopfhoehe.Background = Brushes.OrangeRed;
+                }
         }
     }
 }
