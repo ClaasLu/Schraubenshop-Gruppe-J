@@ -94,6 +94,7 @@
 
             </ComboBox>
             <Label x:Name="lab_MaterialZK_" Content="Material:" HorizontalAlignment="Left" Margin="190,188,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btn_CalculateZK" Content="Calculate" HorizontalAlignment="Left" Margin="616,187,0,0" VerticalAlignment="Top" Width="75" Click="btn_CalculateSK_Click"/>
         </Grid>
 
 
