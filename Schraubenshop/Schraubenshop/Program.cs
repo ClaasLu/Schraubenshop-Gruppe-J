@@ -4,6 +4,7 @@ using System.Threading;
 namespace Schraubenshop
 {
 
+
     public static class Program
     {
 
@@ -13,16 +14,19 @@ namespace Schraubenshop
         const int minGd = 1;
         const int minGl = 5;
 
-
+        [STAThread]
         static void Main()
         {
+            new GUI_control();
+
+
             // Begrüßung
-            Console.WriteLine("Herzlich Willkommen beim Schrauben-Assistenten GJ_V1!");
-            Console.WriteLine("Hier können Sie Ihre Schraube individuell gestalten und berechnen lassen.");
-            Console.WriteLine();
-            Console.WriteLine("Drücken Sie eine beliebige Taste zum Starten.");
-            Console.ReadKey();
-            Console.Clear();
+            // Console.WriteLine("Herzlich Willkommen beim Schrauben-Assistenten GJ_V1!");
+            //  Console.WriteLine("Hier können Sie Ihre Schraube individuell gestalten und berechnen lassen.");
+            // Console.WriteLine();
+            // Console.WriteLine("Drücken Sie eine beliebige Taste zum Starten.");
+            // Console.ReadKey();
+            // Console.Clear();
 
 
             //Einkaufsschleife
@@ -32,9 +36,9 @@ namespace Schraubenshop
             } while (EinkaufFortsetzen());
 
             //Verabschiedung
-            Console.Clear();
-            Console.WriteLine("Vielen Dank für ihren Besuch. Auf Wiedersehen!");
-            Thread.Sleep(3000);           
+            // Console.Clear();
+            // Console.WriteLine("Vielen Dank für ihren Besuch. Auf Wiedersehen!");
+            // Thread.Sleep(3000);           
         }
 
         //Unterprogramm bei falscher Eingabe
