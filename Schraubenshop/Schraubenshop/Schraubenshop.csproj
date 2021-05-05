@@ -66,11 +66,21 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LOGO.png" />
-    <Content Include="Sechskant.PNG" />
-    <Content Include="Sechskantschraube.png" />
-    <Content Include="zylinderkopf.PNG" />
-    <Content Include="Zylinderkopfschraube.png" />
+    <Content Include="LOGO.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sechskant.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sechskantschraube.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="zylinderkopf.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Zylinderkopfschraube.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,7 +9,7 @@
     <Grid Background="White" RenderTransformOrigin="1.168,0.73">
         <Label x:Name="lab_Name" Content="SchraubenShop JJ" HorizontalAlignment="Left" Margin="39,42,0,0" Width="415" Height="72" VerticalAlignment="Top" FontSize="36"/>
         <Image x:Name="img_Logo" Margin="584,0,10,0" Source="LOGO.png" VerticalAlignment="Top" Height="171" />
-        <Grid x:Name="grid_Startauswahl" HorizontalAlignment="Left" Height="259" Margin="39,132,0,0" VerticalAlignment="Top" Width="685" RenderTransformOrigin="0.491,0.58" Visibility="Hidden">
+        <Grid x:Name="grid_Startauswahl" HorizontalAlignment="Left" Height="259" Margin="39,132,0,0" VerticalAlignment="Top" Width="685" RenderTransformOrigin="0.491,0.58">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="Auto"/>
@@ -23,9 +23,9 @@
             <Label Content="Wählen Sie zwischen Sechskant und Zylinderkopf aus." HorizontalAlignment="Left" Margin="99,37,0,0" VerticalAlignment="Top" Height="53" Width="450" FontSize="18"/>
         </Grid>
         <Button x:Name="btn_Exit" Content="Exit" HorizontalAlignment="Left" Margin="654,396,0,0" VerticalAlignment="Top" Width="75" Click="btn_Exit_Click"/>
-        <Grid x:Name="grid_Sechskant" HorizontalAlignment="Left" Height="215" Margin="39,176,0,0" VerticalAlignment="Top" Width="734" Focusable="True">
+        <Grid x:Name="grid_Sechskant" HorizontalAlignment="Left" Height="215" Margin="39,176,0,0" VerticalAlignment="Top" Width="734" Focusable="True" Visibility="Hidden">
             <Label Content="Kopfhöhe:" HorizontalAlignment="Left" Margin="181,96,0,0" VerticalAlignment="Top" Width="70"/>
-            <TextBox x:Name="tb_Kopfhoehe" HorizontalAlignment="Left" Height="23" Margin="271,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_Kopfhoehe_LostFocus"/>
+            <TextBox x:Name="tb_Kopfhoehe" HorizontalAlignment="Left" Height="23" Margin="271,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
             <Label Content="Kopfdurchmesser:" HorizontalAlignment="Left" Margin="141,123,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="tb_Kopfdurchmesser" HorizontalAlignment="Left" Height="23" Margin="271,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <Label x:Name="lab_Gewindedurchmesser" Content="Gewindedurchmesser:" HorizontalAlignment="Left" Margin="125,69,0,0" VerticalAlignment="Top"/>

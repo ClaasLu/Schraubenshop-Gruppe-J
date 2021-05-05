@@ -21,7 +21,7 @@ namespace Schraubenshop
     public partial class UserControl1 : UserControl
     {
 
-        double kopfhoehe;
+        //double kopfhoehe;
 
         public UserControl1()
         {
@@ -57,7 +57,7 @@ namespace Schraubenshop
 
         }
 
-        static void tb_Kopfhoehe_LostFocus(object sender, RoutedEventArgs e)
+        /*static void tb_Kopfhoehe_LostFocus(object sender, RoutedEventArgs e)
         {
 
             TextBox tb_Kopfhoehe = (TextBox)sender;
@@ -73,6 +73,6 @@ namespace Schraubenshop
                 {
                     tb_Kopfhoehe.Background = Brushes.OrangeRed;
                 }
-        }
+        }*/
     }
 }
