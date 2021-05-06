@@ -17,9 +17,9 @@ namespace Schraubenshop
         public double Preisfaktor { get; set; }
 
         //Konstruktor
-        public Schraube(int kopfart, double kopfhoehe, double kopfdurchmesser, double gewindedurchmesser, double gewindelaenge, double dichte, double preisfaktor)
+        public Schraube(double kopfhoehe, double kopfdurchmesser, double gewindedurchmesser, double gewindelaenge, double dichte, double preisfaktor)
         {
-            Kopfart = kopfart;
+            
             Kopfhoehe = kopfhoehe;
             Kopfdurchmesser = kopfdurchmesser;
             Gewindedurchmesser = gewindedurchmesser;

@@ -53,7 +53,7 @@ namespace Schraubenshop
         static bool EinkaufFortsetzen()
         {
             int eingabe;
-            
+
             while (true)
             {
                 Console.WriteLine("Für eine weitere Berechnung drücken Sie die 1, mit der 2 schließen sie das Programm.");
@@ -68,7 +68,7 @@ namespace Schraubenshop
                     {
                         return false;
                     }
-                   
+
                 }
                 else
                 {
