@@ -9,7 +9,7 @@ namespace Schraubenshop
         public Int32 Kopfhoehe { get; set; }
         public double Kopfdurchmesser { get; set; }
         public double Gewindedurchmesser { get; set; }
-        public double Gewindelaenge { get; set; }
+        public Int32 Gewindelaenge { get; set; }
         public double Volumen { get; set; }
         public double Gewicht { get; set; }
         public double Preis { get; set; }

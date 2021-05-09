@@ -165,7 +165,7 @@ namespace Schraubenshop
             {
                 tb.Background = Brushes.Red;
             }
-
+            myScrew.Gewindelaenge = Int32.Parse(tb.Text);
         }
 
         // Zylinderkopf
@@ -189,7 +189,7 @@ namespace Schraubenshop
             //{
             //    MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
             //}
-            MessageBox.Show("Ausgewählte Parameter: " + myScrew.Kopfart.ToString() + "\n Kopfhoehe: " + myScrew.Kopfhoehe.ToString());
+            MessageBox.Show("Ausgewählte Parameter: " + myScrew.Kopfart.ToString() + "\n Kopfhoehe: " + myScrew.Kopfhoehe.ToString() + "\n Gewindelänge: " + myScrew.Gewindelaenge.ToString());
         }
 
     }
