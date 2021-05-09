@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="Schraubenshop.UserControl1"
+﻿<Window x:Class="SchraubenshopV2.UserControl1"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Schraubenshop"
+             xmlns:local="clr-namespace:SchraubenshopV2"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White" RenderTransformOrigin="1.168,0.73">
@@ -67,7 +67,7 @@
             <TextBox x:Name="tb_KopfdurchmesserZk" HorizontalAlignment="Left" Height="23" Margin="271,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_KopfdurchmesserZk_LostFocus"/>
             <Label x:Name="lab_GewindedurchmesserZk" Content="Gewindedurchmesser:" HorizontalAlignment="Left" Margin="125,69,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="cb_GewindedurchmesserZk" HorizontalAlignment="Left" Margin="271,69,0,0" VerticalAlignment="Top" Width="120" >
-                <ComboBoxItem x:Name="cb_M1ZK" Content="M1"/>
+                <ComboBoxItem x:Name="cb_M1ZK" Content="M1" Selected="cb_M1ZK_Selected"/>
                 <ComboBoxItem x:Name="cb_M2ZK" Content="M2"/>
                 <ComboBoxItem x:Name="cb_M3ZK" Content="M3"/>
                 <ComboBoxItem x:Name="cb_M4ZK" Content="M4"/>
@@ -100,4 +100,4 @@
 
 
     </Grid>
-</UserControl>
+</Window>
