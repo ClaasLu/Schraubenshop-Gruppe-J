@@ -17,15 +17,9 @@ namespace Schraubenshop
         public double Preisfaktor { get; set; }
 
         //Konstruktor
-        public Schraube(double kopfhoehe, double kopfdurchmesser, double gewindedurchmesser, double gewindelaenge, double dichte, double preisfaktor)
+        public Schraube()
         {
             
-            Kopfhoehe = kopfhoehe;
-            Kopfdurchmesser = kopfdurchmesser;
-            Gewindedurchmesser = gewindedurchmesser;
-            Gewindelaenge = gewindelaenge;
-            Dichte = dichte;
-            Preisfaktor = preisfaktor;
         }
 
         // Berechnung Sechskant
