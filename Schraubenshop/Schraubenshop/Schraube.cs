@@ -6,7 +6,7 @@ namespace Schraubenshop
     {
 
         public int Kopfart { get; set; }
-        public double Kopfhoehe { get; set; }
+        public Int32 Kopfhoehe { get; set; }
         public double Kopfdurchmesser { get; set; }
         public double Gewindedurchmesser { get; set; }
         public double Gewindelaenge { get; set; }

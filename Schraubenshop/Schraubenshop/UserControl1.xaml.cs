@@ -131,6 +131,8 @@ namespace Schraubenshop
             {
                 tb.Background = Brushes.Red;
             }
+
+            myScrew.Kopfhoehe = Int32.Parse(tb.Text);
         }
 
         private void tb_KopfdurchmesserZk_LostFocus(object sender, RoutedEventArgs e)
@@ -187,13 +189,9 @@ namespace Schraubenshop
             //{
             //    MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
             //}
-            MessageBox.Show("Ausgewählte Parameter: " + myScrew.Kopfart.ToString());
+            MessageBox.Show("Ausgewählte Parameter: " + myScrew.Kopfart.ToString() + "\n Kopfhoehe: " + myScrew.Kopfhoehe.ToString());
         }
 
-        private void tb_KopfhoeheZk_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            myScrew.Kopfhoehe = Convert.ToDouble(tb_Kopfhoehe.Text);
-        }
     }
 }
 

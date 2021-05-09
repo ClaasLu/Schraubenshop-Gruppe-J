@@ -62,7 +62,7 @@
 
         <Grid x:Name="grid_Zylinderkopf" HorizontalAlignment="Left" Height="215" Margin="39,176,0,0" VerticalAlignment="Top" Width="685" Focusable="True">
             <Label Content="Kopfhöhe:" HorizontalAlignment="Left" Margin="181,96,0,0" VerticalAlignment="Top" Width="70"/>
-            <TextBox x:Name="tb_KopfhoeheZk" HorizontalAlignment="Left" Height="23" Margin="271,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_KopfhoeheZk_LostFocus" TextChanged="tb_KopfhoeheZk_TextChanged"/>
+            <TextBox x:Name="tb_KopfhoeheZk" HorizontalAlignment="Left" Height="23" Margin="271,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_KopfhoeheZk_LostFocus"/>
             <Label Content="Kopfdurchmesser:" HorizontalAlignment="Left" Margin="141,123,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="tb_KopfdurchmesserZk" HorizontalAlignment="Left" Height="23" Margin="271,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_KopfdurchmesserZk_LostFocus"/>
             <Label x:Name="lab_GewindedurchmesserZk" Content="Gewindedurchmesser:" HorizontalAlignment="Left" Margin="125,69,0,0" VerticalAlignment="Top"/>
