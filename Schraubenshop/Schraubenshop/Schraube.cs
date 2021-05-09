@@ -6,7 +6,7 @@ namespace Schraubenshop
     {
 
         public int Kopfart { get; set; }
-        public double Kopfhoehe { get; set; }
+        public Int32 Kopfhoehe { get; set; }
         public double Kopfdurchmesser { get; set; }
         public double Gewindedurchmesser { get; set; }
         public double Gewindelaenge { get; set; }
@@ -17,15 +17,9 @@ namespace Schraubenshop
         public double Preisfaktor { get; set; }
 
         //Konstruktor
-        public Schraube(double kopfhoehe, double kopfdurchmesser, double gewindedurchmesser, double gewindelaenge, double dichte, double preisfaktor)
+        public Schraube()
         {
             
-            Kopfhoehe = kopfhoehe;
-            Kopfdurchmesser = kopfdurchmesser;
-            Gewindedurchmesser = gewindedurchmesser;
-            Gewindelaenge = gewindelaenge;
-            Dichte = dichte;
-            Preisfaktor = preisfaktor;
         }
 
         // Berechnung Sechskant
