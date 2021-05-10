@@ -202,13 +202,15 @@ namespace Schraubenshop
             myScrew.Material = cb_MaterialZk.SelectedValue.ToString();
         }
 
-       // private void RechtsgewindeZk_Checked(object sender, RoutedEventArgs e)
-       // {
-       //     if ()
-       //     {
+       private void RechtsgewindeZk_Checked(object sender, RoutedEventArgs e)
+        {
+            
+       }
 
-       //     }
-       // }
+        private void LinksgewindeZk_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
 
