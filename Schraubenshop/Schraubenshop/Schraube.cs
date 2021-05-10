@@ -8,7 +8,7 @@ namespace Schraubenshop
         public int Kopfart { get; set; }
         public Int32 Kopfhoehe { get; set; }
         public double Kopfdurchmesser { get; set; }
-        public double Gewindedurchmesser { get; set; }
+        public string Gewindedurchmesser { get; set; }
         public Int32 Gewindelaenge { get; set; }
         public double Volumen { get; set; }
         public double Gewicht { get; set; }
@@ -23,20 +23,20 @@ namespace Schraubenshop
         }
 
         // Berechnung Sechskant
-        public void BerechnungSK()
-        {
-            this.Volumen = (6 * 0.5 * Kopfhoehe * (Kopfdurchmesser / 2)) + (Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2) * Gewindelaenge);
-            this.Gewicht = Dichte * Volumen;
-            this.Preis = 2 + Preisfaktor * Gewicht;
-        }
+        // public void BerechnungSK()
+        // {
+        //      this.Volumen = (6 * 0.5 * Kopfhoehe * (Kopfdurchmesser / 2)) + (Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2) * Gewindelaenge);
+        //     this.Gewicht = Dichte * Volumen;
+       //   this.Preis = 2 + Preisfaktor * Gewicht;
+       //}
 
         // Berechnung Zylinderkopf
-        public void BerechnungZK()
-        {
-            this.Volumen = Math.PI * Kopfhoehe * (Kopfdurchmesser / 2) + Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2);
-            this.Gewicht = Dichte * Volumen;
-            this.Preis = 2 + Preisfaktor * Gewicht;
-        }
+       // public void BerechnungZK()
+      //  {
+        //    this.Volumen = Math.PI * Kopfhoehe * (Kopfdurchmesser / 2) + Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2);
+          //  this.Gewicht = Dichte * Volumen;
+            //this.Preis = 2 + Preisfaktor * Gewicht;
+        //}
 
         // Ausgabe der Schraubendaten
         public void Ausgabe()

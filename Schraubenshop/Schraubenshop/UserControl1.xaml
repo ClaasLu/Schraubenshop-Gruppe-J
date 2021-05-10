@@ -66,7 +66,7 @@
             <Label Content="Kopfdurchmesser:" HorizontalAlignment="Left" Margin="141,123,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="tb_KopfdurchmesserZk" HorizontalAlignment="Left" Height="23" Margin="271,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_KopfdurchmesserZk_LostFocus"/>
             <Label x:Name="lab_GewindedurchmesserZk" Content="Gewindedurchmesser:" HorizontalAlignment="Left" Margin="125,69,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="cb_GewindedurchmesserZk" HorizontalAlignment="Left" Margin="271,69,0,0" VerticalAlignment="Top" Width="120" >
+            <ComboBox x:Name="cb_GewindedurchmesserZk" HorizontalAlignment="Left" Margin="271,69,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cb_GewindedurchmesserZk_SelectionChanged" >
                 <ComboBoxItem x:Name="cb_M1ZK" Content="M1"/>
                 <ComboBoxItem x:Name="cb_M2ZK" Content="M2"/>
                 <ComboBoxItem x:Name="cb_M3ZK" Content="M3"/>

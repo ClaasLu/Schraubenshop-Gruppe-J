@@ -189,9 +189,13 @@ namespace Schraubenshop
             //{
             //    MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
             //}
-            MessageBox.Show("Ausgewählte Parameter: " + myScrew.Kopfart.ToString() + "\n Kopfhoehe: " + myScrew.Kopfhoehe.ToString() + "\n Gewindelänge: " + myScrew.Gewindelaenge.ToString());
+            MessageBox.Show("Ausgewählte Parameter: " + myScrew.Kopfart.ToString() + "\n Kopfhoehe: " + myScrew.Kopfhoehe.ToString() + "\n Gewindelänge: " + myScrew.Gewindelaenge.ToString() + "\n Gewindedurchmesser: " + myScrew.Gewindedurchmesser.ToString());
         }
 
+        private void cb_GewindedurchmesserZk_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+             myScrew.Gewindedurchmesser = cb_GewindedurchmesserZk.SelectedValue.ToString();
+        }
     }
 }
 
