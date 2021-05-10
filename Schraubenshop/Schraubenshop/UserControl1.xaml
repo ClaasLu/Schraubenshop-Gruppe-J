@@ -82,11 +82,11 @@
                 <ComboBoxItem x:Name="cb_M30ZK" Content="M30"/>
 
             </ComboBox>
-            <RadioButton x:Name="RechtsgewindeZk" Content="Rechtsgewinde" HorizontalAlignment="Left" Margin="226,39,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="Gewinderichtung"/>
-            <RadioButton x:Name="LinksgewindeZk" Content="Linksgewinde" HorizontalAlignment="Left" Margin="336,39,0,0" VerticalAlignment="Top" GroupName="Gewinderichtung"/>
+            <RadioButton x:Name="RechtsgewindeZk" Content="Rechtsgewinde" HorizontalAlignment="Left" Margin="226,39,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="Gewinderichtung" Checked="RechtsgewindeZk_Checked"/>
+            <RadioButton x:Name="LinksgewindeZk" Content="Linksgewinde" HorizontalAlignment="Left" Margin="336,39,0,0" VerticalAlignment="Top" GroupName="Gewinderichtung" Checked="LinksgewindeZk_Checked"/>
             <Label x:Name="lab_GewindelaengeZk" Content="Gewindelänge:" HorizontalAlignment="Left" Margin="158,152,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="tb_GewindelaengeZk" HorizontalAlignment="Left" Height="23" Margin="271,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_GewindelaengeZk_LostFocus"/>
-            <ComboBox x:Name="cb_MaterialZk" HorizontalAlignment="Left" Margin="271,188,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBox x:Name="cb_MaterialZk" HorizontalAlignment="Left" Margin="271,188,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cb_MaterialZk_SelectionChanged">
                 <ComboBoxItem Content = "Stahl verz."/>
                 <ComboBoxItem Content = "Edelstahl"/>
                 <ComboBoxItem Content = "Titan"/>

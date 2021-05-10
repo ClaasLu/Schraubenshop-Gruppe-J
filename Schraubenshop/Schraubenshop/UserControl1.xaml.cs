@@ -189,13 +189,26 @@ namespace Schraubenshop
             //{
             //    MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
             //}
-            MessageBox.Show("Ausgewählte Parameter: " + myScrew.Kopfart.ToString() + "\n Kopfhoehe: " + myScrew.Kopfhoehe.ToString() + "\n Gewindelänge: " + myScrew.Gewindelaenge.ToString() + "\n Gewindedurchmesser: " + myScrew.Gewindedurchmesser.ToString());
+            MessageBox.Show("Ausgewählte Parameter: " + myScrew.Kopfart.ToString() + "\n Kopfhoehe: " + myScrew.Kopfhoehe.ToString() + "\n Gewindelänge: " + myScrew.Gewindelaenge.ToString() + "\n Gewindedurchmesser: " + myScrew.Gewindedurchmesser.ToString() + "\n Material: " + myScrew.Material.ToString());
         }
 
         private void cb_GewindedurchmesserZk_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
              myScrew.Gewindedurchmesser = cb_GewindedurchmesserZk.SelectedValue.ToString();
         }
+
+        private void cb_MaterialZk_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            myScrew.Material = cb_MaterialZk.SelectedValue.ToString();
+        }
+
+       // private void RechtsgewindeZk_Checked(object sender, RoutedEventArgs e)
+       // {
+       //     if ()
+       //     {
+
+       //     }
+       // }
     }
 }
 

@@ -15,6 +15,10 @@ namespace Schraubenshop
         public double Preis { get; set; }
         public double Dichte { get; set; }
         public double Preisfaktor { get; set; }
+        public string Material { get; set; } //zum auslesen der Combo-Box
+
+        public bool Gewinderichtung { get; set; }
+
 
         //Konstruktor
         public Schraube()
