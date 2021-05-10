@@ -6,13 +6,7 @@ namespace Schraubenshop
 
 
     public static class Program
-    {
-
-        //Magic numbers für die Mindestgrößen
-        const int minKh = 3;
-        const int minKd = 5;
-        const int minGd = 1;
-        const int minGl = 5;
+    { 
 
         [STAThread]
         static void Main()
@@ -40,7 +34,7 @@ namespace Schraubenshop
             // Console.WriteLine("Vielen Dank für ihren Besuch. Auf Wiedersehen!");
             // Thread.Sleep(3000);           
         }
-        
+
         //Unterprogramm bei falscher Eingabe
         //static void FalscheEingabe()
         //{

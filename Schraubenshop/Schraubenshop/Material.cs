@@ -17,9 +17,9 @@
         public double Preisfaktor { get; set; }
 
         //Konstruktor
-        public Material(int materialschraube)
+        public Material()
         {
-            Materialschraube = materialschraube;
+            
         }
 
         //Dichte auswählen
@@ -33,9 +33,13 @@
             {
                 this.Dichte = dichtetitan;
             }
-            else
+            else if (Materialschraube == 4)
             {
                 this.Dichte = dichtemessing;
+            }
+            else
+            {
+                this.Dichte = 0;
             }
             return (Dichte);
         }

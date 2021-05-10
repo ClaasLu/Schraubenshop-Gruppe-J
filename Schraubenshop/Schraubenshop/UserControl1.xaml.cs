@@ -27,6 +27,10 @@ namespace Schraubenshop
         const int minGl = 5;
 
         Schraube myScrew = new Schraube();
+        Material myMaterial = new Material();
+
+
+        #region Start; Ende; Allgemeines
 
         // Startansicht
         public UserControl1()
@@ -34,29 +38,13 @@ namespace Schraubenshop
             InitializeComponent();
 
             // Sichtbarkeit am Anfang
+            hideAllGrids();
             grid_Startauswahl.Visibility = Visibility.Visible;
-            grid_Sechskant.Visibility = Visibility.Hidden;
-            grid_Zylinderkopf.Visibility = Visibility.Hidden;
+
+
+
 
         }
-
-
-        // Auswahl Sechskant
-        private void btn_Sechskant_Click(object sender, RoutedEventArgs e)
-        {
-            grid_Startauswahl.Visibility = Visibility.Hidden;
-            grid_Sechskant.Visibility = Visibility.Visible;
-            myScrew.Kopfart = 1;
-        }
-
-        // Auswahl Zylinderkopf
-        private void btn_Zylinderkopf_Click(object sender, RoutedEventArgs e)
-        {
-            grid_Startauswahl.Visibility = Visibility.Hidden;
-            grid_Zylinderkopf.Visibility = Visibility.Visible;
-            myScrew.Kopfart = 2;
-        }
-
         // Shutdown
         private void btn_Exit_Click(object sender, RoutedEventArgs e)
         {
@@ -64,8 +52,38 @@ namespace Schraubenshop
 
         }
 
-        // Hintergrund färben Sechskantschraube
+        private void hideAllGrids()
+        {
+            grid_Sechskant.Visibility = Visibility.Hidden;
+            grid_Zylinderkopf.Visibility = Visibility.Hidden;
+            grid_Gewindestift.Visibility = Visibility.Hidden;
+            grid_Senkschraube.Visibility = Visibility.Hidden;
+            grid_Startauswahl.Visibility = Visibility.Hidden;
 
+        }
+
+        #endregion
+
+        #region Sechskant
+
+        // Auswahl Sechskant
+        private void btn_Sechskant_Click(object sender, RoutedEventArgs e)
+        {
+            hideAllGrids();
+            grid_Sechskant.Visibility = Visibility.Visible;
+            myScrew.Kopfart = 1;
+        }
+
+        // Back button
+        private void btn_back_Click(object sender, RoutedEventArgs e)
+        {
+            hideAllGrids();
+            grid_Startauswahl.Visibility = Visibility.Visible;
+        }
+
+        #region Hintergrund färben
+
+        // Hintergrund färben Sechskantschraube
         private void tb_Kopfhoehe_LostFocus(object sender, RoutedEventArgs e)
         {
             TextBox tb = (TextBox)sender;
@@ -88,7 +106,7 @@ namespace Schraubenshop
 
             double res;
 
-            if (Double.TryParse(tb.Text, out res) &&  res >= minKd)
+            if (Double.TryParse(tb.Text, out res) && res >= minKd)
             {
                 tb.Background = Brushes.LightGreen;
             }
@@ -98,7 +116,7 @@ namespace Schraubenshop
             }
         }
 
-        
+
         private void tb_Gewindelaenge_LostFocus(object sender, RoutedEventArgs e)
         {
             TextBox tb = (TextBox)sender;
@@ -116,6 +134,176 @@ namespace Schraubenshop
         }
 
 
+
+
+        #endregion
+
+        #region Berechnung
+
+        private void btn_CalculateSK_Click(object sender, RoutedEventArgs e)
+        {
+            double kopfhoehe;
+            double kd;
+            double laenge;
+            double dichte = myMaterial.Dichteauswahl();
+            double preisfaktor = myMaterial.Preisfaktorauswahl();
+
+
+
+            if (double.TryParse(tb_Kopfhoehe.Text, out kopfhoehe) && kopfhoehe >= minKh
+                && double.TryParse(tb_Gewindelaenge.Text, out laenge) && laenge >= minGl
+                && double.TryParse(tb_Kopfdurchmesser.Text, out kd) && kd >= minKd
+                && dichte != 0
+                && myScrew.Gewindedurchmesser != 0)
+            {
+                myScrew.Kopfhoehe = kopfhoehe;
+                myScrew.Gewindelaenge = laenge;
+                myScrew.Kopfdurchmesser = kd;
+                myScrew.Dichte = dichte;
+                myScrew.Preisfaktor = preisfaktor;
+
+                myScrew.BerechnungSK();
+                MessageBox.Show("Preis:" + myScrew.Preis.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
+            }
+
+        }
+        #endregion
+
+        #region Material Eingabe
+
+        private void cb_Stahl_Selected(object sender, RoutedEventArgs e)
+        {
+            myMaterial.Materialschraube = 1;
+        }
+
+        private void cb_Edelstahl_Selected(object sender, RoutedEventArgs e)
+        {
+            myMaterial.Materialschraube = 2;
+
+        }
+
+        private void cb_Titan_Selected(object sender, RoutedEventArgs e)
+        {
+            myMaterial.Materialschraube = 3;
+
+        }
+
+        private void cb_Messing_Selected(object sender, RoutedEventArgs e)
+        {
+            myMaterial.Materialschraube = 4;
+
+        }
+        #endregion
+
+        #region Gewindedurchmessereingabe
+
+        private void cb_M1_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 1;
+        }
+
+        private void cb_M2_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 2;
+
+        }
+
+        private void cb_M3_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 3;
+
+        }
+
+        private void cb_M4_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 4;
+
+
+        }
+
+        private void cb_M5_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 5;
+
+        }
+
+        private void cb_M6_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 6;
+
+        }
+
+        private void cb_M8_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 8;
+
+        }
+
+        private void cb_M10_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 10;
+
+        }
+
+        private void cb_M12_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 12;
+
+        }
+
+        private void cb_M16_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 16;
+
+        }
+
+        private void cb_M20_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 20;
+
+        }
+
+        private void cb_M24_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 24;
+
+        }
+
+        private void cb_M30_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 30;
+
+        }
+
+        #endregion
+
+
+
+        #endregion
+
+        #region Zylinderkopf
+
+        // Auswahl Zylinderkopf
+        private void btn_Zylinderkopf_Click(object sender, RoutedEventArgs e)
+        {
+            hideAllGrids();
+            grid_Zylinderkopf.Visibility = Visibility.Visible;
+            myScrew.Kopfart = 2;
+        }
+
+        // Back Button
+        private void btn_backZK_Click(object sender, RoutedEventArgs e)
+        {
+            hideAllGrids();
+            grid_Startauswahl.Visibility = Visibility.Visible;
+        }
+
+        #region Hintergrund färben
+
         // Hintergrund färben Zylinderkopf
         private void tb_KopfhoeheZk_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -132,7 +320,7 @@ namespace Schraubenshop
                 tb.Background = Brushes.Red;
             }
 
-            myScrew.Kopfhoehe = Int32.Parse(tb.Text);
+            
         }
 
         private void tb_KopfdurchmesserZk_LostFocus(object sender, RoutedEventArgs e)
@@ -165,52 +353,186 @@ namespace Schraubenshop
             {
                 tb.Background = Brushes.Red;
             }
-            myScrew.Gewindelaenge = Int32.Parse(tb.Text);
+            
         }
 
-        // Zylinderkopf
+
+        #endregion
+
+        #region Berechnung
         private void btn_CalculateZK_Click(object sender, RoutedEventArgs e)
         {
-            //double kopfhoehe;
-            //double kd;
-            //double gd;
-            //double laenge;
+            double kopfhoehe;
+            double kd;            
+            double laenge;
+            double dichte = myMaterial.Dichteauswahl();
+            double preisfaktor = myMaterial.Preisfaktorauswahl();
 
 
 
-            //if (double.TryParse(tb_KopfhoeheZk.Text, out kopfhoehe) && kopfhoehe>= minKh  
-            //    && double.TryParse(tb_GewindelaengeZk.Text, out laenge) && laenge>= minGl 
-            //    && double.TryParse(tb_KopfdurchmesserZk.Text, out kd) && kd >= minKd)
-            //{
-            //    Schraube selectedPart = new Schraube(kopfhoehe, kd, gd, laenge, dichte, preisfaktor);
-            //    selectedPart.BerechnungZK();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
-            //}
-            MessageBox.Show("Ausgewählte Parameter: " + myScrew.Kopfart.ToString() + "\n Kopfhoehe: " + myScrew.Kopfhoehe.ToString() + "\n Gewindelänge: " + myScrew.Gewindelaenge.ToString() + "\n Gewindedurchmesser: " + myScrew.Gewindedurchmesser.ToString() + "\n Material: " + myScrew.Material.ToString());
+            if (double.TryParse(tb_KopfhoeheZk.Text, out kopfhoehe) && kopfhoehe >= minKh
+                && double.TryParse(tb_GewindelaengeZk.Text, out laenge) && laenge >= minGl
+                && double.TryParse(tb_KopfdurchmesserZk.Text, out kd) && kd >= minKd
+                && dichte != 0
+                && myScrew.Gewindedurchmesser != 0)
+            {
+                myScrew.Kopfhoehe = kopfhoehe;
+                myScrew.Gewindelaenge = laenge;
+                myScrew.Kopfdurchmesser = kd;
+                myScrew.Dichte = dichte;
+                myScrew.Preisfaktor = preisfaktor;
+
+                myScrew.BerechnungZK();
+                MessageBox.Show("Preis:"+ myScrew.Preis.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
+            }
         }
 
-        private void cb_GewindedurchmesserZk_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-             myScrew.Gewindedurchmesser = cb_GewindedurchmesserZk.SelectedValue.ToString();
-        }
 
-        private void cb_MaterialZk_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            myScrew.Material = cb_MaterialZk.SelectedValue.ToString();
-        }
 
-       private void RechtsgewindeZk_Checked(object sender, RoutedEventArgs e)
-        {
-            
-       }
+        #endregion
 
-        private void LinksgewindeZk_Checked(object sender, RoutedEventArgs e)
+        #region Material Eingabe
+
+        private void cb_StahlZK_Selected(object sender, RoutedEventArgs e)
         {
+            myMaterial.Materialschraube = 1;
 
         }
+
+        private void cb_EdelstahlZK_Selected(object sender, RoutedEventArgs e)
+        {
+            myMaterial.Materialschraube = 2;
+
+        }
+
+        private void cb_TitanZK_Selected(object sender, RoutedEventArgs e)
+        {
+            myMaterial.Materialschraube = 3;
+
+        }
+
+        private void cb_MessingZK_Selected(object sender, RoutedEventArgs e)
+        {
+            myMaterial.Materialschraube = 4;
+
+        }
+        #endregion
+
+        #region Gewindedurchmessereingabe
+        private void cb_M1ZK_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 1;
+
+        }
+
+        private void cb_M2ZK_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 2;
+
+        }
+
+        private void cb_M3ZK_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 3;
+
+        }
+
+        private void cb_M4ZK_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 4;
+
+        }
+
+        private void cb_M5ZK_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 5;
+
+        }
+
+        private void cb_M6ZK_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 6;
+
+        }
+
+        private void cb_M8ZK_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 8;
+
+        }
+
+        private void cb_M10ZK_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 10;
+
+        }
+
+        private void cb_M12ZK_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 12;
+
+        }
+
+        private void cb_M16ZK_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 16;
+
+        }
+
+        private void cb_M20ZK_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 20;
+
+        }
+
+        private void cb_M24ZK_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 24;
+
+        }
+
+        private void cb_M30ZK_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 30;
+
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Gewindestift
+
+        // Auswahl Gewindestift
+        private void btn_Gewindestift_Click(object sender, RoutedEventArgs e)
+        {
+            hideAllGrids();
+            grid_Gewindestift.Visibility = Visibility.Visible;
+
+
+        }
+
+        #endregion
+
+        #region Senkschraube
+
+        // Auswahl Senkschraube
+        private void btn_Senkschraube_Click(object sender, RoutedEventArgs e)
+        {
+            hideAllGrids();
+            grid_Senkschraube.Visibility = Visibility.Visible;
+
+        }
+
+        #endregion
+
+
+
+
     }
 }
 

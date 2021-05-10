@@ -5,46 +5,57 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Schraubenshop"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White" RenderTransformOrigin="1.168,0.73">
+             d:DesignHeight="450" d:DesignWidth="800" Height="450" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid Background="White" RenderTransformOrigin="1.168,0.73" HorizontalAlignment="Right" Width="800" Height="450" VerticalAlignment="Top">
         <Label x:Name="lab_Name" Content="SchraubenShop JJ" HorizontalAlignment="Left" Margin="39,42,0,0" Width="415" Height="72" VerticalAlignment="Top" FontSize="36"/>
-        <Image x:Name="img_Logo" Margin="584,0,10,0" Source="LOGO.png" VerticalAlignment="Top" Height="171" />
-        <Grid x:Name="grid_Startauswahl" HorizontalAlignment="Left" Height="259" Margin="39,132,0,0" VerticalAlignment="Top" Width="685" RenderTransformOrigin="0.491,0.58" Visibility="Hidden">
+        <Image x:Name="img_Logo" Margin="615,0,10,0" Source="LOGO.png" VerticalAlignment="Top" Height="132" />
+        <Grid x:Name="grid_Startauswahl" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btn_Sechskant" HorizontalAlignment="Left" Margin="38,77,0,0" VerticalAlignment="Top" Width="176" Height="137" Click="btn_Sechskant_Click">
-                <Image x:Name="img_Sechskant" Source="/Sechskantschraube.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button x:Name="btn_Sechskant" Margin="35,25,515,160" Click="btn_Sechskant_Click">
+                <Image x:Name="img_Sechskant" Source="/Sechskantschraube.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Width="123"/>
             </Button>
-            <Button x:Name="btn_Zylinderkopf"  HorizontalAlignment="Left" Margin="398,77,0,0" VerticalAlignment="Top" Width="136" Height="137" Click="btn_Zylinderkopf_Click">
-                <Image x:Name="Zylinderkopfschraube" Source="Zylinderkopfschraube.png"/>
+            <Button x:Name="btn_Zylinderkopf" Margin="351,25,0,0" Click="btn_Zylinderkopf_Click" RenderTransformOrigin="-0.254,0.445" HorizontalAlignment="Left" Width="110" Height="98" VerticalAlignment="Top">
+                <Image x:Name="Zylinderkopfschraube" Source="Zylinderkopfschraube.png" RenderTransformOrigin="0.348,0.485" Height="108" Width="120"/>
             </Button>
-            <Label Content="Wählen Sie zwischen Sechskant und Zylinderkopf aus." HorizontalAlignment="Left" Margin="99,37,0,0" VerticalAlignment="Top" Height="53" Width="450" FontSize="18"/>
+            <Button x:Name="btn_Gewindestift" HorizontalAlignment="Left" Margin="35,158,0,0" VerticalAlignment="Top" Width="111" Height="100" Click="btn_Gewindestift_Click">
+                <Image Source="Gewindestift.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="115" Width="121" />
+            </Button>
+            <Button x:Name="btn_Senkschraube" HorizontalAlignment="Left" Margin="351,158,0,0" VerticalAlignment="Top" Width="110" Height="100" Click="btn_Senkschraube_Click">
+                <Image Source="senkschraube.png" Height="110" Width="150" />
+            </Button>
+            <Label Content="Sechskantschraube" HorizontalAlignment="Left" Margin="151,97,0,0" VerticalAlignment="Top"/>
+            <Label Content="Zylinderkopfschraube" HorizontalAlignment="Left" Margin="466,97,0,0" VerticalAlignment="Top"/>
+            <Label Content="Gewindestift" HorizontalAlignment="Left" Margin="151,233,0,0" VerticalAlignment="Top"/>
+            <Label Content="Senkschraube" HorizontalAlignment="Left" Margin="466,232,0,0" VerticalAlignment="Top"/>
+            <Label Content="DIN 933" HorizontalAlignment="Left" Margin="151,79,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.192"/>
+            <Label Content="DIN 912" HorizontalAlignment="Left" Margin="466,79,0,0" VerticalAlignment="Top"/>
+            <Label Content="DIN 913" HorizontalAlignment="Left" Margin="151,215,0,0" VerticalAlignment="Top"/>
+            <Label Content="DIN 7991" HorizontalAlignment="Left" Margin="466,214,0,0" VerticalAlignment="Top"/>
         </Grid>
-
-        <Button x:Name="btn_Exit" Content="Exit" HorizontalAlignment="Right" Margin="0,405,15,0" VerticalAlignment="Top" Width="75" Click="btn_Exit_Click"/>
-
-        <Grid x:Name="grid_Sechskant" HorizontalAlignment="Left" Height="220" Margin="40,176,0,0" VerticalAlignment="Top" Width="700" Focusable="False" Visibility="Hidden">
+        <Button x:Name="btn_Exit" Content="Exit" HorizontalAlignment="Left" Margin="705,420,0,0" VerticalAlignment="Top" Width="75" Click="btn_Exit_Click"/>
+        <Grid x:Name="grid_Sechskant" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" Visibility="Hidden" >
             <Label Content="Kopfhöhe:" HorizontalAlignment="Left" Margin="181,96,0,0" VerticalAlignment="Top" Width="70"/>
             <TextBox x:Name="tb_Kopfhoehe" HorizontalAlignment="Left" Height="23" Margin="271,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_Kopfhoehe_LostFocus" />
             <Label Content="Kopfdurchmesser:" HorizontalAlignment="Left" Margin="141,123,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="tb_Kopfdurchmesser" HorizontalAlignment="Left" Height="23" Margin="271,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_Kopfdurchmesser_LostFocus"/>
             <Label x:Name="lab_Gewindedurchmesser" Content="Gewindedurchmesser:" HorizontalAlignment="Left" Margin="125,69,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="cb_Gewindedurchmesser" HorizontalAlignment="Left" Margin="271,69,0,0" VerticalAlignment="Top" Width="120" >
-                <ComboBoxItem Content="M1"/>
-                <ComboBoxItem Content="M2"/>
-                <ComboBoxItem Content="M3"/>
-                <ComboBoxItem Content="M4"/>
-                <ComboBoxItem Content="M5"/>
-                <ComboBoxItem Content="M6"/>
-                <ComboBoxItem Content="M8"/>
-                <ComboBoxItem Content="M10"/>
-                <ComboBoxItem Content="M12"/>
-                <ComboBoxItem Content="M16"/>
-                <ComboBoxItem Content="M20"/>
-                <ComboBoxItem Content="M24"/>
-                <ComboBoxItem Content="M30"/>
+                <ComboBoxItem x:Name="cb_M1" Content="M1" Selected="cb_M1_Selected" />
+                <ComboBoxItem x:Name="cb_M2" Content="M2" Selected="cb_M2_Selected" />
+                <ComboBoxItem x:Name="cb_M3" Content="M3" Selected="cb_M3_Selected" />
+                <ComboBoxItem x:Name="cb_M4" Content="M4" Selected="cb_M4_Selected" />
+                <ComboBoxItem x:Name="cb_M5" Content="M5" Selected="cb_M5_Selected" />
+                <ComboBoxItem x:Name="cb_M6" Content="M6" Selected="cb_M6_Selected" />
+                <ComboBoxItem x:Name="cb_M8" Content="M8" Selected="cb_M8_Selected" />
+                <ComboBoxItem x:Name="cb_M10" Content="M10" Selected="cb_M10_Selected" />
+                <ComboBoxItem x:Name="cb_M12" Content="M12" Selected="cb_M12_Selected" />
+                <ComboBoxItem x:Name="cb_M16" Content="M16" Selected="cb_M16_Selected" />
+                <ComboBoxItem x:Name="cb_M20" Content="M20" Selected="cb_M20_Selected" />
+                <ComboBoxItem x:Name="cb_M24" Content="M24" Selected="cb_M24_Selected" />
+                <ComboBoxItem x:Name="cb_M30" Content="M30" Selected="cb_M30_Selected" />
 
             </ComboBox>
             <RadioButton x:Name="Rechtsgewinde" Content="Rechtsgewinde" HorizontalAlignment="Left" Margin="226,39,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="Gewinderichtung"/>
@@ -53,75 +64,55 @@
             <TextBox x:Name="tb_Gewindelaenge" HorizontalAlignment="Left" Height="23" Margin="271,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_Gewindelaenge_LostFocus"/>
             <Label x:Name="lab_Material" Content="Material:" HorizontalAlignment="Left" Margin="190,184,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.132,-0.938"/>
             <ComboBox x:Name="cb_Material" HorizontalAlignment="Left" Margin="271,188,0,0" VerticalAlignment="Top" Width="120">
-                <ComboBoxItem Content = "Stahl verz."/>
-                <ComboBoxItem Content = "Edelstahl"/>
-                <ComboBoxItem Content = "Titan"/>
-                <ComboBoxItem Content = "Messing"/>
+                <ComboBoxItem x:Name="cb_Stahl" Content = "Stahl verz." Selected="cb_Stahl_Selected"/>
+                <ComboBoxItem x:Name="cb_Edelstahl" Content = "Edelstahl" Selected="cb_Edelstahl_Selected"/>
+                <ComboBoxItem x:Name="cb_Titan" Content = "Titan" Selected="cb_Titan_Selected"/>
+                <ComboBoxItem x:Name="cb_Messing" Content = "Messing" Selected="cb_Messing_Selected"/>
 
             </ComboBox>
-            <Button x:Name="btn_CalculateSK" Content="Calculate" Margin="0,0,50,5" VerticalAlignment="Bottom" Click="btn_CalculateZK_Click" RenderTransformOrigin="0.334,0.278" HorizontalAlignment="Right" Width="75"/>
+            <Button x:Name="btn_CalculateSK" Content="Calculate" HorizontalAlignment="Left" Margin="680,199,0,0" VerticalAlignment="Top" Width="75" Click="btn_CalculateSK_Click" />
+            <Button x:Name="btn_back" Content="Back" Margin="680,0,0,0" VerticalAlignment="Bottom" RenderTransformOrigin="-0.12,0" Click="btn_back_Click"/>
         </Grid>
 
-        <Grid x:Name="grid_Zylinderkopf" HorizontalAlignment="Left" Height="220" Margin="40,176,0,0" VerticalAlignment="Top" Width="700" Focusable="False" Visibility="Visible">
+        <Grid x:Name="grid_Zylinderkopf" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" Visibility="Hidden" >
             <Label Content="Kopfhöhe:" HorizontalAlignment="Left" Margin="181,96,0,0" VerticalAlignment="Top" Width="70"/>
             <TextBox x:Name="tb_KopfhoeheZk" HorizontalAlignment="Left" Height="23" Margin="271,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_KopfhoeheZk_LostFocus"/>
             <Label Content="Kopfdurchmesser:" HorizontalAlignment="Left" Margin="141,123,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="tb_KopfdurchmesserZk" HorizontalAlignment="Left" Height="23" Margin="271,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_KopfdurchmesserZk_LostFocus"/>
             <Label x:Name="lab_GewindedurchmesserZk" Content="Gewindedurchmesser:" HorizontalAlignment="Left" Margin="125,69,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="cb_GewindedurchmesserZk" HorizontalAlignment="Left" Margin="271,69,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cb_GewindedurchmesserZk_SelectionChanged" >
-                <ComboBoxItem x:Name="cb_M1ZK" Content="M1"/>
-                <ComboBoxItem x:Name="cb_M2ZK" Content="M2"/>
-                <ComboBoxItem x:Name="cb_M3ZK" Content="M3"/>
-                <ComboBoxItem x:Name="cb_M4ZK" Content="M4"/>
-                <ComboBoxItem x:Name="cb_M5ZK" Content="M5"/>
-                <ComboBoxItem x:Name="cb_M6ZK" Content="M6"/>
-                <ComboBoxItem x:Name="cb_M8ZK" Content="M8"/>
-                <ComboBoxItem x:Name="cb_M10ZK" Content="M10"/>
-                <ComboBoxItem x:Name="cb_M12ZK" Content="M12"/>
-                <ComboBoxItem x:Name="cb_M16ZK" Content="M16"/>
-                <ComboBoxItem x:Name="cb_M20ZK" Content="M20"/>
-                <ComboBoxItem x:Name="cb_M24ZK" Content="M24"/>
-                <ComboBoxItem x:Name="cb_M30ZK" Content="M30"/>
+            <ComboBox x:Name="cb_GewindedurchmesserZk" HorizontalAlignment="Left" Margin="271,69,0,0" VerticalAlignment="Top" Width="120"  >
+                <ComboBoxItem x:Name="cb_M1ZK" Content="M1" Selected="cb_M1ZK_Selected"/>
+                <ComboBoxItem x:Name="cb_M2ZK" Content="M2" Selected="cb_M2ZK_Selected"/>
+                <ComboBoxItem x:Name="cb_M3ZK" Content="M3" Selected="cb_M3ZK_Selected"/>
+                <ComboBoxItem x:Name="cb_M4ZK" Content="M4" Selected="cb_M4ZK_Selected"/>
+                <ComboBoxItem x:Name="cb_M5ZK" Content="M5" Selected="cb_M5ZK_Selected"/>
+                <ComboBoxItem x:Name="cb_M6ZK" Content="M6" Selected="cb_M6ZK_Selected"/>
+                <ComboBoxItem x:Name="cb_M8ZK" Content="M8" Selected="cb_M8ZK_Selected"/>
+                <ComboBoxItem x:Name="cb_M10ZK" Content="M10" Selected="cb_M10ZK_Selected"/>
+                <ComboBoxItem x:Name="cb_M12ZK" Content="M12" Selected="cb_M12ZK_Selected"/>
+                <ComboBoxItem x:Name="cb_M16ZK" Content="M16" Selected="cb_M16ZK_Selected"/>
+                <ComboBoxItem x:Name="cb_M20ZK" Content="M20" Selected="cb_M20ZK_Selected"/>
+                <ComboBoxItem x:Name="cb_M24ZK" Content="M24" Selected="cb_M24ZK_Selected"/>
+                <ComboBoxItem x:Name="cb_M30ZK" Content="M30" Selected="cb_M30ZK_Selected"/>
 
             </ComboBox>
-            <RadioButton x:Name="RechtsgewindeZk" Content="Rechtsgewinde" HorizontalAlignment="Left" Margin="226,39,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="Gewinderichtung" Checked="RechtsgewindeZk_Checked"/>
-            <RadioButton x:Name="LinksgewindeZk" Content="Linksgewinde" HorizontalAlignment="Left" Margin="336,39,0,0" VerticalAlignment="Top" GroupName="Gewinderichtung" Checked="LinksgewindeZk_Checked"/>
+            <RadioButton x:Name="RechtsgewindeZk" Content="Rechtsgewinde" HorizontalAlignment="Left" Margin="226,39,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="Gewinderichtung" />
+            <RadioButton x:Name="LinksgewindeZk" Content="Linksgewinde" HorizontalAlignment="Left" Margin="336,39,0,0" VerticalAlignment="Top" GroupName="Gewinderichtung" />
             <Label x:Name="lab_GewindelaengeZk" Content="Gewindelänge:" HorizontalAlignment="Left" Margin="158,152,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="tb_GewindelaengeZk" HorizontalAlignment="Left" Height="23" Margin="271,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_GewindelaengeZk_LostFocus"/>
-            <ComboBox x:Name="cb_MaterialZk" HorizontalAlignment="Left" Margin="271,188,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cb_MaterialZk_SelectionChanged">
-                <ComboBoxItem Content = "Stahl verz."/>
-                <ComboBoxItem Content = "Edelstahl"/>
-                <ComboBoxItem Content = "Titan"/>
-                <ComboBoxItem Content = "Messing"/>
+            <ComboBox x:Name="cb_MaterialZk" HorizontalAlignment="Left" Margin="271,188,0,0" VerticalAlignment="Top" Width="120" >
+                <ComboBoxItem x:Name="cb_StahlZK" Content = "Stahl verz." Selected="cb_StahlZK_Selected"/>
+                <ComboBoxItem x:Name="cb_EdelstahlZK" Content = "Edelstahl" Selected="cb_EdelstahlZK_Selected"/>
+                <ComboBoxItem x:Name="cb_TitanZK" Content = "Titan" Selected="cb_TitanZK_Selected"/>
+                <ComboBoxItem x:Name="cb_MessingZK" Content = "Messing" Selected="cb_MessingZK_Selected"/>
 
             </ComboBox>
             <Label x:Name="lab_MaterialZK_" Content="Material:" HorizontalAlignment="Left" Margin="190,188,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="btn_CalculateZK" Content="Calculate" Margin="0,0,50,5" VerticalAlignment="Bottom" Click="btn_CalculateZK_Click" RenderTransformOrigin="0.334,0.278" HorizontalAlignment="Right" Width="75"/>
-            <Image HorizontalAlignment="Right" Height="175" Margin="0,10,10,0" VerticalAlignment="Top" Width="225" Source="zylinderkopf.PNG"/>
-            <TextBox x:Name="tb_KdZk" HorizontalAlignment="Right" Height="20" Margin="0,87,212,0" TextWrapping="Wrap" Text="Kd" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.5,0.5" FontSize="10" BorderBrush="White">
-                <TextBox.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </TextBox.RenderTransform>
-            </TextBox>
-            <TextBox x:Name="tb_KhZK" HorizontalAlignment="Right" Height="20" Margin="0,152,160,0" TextWrapping="Wrap" Text="Kh" VerticalAlignment="Top" Width="25" RenderTransformOrigin="1.089,0.717" FontSize="10" BorderBrush="White"/>
-            <TextBox x:Name="tb_GlZK" HorizontalAlignment="Right" Height="20" Margin="0,152,75,0" TextWrapping="Wrap" Text="Gl" VerticalAlignment="Top" Width="30" BorderBrush="White" FontSize="10"/>
-            <TextBox x:Name="tb_GdZK" HorizontalAlignment="Right" Height="20" Margin="0,55,26,0" TextWrapping="Wrap" Text="Gd" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.5,0.5" BorderBrush="White" FontSize="10">
-                <TextBox.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </TextBox.RenderTransform>
-            </TextBox>
-
+            <Button x:Name="btn_CalculateZK" Content="Calculate" HorizontalAlignment="Left" Margin="695,173,0,28" Width="75" Click="btn_CalculateZK_Click" Height="19"/>
+            <Button x:Name="btn_backZK" Content="Back" HorizontalAlignment="Left" Margin="695,197,0,0" VerticalAlignment="Top" Width="75" Click="btn_backZK_Click"/>
         </Grid>
+        <Grid x:Name="grid_Gewindestift" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" Visibility="Hidden"/>
+        <Grid x:Name="grid_Senkschraube" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7"/>
 
 
 
