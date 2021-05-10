@@ -24,9 +24,9 @@ namespace Schraubenshop
         //Magic numbers für die Mindestgrößen
         const int minKh = 3;
         const int minKd = 5;        
-        const int minGl = 5;    
+        const int minGl = 5;
 
-       
+        Schraube myScrew = new Schraube();
 
         // Startansicht
         public UserControl1()
@@ -46,6 +46,7 @@ namespace Schraubenshop
         {
             grid_Startauswahl.Visibility = Visibility.Hidden;
             grid_Sechskant.Visibility = Visibility.Visible;
+            myScrew.Kopfart = 1;
         }
 
         // Auswahl Zylinderkopf
@@ -53,6 +54,7 @@ namespace Schraubenshop
         {
             grid_Startauswahl.Visibility = Visibility.Hidden;
             grid_Zylinderkopf.Visibility = Visibility.Visible;
+            myScrew.Kopfart = 2;
         }
 
         // Shutdown
@@ -129,6 +131,8 @@ namespace Schraubenshop
             {
                 tb.Background = Brushes.Red;
             }
+
+            myScrew.Kopfhoehe = Int32.Parse(tb.Text);
         }
 
         private void tb_KopfdurchmesserZk_LostFocus(object sender, RoutedEventArgs e)
@@ -161,31 +165,50 @@ namespace Schraubenshop
             {
                 tb.Background = Brushes.Red;
             }
-
+            myScrew.Gewindelaenge = Int32.Parse(tb.Text);
         }
 
         // Zylinderkopf
         private void btn_CalculateZK_Click(object sender, RoutedEventArgs e)
         {
-            double kopfhoehe;
-            double kd;
-            double gd;
-            double laenge;
+            //double kopfhoehe;
+            //double kd;
+            //double gd;
+            //double laenge;
 
-            
 
-            if (double.TryParse(tb_KopfhoeheZk.Text, out kopfhoehe) && kopfhoehe>= minKh  
-                && double.TryParse(tb_GewindelaengeZk.Text, out laenge) && laenge>= minGl 
-                && double.TryParse(tb_KopfdurchmesserZk.Text, out kd) && kd >= minKd)
-            {
-                Schraube selectedPart = new Schraube(kopfhoehe, kd, gd, laenge, dichte, preisfaktor);
-                selectedPart.BerechnungZK();
-            }
-            else
-            {
-                MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
-            }
+
+            //if (double.TryParse(tb_KopfhoeheZk.Text, out kopfhoehe) && kopfhoehe>= minKh  
+            //    && double.TryParse(tb_GewindelaengeZk.Text, out laenge) && laenge>= minGl 
+            //    && double.TryParse(tb_KopfdurchmesserZk.Text, out kd) && kd >= minKd)
+            //{
+            //    Schraube selectedPart = new Schraube(kopfhoehe, kd, gd, laenge, dichte, preisfaktor);
+            //    selectedPart.BerechnungZK();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
+            //}
+            MessageBox.Show("Ausgewählte Parameter: " + myScrew.Kopfart.ToString() + "\n Kopfhoehe: " + myScrew.Kopfhoehe.ToString() + "\n Gewindelänge: " + myScrew.Gewindelaenge.ToString() + "\n Gewindedurchmesser: " + myScrew.Gewindedurchmesser.ToString() + "\n Material: " + myScrew.Material.ToString());
         }
+
+        private void cb_GewindedurchmesserZk_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+             myScrew.Gewindedurchmesser = cb_GewindedurchmesserZk.SelectedValue.ToString();
+        }
+
+        private void cb_MaterialZk_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            myScrew.Material = cb_MaterialZk.SelectedValue.ToString();
+        }
+
+       // private void RechtsgewindeZk_Checked(object sender, RoutedEventArgs e)
+       // {
+       //     if ()
+       //     {
+
+       //     }
+       // }
     }
 }
 
