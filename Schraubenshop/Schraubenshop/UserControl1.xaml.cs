@@ -143,7 +143,7 @@ namespace Schraubenshop
 
             double res;
 
-            if (Double.TryParse(tb.Text, out res) && res >= 0 && res < myScrew.Gewindelaenge)
+            if (Double.TryParse(tb.Text, out res) && res >= 0)
             {
                 tb.Background = Brushes.LightGreen;
             }
@@ -172,7 +172,7 @@ namespace Schraubenshop
             if (double.TryParse(tb_Kopfhoehe.Text, out kopfhoehe) && kopfhoehe >= minKh && kopfhoehe <= maxKh
                 && double.TryParse(tb_Gewindelaenge.Text, out laenge) && laenge >= minGl && laenge <= maxGl
                 && double.TryParse(tb_Kopfdurchmesser.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser
-                && double.TryParse(tb_Schaftlänge.Text, out schaftlaenge) && schaftlaenge >= 0 && schaftlaenge < myScrew.Gewindelaenge
+                && double.TryParse(tb_Schaftlänge.Text, out schaftlaenge) && schaftlaenge >= 0
                 && dichte != 0
                 && myScrew.Gewindedurchmesser != 0)
             {
@@ -184,12 +184,18 @@ namespace Schraubenshop
                 myScrew.Preisfaktor = preisfaktor;
 
                 myScrew.BerechnungSK();
-                MessageBox.Show("Preis:" + myScrew.Preis.ToString());
+
+                tb_Sechskant_Kd.Text = Convert.ToString(myScrew.Kopfdurchmesser);
+                tb_Sechskant_Kh.Text = Convert.ToString(myScrew.Kopfhoehe);
+                tb_Sechskant_Sl.Text = Convert.ToString(myScrew.Schaftlaenge);
+                tb_Sechskant_Gl.Text = Convert.ToString(myScrew.Gewindelaenge);
+                tb_Sechskant_Gd.Text = Convert.ToString(myScrew.Gewindedurchmesser);
             }
             else
             {
                 MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
             }
+
 
         }
         #endregion
@@ -380,7 +386,7 @@ namespace Schraubenshop
 
             double res;
 
-            if (Double.TryParse(tb.Text, out res) && res >= 0 && res < myScrew.Gewindelaenge)
+            if (Double.TryParse(tb.Text, out res) && res >= 0 )
             {
                 tb.Background = Brushes.LightGreen;
             }
@@ -407,7 +413,7 @@ namespace Schraubenshop
             if (double.TryParse(tb_KopfhoeheZk.Text, out kopfhoehe) && kopfhoehe >= minKh && kopfhoehe <= maxKh
                 && double.TryParse(tb_GewindelaengeZk.Text, out laenge) && laenge >= minGl && laenge <= maxGl
                 && double.TryParse(tb_KopfdurchmesserZk.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser
-                && double.TryParse(tb_SchaftlängeZk.Text, out schaftlaenge) && schaftlaenge >= 0 && schaftlaenge < myScrew.Gewindelaenge
+                && double.TryParse(tb_SchaftlängeZk.Text, out schaftlaenge) && schaftlaenge >= 0 
                 && dichte != 0
                 && myScrew.Gewindedurchmesser != 0)
             {
@@ -419,7 +425,13 @@ namespace Schraubenshop
                 myScrew.Preisfaktor = preisfaktor;
 
                 myScrew.BerechnungSenk();
-                MessageBox.Show("Preis:"+ myScrew.Preis.ToString());
+
+                tb_Zylinderkopf_Kd.Text = Convert.ToString(myScrew.Kopfdurchmesser);
+                tb_Zylinderkopf_Kh.Text = Convert.ToString(myScrew.Kopfhoehe);
+                tb_Zylinderkopf_Sl.Text = Convert.ToString(myScrew.Schaftlaenge);
+                tb_Zylinderkopf_Gl.Text = Convert.ToString(myScrew.Gewindelaenge);
+                tb_Zylinderkopf_Gd.Text = Convert.ToString(myScrew.Gewindedurchmesser);
+                
             }
             else
             {
@@ -598,7 +610,9 @@ namespace Schraubenshop
                 myScrew.Preisfaktor = preisfaktor;
 
                 myScrew.BerechnungGS();
-                MessageBox.Show("Preis:" + myScrew.Preis.ToString());
+
+                tb_Gewindestift_Gl.Text = Convert.ToString(myScrew.Gewindelaenge);
+                tb_Gewindestift_Gd.Text = Convert.ToString(myScrew.Gewindedurchmesser);
             }
             else
             {
@@ -775,7 +789,7 @@ namespace Schraubenshop
 
             double res;
 
-            if (Double.TryParse(tb.Text, out res) && res >= 0 && res < myScrew.Gewindelaenge)
+            if (Double.TryParse(tb.Text, out res) && res >= 0 )
             {
                 tb.Background = Brushes.LightGreen;
             }
@@ -804,7 +818,7 @@ namespace Schraubenshop
             if (double.TryParse(tb_KopfhoeheSenk.Text, out kopfhoehe) && kopfhoehe >= minKh && kopfhoehe <= maxKh
                 && double.TryParse(tb_GewindelaengeSenk.Text, out laenge) && laenge >= minGl && laenge <= maxGl
                 && double.TryParse(tb_KopfdurchmesserSenk.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser
-                && double.TryParse(tb_Schaftlänge.Text, out schaftlaenge) && schaftlaenge >= 0 && schaftlaenge < myScrew.Gewindelaenge
+                && double.TryParse(tb_SchaftlängeSenk.Text, out schaftlaenge) && schaftlaenge >= 0
                 && dichte != 0
                 && myScrew.Gewindedurchmesser != 0)
             {
@@ -815,8 +829,13 @@ namespace Schraubenshop
                 myScrew.Dichte = dichte;
                 myScrew.Preisfaktor = preisfaktor;
 
-                myScrew.BerechnungZK();
-                MessageBox.Show("Preis:" + myScrew.Preis.ToString());
+                myScrew.BerechnungSenk();
+                tb_Senkschraube_Kd.Text = Convert.ToString(myScrew.Kopfdurchmesser);
+                tb_Senkschraube_Sl.Text = Convert.ToString(myScrew.Schaftlaenge);
+                tb_Senkschraube_Gl.Text = Convert.ToString(myScrew.Gewindelaenge);
+                tb_Senkschraube_Gd.Text = Convert.ToString(myScrew.Gewindedurchmesser);
+                
+                
             }
             else
             {
@@ -931,11 +950,16 @@ namespace Schraubenshop
 
 
 
+
+
         #endregion
 
         #endregion
 
-
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            ((Window)Parent).ResizeMode = ResizeMode.NoResize;
+        }
     }
 }
 
