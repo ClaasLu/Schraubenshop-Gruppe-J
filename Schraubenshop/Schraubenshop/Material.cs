@@ -16,6 +16,8 @@
         public double Dichte { get; set; }
         public double Preisfaktor { get; set; }
 
+        public string Materialausgabe { get; set; }
+
         //Konstruktor
         public Material()
         {
@@ -61,6 +63,25 @@
                 default:
                     this.Preisfaktor = faktorMessing;
                     return Preisfaktor;                    
+            }
+        }
+
+        public string MaterialAg()
+        {
+            switch (Materialschraube)
+            {
+                case 1:
+                    this.Materialausgabe = "Stahl verz.";
+                    return Materialausgabe;
+                case 2:
+                    this.Materialausgabe = "Edelstahl";
+                    return Materialausgabe;
+                case 3:
+                    this.Materialausgabe = "Titan";
+                    return Materialausgabe;
+                default:
+                    this.Materialausgabe = "Messing";
+                    return Materialausgabe;
             }
         }
     }

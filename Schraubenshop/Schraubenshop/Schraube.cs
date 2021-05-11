@@ -16,9 +16,10 @@ namespace Schraubenshop
         public double Preis { get; set; }
         public double Dichte { get; set; }
         public double Preisfaktor { get; set; }
-       
+        public double Gesamtlaenge { get; set; }
 
-       
+
+
 
 
         //Konstruktor
@@ -28,12 +29,13 @@ namespace Schraubenshop
         }
 
         // Berechnung Sechskant
-         public void BerechnungSK()
-         {
-             this.Volumen = (3/2 * Math.Sqrt(3) * Kopfhoehe * (Kopfdurchmesser / 2) * (Kopfdurchmesser / 2)) + (Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2) * (Gewindelaenge + Schaftlaenge));
+        public void BerechnungSK()
+        {
+            this.Volumen = (3 / 2 * Math.Sqrt(3) * Kopfhoehe * (Kopfdurchmesser / 2) * (Kopfdurchmesser / 2)) + (Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2) * (Gewindelaenge + Schaftlaenge));
             this.Gewicht = Dichte * Volumen;
-          this.Preis = 2 + Preisfaktor * Gewicht;
-       }
+            this.Preis = 2 + Preisfaktor * Gewicht;
+            this.Gesamtlaenge = Gewindelaenge + Schaftlaenge;
+        }
 
         //Berechnung Zylinderkopf
         public void BerechnungZK()
@@ -41,8 +43,9 @@ namespace Schraubenshop
             this.Volumen = Math.PI * Kopfhoehe * (Kopfdurchmesser / 2) * (Kopfdurchmesser / 2) + Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2) * (Gewindelaenge + Schaftlaenge);
             this.Gewicht = Dichte * Volumen;
             this.Preis = 2 + Preisfaktor * Gewicht;
+            this.Gesamtlaenge = Gewindelaenge + Schaftlaenge;
         }
-        
+
 
         // Berechnung Gewindestift
         public void BerechnungGS()
@@ -50,6 +53,7 @@ namespace Schraubenshop
             this.Volumen = Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2) * Gewindelaenge;
             this.Gewicht = Dichte * Volumen;
             this.Preis = 2 + Preisfaktor * Gewicht;
+
         }
 
 
@@ -60,6 +64,7 @@ namespace Schraubenshop
             this.Volumen = 1/3 * Math.PI * ((Kopfdurchmesser - Gewindedurchmesser)/2) * ((Kopfdurchmesser/2)* (Kopfdurchmesser / 2) + (Gewindedurchmesser/2)*(Gewindedurchmesser / 2) + (Kopfdurchmesser/2)*(Gewindedurchmesser/2)) + Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2) * (Gewindelaenge + Schaftlaenge);
             this.Gewicht = Dichte * Volumen;
             this.Preis = 2 + Preisfaktor * Gewicht;
+            this.Gesamtlaenge = Gewindelaenge + Schaftlaenge;
         }       
     }
 }

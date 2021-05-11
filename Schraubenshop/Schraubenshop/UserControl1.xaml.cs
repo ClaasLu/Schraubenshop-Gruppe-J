@@ -64,6 +64,11 @@ namespace Schraubenshop
             grid_Senkschraube.Visibility = Visibility.Hidden;
             grid_Startauswahl.Visibility = Visibility.Hidden;
 
+            btn_ContinueSk.Visibility = Visibility.Hidden;
+            btn_ContinueZk.Visibility = Visibility.Hidden;
+            btn_ContinueGs.Visibility = Visibility.Hidden;
+            btn_ContinueSenk.Visibility = Visibility.Hidden;
+
         }
 
         #endregion
@@ -190,6 +195,8 @@ namespace Schraubenshop
                 tb_Sechskant_Sl.Text = Convert.ToString(myScrew.Schaftlaenge);
                 tb_Sechskant_Gl.Text = Convert.ToString(myScrew.Gewindelaenge);
                 tb_Sechskant_Gd.Text = Convert.ToString(myScrew.Gewindedurchmesser);
+
+                btn_ContinueSk.Visibility = Visibility.Visible;
             }
             else
             {
@@ -431,7 +438,9 @@ namespace Schraubenshop
                 tb_Zylinderkopf_Sl.Text = Convert.ToString(myScrew.Schaftlaenge);
                 tb_Zylinderkopf_Gl.Text = Convert.ToString(myScrew.Gewindelaenge);
                 tb_Zylinderkopf_Gd.Text = Convert.ToString(myScrew.Gewindedurchmesser);
-                
+
+                btn_ContinueZk.Visibility = Visibility.Visible;
+
             }
             else
             {
@@ -613,6 +622,8 @@ namespace Schraubenshop
 
                 tb_Gewindestift_Gl.Text = Convert.ToString(myScrew.Gewindelaenge);
                 tb_Gewindestift_Gd.Text = Convert.ToString(myScrew.Gewindedurchmesser);
+
+                btn_ContinueGs.Visibility = Visibility.Visible;
             }
             else
             {
@@ -834,8 +845,8 @@ namespace Schraubenshop
                 tb_Senkschraube_Sl.Text = Convert.ToString(myScrew.Schaftlaenge);
                 tb_Senkschraube_Gl.Text = Convert.ToString(myScrew.Gewindelaenge);
                 tb_Senkschraube_Gd.Text = Convert.ToString(myScrew.Gewindedurchmesser);
-                
-                
+
+                btn_ContinueSenk.Visibility = Visibility.Visible;
             }
             else
             {
@@ -959,6 +970,95 @@ namespace Schraubenshop
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             ((Window)Parent).ResizeMode = ResizeMode.NoResize;
+        }
+
+        private void btn_ContinueSk_Click(object sender, RoutedEventArgs e)
+        {          
+
+            hideAllGrids();
+            myMaterial.MaterialAg();
+
+            grid_Ausgabe.Visibility = Visibility.Visible;
+
+            tb_SchraubenartAg.Text = "Sechskantschraube";            
+
+            tb_GewindeAg.Text = "Gewinde";
+
+            tb_BezeichnungAg.Text = "M" + Convert.ToString(myScrew.Gewindedurchmesser) + "x" + Convert.ToString(myScrew.Gesamtlaenge);
+
+            tb_KopfAg.Text = "SW: " + Convert.ToString(myScrew.Kopfdurchmesser) + ";    Kopfhöhe: " + Convert.ToString(myScrew.Kopfhoehe) + "mm";
+
+            tb_GewichtAg.Text = "Gewicht: " + Convert.ToString(myScrew.Gewicht) + "kg";
+
+            tb_MaterialAg.Text = "Material: " + myMaterial.Materialausgabe;
+
+            tb_PreisAg.Text = "Preis: " + Convert.ToString(myScrew.Preis) + " Euro";
+        }
+
+        private void btn_ContinueZk_Click(object sender, RoutedEventArgs e)
+        {
+            hideAllGrids();
+            myMaterial.MaterialAg();
+
+            grid_Ausgabe.Visibility = Visibility.Visible;
+
+            tb_SchraubenartAg.Text = "Zylinderkopfschraube";
+
+            tb_GewindeAg.Text = "Gewinde";
+
+            tb_BezeichnungAg.Text = "M" + Convert.ToString(myScrew.Gewindedurchmesser) + "x" + Convert.ToString(myScrew.Gesamtlaenge);
+
+            tb_KopfAg.Text = "Kopfdurchmesser: " + Convert.ToString(myScrew.Kopfdurchmesser) + "mm;    Kopfhöhe: " + Convert.ToString(myScrew.Kopfhoehe) + "mm";
+
+            tb_GewichtAg.Text = "Gewicht: " + Convert.ToString(myScrew.Gewicht) + "kg";
+
+            tb_MaterialAg.Text = "Material: " + myMaterial.Materialausgabe;
+
+            tb_PreisAg.Text = "Preis: " + Convert.ToString(myScrew.Preis) + " Euro";
+        }
+
+        private void btn_ContinueSenk_Click(object sender, RoutedEventArgs e)
+        {
+            hideAllGrids();
+            myMaterial.MaterialAg();
+
+            grid_Ausgabe.Visibility = Visibility.Visible;
+
+            tb_SchraubenartAg.Text = "Senkschraube";
+
+            tb_GewindeAg.Text = "Gewinde";
+
+            tb_BezeichnungAg.Text = "M" + Convert.ToString(myScrew.Gewindedurchmesser) + "x" + Convert.ToString(myScrew.Gesamtlaenge);
+
+            tb_KopfAg.Text = "Kopfdurchmesser: " + Convert.ToString(myScrew.Kopfdurchmesser) + "mm;    Kopfhöhe: " + Convert.ToString(myScrew.Kopfhoehe) + "mm";
+
+            tb_GewichtAg.Text = "Gewicht: " + Convert.ToString(myScrew.Gewicht) + "kg";
+
+            tb_MaterialAg.Text = "Material: " + myMaterial.Materialausgabe;
+
+            tb_PreisAg.Text = "Preis: " + Convert.ToString(myScrew.Preis) + " Euro";
+        }
+
+        private void btn_ContinueGs_Click(object sender, RoutedEventArgs e)
+        {
+            hideAllGrids();
+            myMaterial.MaterialAg();            
+
+            grid_Ausgabe.Visibility = Visibility.Visible;
+
+            tb_KopfAg.Visibility = Visibility.Hidden;
+
+            tb_SchraubenartAg.Text = "Gewindestift";
+
+            tb_GewindeAg.Text = "Gewinde";
+
+            tb_BezeichnungAg.Text = "M" + Convert.ToString(myScrew.Gewindedurchmesser) + "x" + Convert.ToString(myScrew.Gewindelaenge);
+
+            tb_GewichtAg.Text = "Gewicht: " + Convert.ToString(myScrew.Gewicht) + "kg";
+
+            tb_MaterialAg.Text = "Material: " + myMaterial.Materialausgabe;
+
+            tb_PreisAg.Text = "Preis: " + Convert.ToString(myScrew.Preis) + " Euro";
         }
     }
 }
