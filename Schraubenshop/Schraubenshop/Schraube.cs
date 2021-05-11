@@ -41,6 +41,25 @@ namespace Schraubenshop
             this.Gewicht = Dichte * Volumen;
             this.Preis = 2 + Preisfaktor * Gewicht;
         }
+        
+
+        // Berechnung Gewindestift
+        public void BerechnungGS()
+        {
+            this.Volumen = Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2);
+            this.Gewicht = Dichte * Volumen;
+            this.Preis = 2 + Preisfaktor * Gewicht;
+        }
+
+
+        // Berechnung Senkschraube
+        public void BerechnungSenk()
+        {
+            this.Volumen = 1/3 * Math.PI * Kopfhoehe * ((Kopfdurchmesser/2)*(Kopfdurchmesser/ 2) + (Gewindedurchmesser/2)*(Kopfdurchmesser/2) + (Gewindedurchmesser / 2) *(Gewindedurchmesser / 2))+ Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2);
+            this.Gewicht = Dichte * Volumen;
+            this.Preis = 2 + Preisfaktor * Gewicht;
+        }
+
 
         // Ausgabe der Schraubendaten
        /* public void Ausgabe()

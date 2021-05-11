@@ -280,9 +280,6 @@ namespace Schraubenshop
         }
 
         #endregion
-
-
-
         #endregion
 
         #region Zylinderkopf
@@ -382,7 +379,7 @@ namespace Schraubenshop
                 myScrew.Dichte = dichte;
                 myScrew.Preisfaktor = preisfaktor;
 
-                myScrew.BerechnungZK();
+                myScrew.BerechnungSenk();
                 MessageBox.Show("Preis:"+ myScrew.Preis.ToString());
             }
             else
@@ -516,6 +513,154 @@ namespace Schraubenshop
 
         }
 
+        // Back Button
+        private void btn_backGS_Click(object sender, RoutedEventArgs e)
+        {
+            hideAllGrids();
+            grid_Startauswahl.Visibility = Visibility.Visible;
+        }
+
+
+        #region Hintergrund färben
+
+        private void tb_GewindelaengeGS_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+
+            double res;
+
+            if (Double.TryParse(tb.Text, out res) && res >= minKh)
+            {
+                tb.Background = Brushes.LightGreen;
+            }
+            else
+            {
+                tb.Background = Brushes.Red;
+            }
+        }
+        #endregion
+
+        #region Berechnung
+
+        private void btn_CalculateGS_Click(object sender, RoutedEventArgs e)
+        {
+            double laenge;
+            double dichte = myMaterial.Dichteauswahl();
+            double preisfaktor = myMaterial.Preisfaktorauswahl();
+
+
+
+            if (double.TryParse(tb_GewindelaengeGS.Text, out laenge) && laenge >= minGl
+                && dichte != 0
+                && myScrew.Gewindedurchmesser != 0)
+            {
+                myScrew.Gewindelaenge = laenge;
+                myScrew.Dichte = dichte;
+                myScrew.Preisfaktor = preisfaktor;
+
+                myScrew.BerechnungGS();
+                MessageBox.Show("Preis:" + myScrew.Preis.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
+            }
+
+
+        }
+        #endregion
+
+        #region Material Eingabe
+        private void cb_StahlGS_Selected(object sender, RoutedEventArgs e)
+        {
+            myMaterial.Materialschraube = 1;
+        }
+
+        private void cb_EdelstahlGS_Selected(object sender, RoutedEventArgs e)
+        {
+            myMaterial.Materialschraube = 2;
+        }
+
+        private void cb_TitanGS_Selected(object sender, RoutedEventArgs e)
+        {
+            myMaterial.Materialschraube = 3;
+        }
+
+        private void cb_MessingGS_Selected(object sender, RoutedEventArgs e)
+        {
+            myMaterial.Materialschraube = 4;
+        }
+        #endregion
+
+        #region Gewindedurchmesser Eingabe
+        private void cb_M1GS_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 1;
+        }
+
+        private void cb_M2GS_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 2;
+        }
+
+        private void cb_M3GS_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 3;
+        }
+
+        private void cb_M4GS_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 4;
+        }
+
+        private void cb_M5GS_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 5;
+        }
+
+        private void cb_M6GS_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 6;
+        }
+
+        private void cb_M8GS_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 8;
+        }
+
+        private void cb_M10GS_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 10;
+        }
+
+        private void cb_M12GS_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 12;
+        }
+
+        private void cb_M16GS_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 16;
+        }
+
+        private void cb_M20GS_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 20;
+        }
+
+        private void cb_M24GS_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 24;
+        }
+
+        private void cb_M30GS_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 30;
+        }
+        #endregion
+
+
+
         #endregion
 
         #region Senkschraube
@@ -528,11 +673,210 @@ namespace Schraubenshop
 
         }
 
+        // Back Button
+        private void btn_backSenk_Click(object sender, RoutedEventArgs e)
+        {
+            hideAllGrids();
+            grid_Startauswahl.Visibility = Visibility.Visible;
+        }
+
+        #region Hintergrund färben
+
+        private void tb_KopfhoeheSenk_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+
+            double res;
+
+            if (Double.TryParse(tb.Text, out res) && res >= minKh)
+            {
+                tb.Background = Brushes.LightGreen;
+            }
+            else
+            {
+                tb.Background = Brushes.Red;
+            }
+        }
+
+        private void tb_KopfdurchmesserSenk_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+
+            double res;
+
+            if (Double.TryParse(tb.Text, out res) && res >= minKh)
+            {
+                tb.Background = Brushes.LightGreen;
+            }
+            else
+            {
+                tb.Background = Brushes.Red;
+            }
+        }
+
+        private void tb_GewindelaengeSenk_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+
+            double res;
+
+            if (Double.TryParse(tb.Text, out res) && res >= minKh)
+            {
+                tb.Background = Brushes.LightGreen;
+            }
+            else
+            {
+                tb.Background = Brushes.Red;
+            }
+        }
+
+
+
+
         #endregion
 
+        #region Berechnung
+
+        private void btn_CalculateSenk_Click(object sender, RoutedEventArgs e)
+        {
+            double kopfhoehe;
+            double kd;
+            double laenge;
+            double dichte = myMaterial.Dichteauswahl();
+            double preisfaktor = myMaterial.Preisfaktorauswahl();
 
 
 
+            if (double.TryParse(tb_KopfhoeheSenk.Text, out kopfhoehe) && kopfhoehe >= minKh
+                && double.TryParse(tb_GewindelaengeSenk.Text, out laenge) && laenge >= minGl
+                && double.TryParse(tb_KopfdurchmesserSenk.Text, out kd) && kd >= minKd
+                && dichte != 0
+                && myScrew.Gewindedurchmesser != 0)
+            {
+                myScrew.Kopfhoehe = kopfhoehe;
+                myScrew.Gewindelaenge = laenge;
+                myScrew.Kopfdurchmesser = kd;
+                myScrew.Dichte = dichte;
+                myScrew.Preisfaktor = preisfaktor;
+
+                myScrew.BerechnungZK();
+                MessageBox.Show("Preis:" + myScrew.Preis.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
+            }
+        }
+        #endregion
+
+        #region Material Eingabe
+
+        private void cb_StahlSenk_Selected(object sender, RoutedEventArgs e)
+        {
+            myMaterial.Materialschraube = 1;
+
+
+        }
+
+        private void cb_EdelstahlSenk_Selected(object sender, RoutedEventArgs e)
+        {
+            myMaterial.Materialschraube = 2;
+
+
+        }
+
+        private void cb_TitanSenk_Selected(object sender, RoutedEventArgs e)
+        {
+            myMaterial.Materialschraube = 3;
+
+        }
+
+        private void cb_MessingSenk_Selected(object sender, RoutedEventArgs e)
+        {
+            myMaterial.Materialschraube = 4;
+
+        }
+
+        #endregion
+
+        #region Gewindedurchmesser Eingabe
+
+        private void cb_M1Senk_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 1;
+        }
+
+        private void cb_M2Senk_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 2;
+        }
+
+        private void cb_M3Senk_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 3;
+        }
+
+        private void cb_M4Senk_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 4;
+        }
+
+        private void cb_M5Senk_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 5;
+        }
+
+        private void cb_M6Senk_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 6;
+        }
+
+        private void cb_M8Senk_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 8;
+        }
+
+        private void cb_M10Senk_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 10;
+        }
+
+        private void cb_M12Senk_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 12;
+        }
+
+        private void cb_M16Senk_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 16;
+        }
+
+        private void cb_M20Senk_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 20;
+        }
+
+        private void cb_M24Senk_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 24;
+        }
+
+        private void cb_M30Senk_Selected(object sender, RoutedEventArgs e)
+        {
+            myScrew.Gewindedurchmesser = 30;
+        }
+
+
+
+
+
+
+
+        #endregion
+
+        #endregion
+
+        
     }
 }
 

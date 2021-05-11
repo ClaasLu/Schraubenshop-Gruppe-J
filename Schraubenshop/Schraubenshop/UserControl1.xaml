@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800" Height="450" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center">
     <Grid Background="White" RenderTransformOrigin="1.168,0.73" HorizontalAlignment="Right" Width="800" Height="450" VerticalAlignment="Top">
         <Label x:Name="lab_Name" Content="SchraubenShop JJ" HorizontalAlignment="Left" Margin="39,42,0,0" Width="415" Height="72" VerticalAlignment="Top" FontSize="36"/>
-        <Image x:Name="img_Logo" Margin="615,0,10,0" Source="LOGO.png" VerticalAlignment="Top" Height="132" />
+        <Image x:Name="img_Logo" Margin="539,0,86,0" Source="LOGO.png" VerticalAlignment="Top" Height="132" />
         <Grid x:Name="grid_Startauswahl" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -70,8 +70,8 @@
                 <ComboBoxItem x:Name="cb_Messing" Content = "Messing" Selected="cb_Messing_Selected"/>
 
             </ComboBox>
-            <Button x:Name="btn_CalculateSK" Content="Calculate" HorizontalAlignment="Left" Margin="680,199,0,0" VerticalAlignment="Top" Width="75" Click="btn_CalculateSK_Click" />
-            <Button x:Name="btn_back" Content="Back" Margin="680,0,0,0" VerticalAlignment="Bottom" RenderTransformOrigin="-0.12,0" Click="btn_back_Click"/>
+            <Button x:Name="btn_CalculateSK" Content="Calculate" HorizontalAlignment="Left" Margin="581,0,0,38" VerticalAlignment="Bottom" Width="75" Click="btn_CalculateSK_Click" />
+            <Button x:Name="btn_back" Content="Back" Margin="581,0,5,10" VerticalAlignment="Bottom" RenderTransformOrigin="-0.12,0" Click="btn_back_Click" Width="75"/>
         </Grid>
 
         <Grid x:Name="grid_Zylinderkopf" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" Visibility="Hidden" >
@@ -108,11 +108,82 @@
 
             </ComboBox>
             <Label x:Name="lab_MaterialZK_" Content="Material:" HorizontalAlignment="Left" Margin="190,188,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="btn_CalculateZK" Content="Calculate" HorizontalAlignment="Left" Margin="695,173,0,28" Width="75" Click="btn_CalculateZK_Click" Height="19"/>
-            <Button x:Name="btn_backZK" Content="Back" HorizontalAlignment="Left" Margin="695,197,0,0" VerticalAlignment="Top" Width="75" Click="btn_backZK_Click"/>
+            <Button x:Name="btn_CalculateZK" Content="Calculate" HorizontalAlignment="Left" Margin="576,230,0,0" VerticalAlignment="Top" Width="75" Click="btn_CalculateZK_Click"/>
+            <Button x:Name="btn_backZK" Content="Back" Margin="576,0,10,10" VerticalAlignment="Bottom" RenderTransformOrigin="-0.12,0" Click="btn_backZK_Click"/>
         </Grid>
-        <Grid x:Name="grid_Gewindestift" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" Visibility="Hidden"/>
-        <Grid x:Name="grid_Senkschraube" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7"/>
+
+        <Grid x:Name="grid_Gewindestift" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7">
+            <Label x:Name="lab_GewindedurchmesserGS" Content="Gewindedurchmesser:" HorizontalAlignment="Left" Margin="125,69,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cb_GewindedurchmesserGS" HorizontalAlignment="Left" Margin="271,69,0,0" VerticalAlignment="Top" Width="120"  >
+                <ComboBoxItem x:Name="cb_M1GS" Content="M1" Selected="cb_M1GS_Selected" />
+                <ComboBoxItem x:Name="cb_M2GS" Content="M2" Selected="cb_M2GS_Selected" />
+                <ComboBoxItem x:Name="cb_M3GS" Content="M3" Selected="cb_M3GS_Selected" />
+                <ComboBoxItem x:Name="cb_M4GS" Content="M4" Selected="cb_M4GS_Selected" />
+                <ComboBoxItem x:Name="cb_M5GS" Content="M5" Selected="cb_M5GS_Selected" />
+                <ComboBoxItem x:Name="cb_M6GS" Content="M6" Selected="cb_M6GS_Selected" />
+                <ComboBoxItem x:Name="cb_M8GS" Content="M8" Selected="cb_M8GS_Selected" />
+                <ComboBoxItem x:Name="cb_M10GS" Content="M10" Selected="cb_M10GS_Selected" />
+                <ComboBoxItem x:Name="cb_M12GS" Content="M12" Selected="cb_M12GS_Selected" />
+                <ComboBoxItem x:Name="cb_M16GS" Content="M16" Selected="cb_M16GS_Selected" />
+                <ComboBoxItem x:Name="cb_M20GS" Content="M20" Selected="cb_M20GS_Selected" />
+                <ComboBoxItem x:Name="cb_M24GS" Content="M24" Selected="cb_M24GS_Selected" />
+                <ComboBoxItem x:Name="cb_M30GS" Content="M30" Selected="cb_M30GS_Selected" />
+
+            </ComboBox>
+            <RadioButton x:Name="RechtsgewindeGS" Content="Rechtsgewinde" HorizontalAlignment="Left" Margin="226,39,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="Gewinderichtung" />
+            <RadioButton x:Name="LinksgewindeGS" Content="Linksgewinde" HorizontalAlignment="Left" Margin="336,39,0,0" VerticalAlignment="Top" GroupName="Gewinderichtung" />
+            <Label x:Name="lab_GewindelaengeGS" Content="Gewindelänge:" HorizontalAlignment="Left" Margin="158,152,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tb_GewindelaengeGS" HorizontalAlignment="Left" Height="23" Margin="271,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_GewindelaengeGS_LostFocus"/>
+            <ComboBox x:Name="cb_MaterialGS" HorizontalAlignment="Left" Margin="271,188,0,0" VerticalAlignment="Top" Width="120" >
+                <ComboBoxItem x:Name="cb_StahlGS" Content = "Stahl verz." Selected="cb_StahlGS_Selected" />
+                <ComboBoxItem x:Name="cb_EdelstahlGS" Content = "Edelstahl" Selected="cb_EdelstahlGS_Selected" />
+                <ComboBoxItem x:Name="cb_TitanGS" Content = "Titan" Selected="cb_TitanGS_Selected" />
+                <ComboBoxItem x:Name="cb_MessingGS" Content = "Messing" Selected="cb_MessingGS_Selected" />
+
+            </ComboBox>
+            <Label x:Name="lab_MaterialGS_" Content="Material:" HorizontalAlignment="Left" Margin="190,188,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btn_CalculateGS" Content="Calculate" HorizontalAlignment="Left" Margin="576,230,0,0" VerticalAlignment="Top" Width="75" Click="btn_CalculateGS_Click" />
+            <Button x:Name="btn_backGS" Content="Back" Margin="576,0,10,10" VerticalAlignment="Bottom" RenderTransformOrigin="-0.12,0" Click="btn_backGS_Click" />
+        </Grid>
+
+        <Grid x:Name="grid_Senkschraube" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" Visibility="Hidden">
+            <Label Content="Kopfhöhe:" HorizontalAlignment="Left" Margin="181,96,0,0" VerticalAlignment="Top" Width="70"/>
+            <TextBox x:Name="tb_KopfhoeheSenk" HorizontalAlignment="Left" Height="23" Margin="271,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_KopfhoeheSenk_LostFocus" />
+            <Label Content="Kopfdurchmesser:" HorizontalAlignment="Left" Margin="141,123,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tb_KopfdurchmesserSenk" HorizontalAlignment="Left" Height="23" Margin="271,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_KopfdurchmesserSenk_LostFocus" />
+            <Label x:Name="lab_GewindedurchmesserSenk" Content="Gewindedurchmesser:" HorizontalAlignment="Left" Margin="125,69,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cb_GewindedurchmesserSenk" HorizontalAlignment="Left" Margin="271,69,0,0" VerticalAlignment="Top" Width="120"  >
+                <ComboBoxItem x:Name="cb_M1Senk" Content="M1" Selected="cb_M1Senk_Selected" />
+                <ComboBoxItem x:Name="cb_M2Senk" Content="M2" Selected="cb_M2Senk_Selected" />
+                <ComboBoxItem x:Name="cb_M3Senk" Content="M3" Selected="cb_M3Senk_Selected" />
+                <ComboBoxItem x:Name="cb_M4Senk" Content="M4" Selected="cb_M4Senk_Selected" />
+                <ComboBoxItem x:Name="cb_M5Senk" Content="M5" Selected="cb_M5Senk_Selected" />
+                <ComboBoxItem x:Name="cb_M6Senk" Content="M6" Selected="cb_M6Senk_Selected" />
+                <ComboBoxItem x:Name="cb_M8Senk" Content="M8" Selected="cb_M8Senk_Selected" />
+                <ComboBoxItem x:Name="cb_M10Senk" Content="M10" Selected="cb_M10Senk_Selected" />
+                <ComboBoxItem x:Name="cb_M12Senk" Content="M12" Selected="cb_M12Senk_Selected" />
+                <ComboBoxItem x:Name="cb_M16Senk" Content="M16" Selected="cb_M16Senk_Selected" />
+                <ComboBoxItem x:Name="cb_M20Senk" Content="M20" Selected="cb_M20Senk_Selected" />
+                <ComboBoxItem x:Name="cb_M24Senk" Content="M24" Selected="cb_M24Senk_Selected" />
+                <ComboBoxItem x:Name="cb_M30Senk" Content="M30" Selected="cb_M30Senk_Selected" />
+
+            </ComboBox>
+            <RadioButton x:Name="RechtsgewindeSenk" Content="Rechtsgewinde" HorizontalAlignment="Left" Margin="226,39,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="Gewinderichtung" />
+            <RadioButton x:Name="LinksgewindeSenk" Content="Linksgewinde" HorizontalAlignment="Left" Margin="336,39,0,0" VerticalAlignment="Top" GroupName="Gewinderichtung" />
+            <Label x:Name="lab_GewindelaengeSenk" Content="Gewindelänge:" HorizontalAlignment="Left" Margin="158,152,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tb_GewindelaengeSenk" HorizontalAlignment="Left" Height="23" Margin="271,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_GewindelaengeSenk_LostFocus"/>
+            <ComboBox x:Name="cb_MaterialSenk" HorizontalAlignment="Left" Margin="271,188,0,0" VerticalAlignment="Top" Width="120" >
+                <ComboBoxItem x:Name="cb_StahlSenk" Content = "Stahl verz." Selected="cb_StahlSenk_Selected" />
+                <ComboBoxItem x:Name="cb_EdelstahlSenk" Content = "Edelstahl" Selected="cb_EdelstahlSenk_Selected" />
+                <ComboBoxItem x:Name="cb_TitanSenk" Content = "Titan" Selected="cb_TitanSenk_Selected" />
+                <ComboBoxItem x:Name="cb_MessingSenk" Content = "Messing" Selected="cb_MessingSenk_Selected" />
+
+            </ComboBox>
+            <Label x:Name="lab_MaterialSenk" Content="Material:" HorizontalAlignment="Left" Margin="190,188,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btn_CalculateSenk" Content="Calculate" HorizontalAlignment="Left" Margin="576,230,0,0" VerticalAlignment="Top" Width="75" Click="btn_CalculateSenk_Click" />
+            <Button x:Name="btn_backSenk" Content="Back" Margin="576,0,10,10" VerticalAlignment="Bottom" RenderTransformOrigin="-0.12,0" Click="btn_backSenk_Click" />
+
+        </Grid>
 
 
 
