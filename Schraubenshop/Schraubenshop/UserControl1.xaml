@@ -66,8 +66,8 @@
 
             </ComboBox>
 
-            <RadioButton x:Name="Rechtsgewinde" Content="Rechtsgewinde" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="Gewinderichtung"/>
-            <RadioButton x:Name="Linksgewinde" Content="Linksgewinde" HorizontalAlignment="Left" Margin="141,44,0,0" VerticalAlignment="Top" GroupName="Gewinderichtung"/>
+            <RadioButton x:Name="Rechtsgewinde" Content="Rechtsgewinde" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="Gewinderichtung" Checked="Rechtsgewinde_Checked"/>
+            <RadioButton x:Name="Linksgewinde" Content="Linksgewinde" HorizontalAlignment="Left" Margin="141,44,0,0" VerticalAlignment="Top" GroupName="Gewinderichtung" Checked="Linksgewinde_Checked"/>
 
             <Label x:Name="lab_Gewindelaenge" Content="Gewindelänge:" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.252,1.469"/>
             <TextBox x:Name="tb_Gewindelaenge" HorizontalAlignment="Left" Height="23" Margin="141,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_Gewindelaenge_LostFocus"/>
@@ -142,8 +142,8 @@
 
             </ComboBox>
 
-            <RadioButton x:Name="RechtsgewindeZk" Content="Rechtsgewinde" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="GewinderichtungZk" />
-            <RadioButton x:Name="LinksgewindeZk" Content="Linksgewinde" HorizontalAlignment="Left" Margin="141,44,0,0" VerticalAlignment="Top" GroupName="GewinderichtungZk" />
+            <RadioButton x:Name="RechtsgewindeZk" Content="Rechtsgewinde" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="GewinderichtungZk" Checked="RechtsgewindeZk_Checked" />
+            <RadioButton x:Name="LinksgewindeZk" Content="Linksgewinde" HorizontalAlignment="Left" Margin="141,44,0,0" VerticalAlignment="Top" GroupName="GewinderichtungZk" Checked="LinksgewindeZk_Checked" />
 
             <Label x:Name="lab_GewindelaengeZk" Content="Gewindelänge:" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.252,1.469"/>
             <TextBox x:Name="tb_GewindelaengeZk" HorizontalAlignment="Left" Height="23" Margin="141,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_GewindelaengeZk_LostFocus"/>
@@ -193,7 +193,7 @@
         </Grid>
 
         <!-- Gewindestift -->
-        <Grid x:Name="grid_Gewindestift" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7">
+        <Grid x:Name="grid_Gewindestift" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" Visibility="Hidden">
 
             <Label x:Name="lab_GewindedurchmesserGS" Content="Gewindedurchmesser:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="cb_GewindedurchmesserGS" HorizontalAlignment="Left" Margin="141,67,0,0" VerticalAlignment="Top" Width="120" >
@@ -212,8 +212,8 @@
                 <ComboBoxItem x:Name="cb_M30GS" Content="M30" Selected="cb_M30GS_Selected" />
             </ComboBox>
 
-            <RadioButton x:Name="RechtsgewindeGS" Content="Rechtsgewinde" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="GewinderichtungGs" />
-            <RadioButton x:Name="LinksgewindeGS" Content="Linksgewinde" HorizontalAlignment="Left" Margin="141,44,0,0" VerticalAlignment="Top" GroupName="GewinderichtungGs" />
+            <RadioButton x:Name="RechtsgewindeGS" Content="Rechtsgewinde" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="GewinderichtungGs" Checked="RechtsgewindeGS_Checked" />
+            <RadioButton x:Name="LinksgewindeGS" Content="Linksgewinde" HorizontalAlignment="Left" Margin="141,44,0,0" VerticalAlignment="Top" GroupName="GewinderichtungGs" Checked="LinksgewindeGS_Checked" />
 
             <Label x:Name="lab_GewindelaengeGS" Content="Gewindelänge:" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="99"/>
             <TextBox x:Name="tb_GewindelaengeGS" HorizontalAlignment="Left" Height="23" Margin="141,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_GewindelaengeGS_LostFocus"/>
@@ -273,8 +273,8 @@
                 <ComboBoxItem x:Name="cb_M30Senk" Content="M30" Selected="cb_M30Senk_Selected" />
             </ComboBox>
 
-            <RadioButton x:Name="RechtsgewindeSenk" Content="Rechtsgewinde" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="GewinderichtungSenk" />
-            <RadioButton x:Name="LinksgewindeSenk" Content="Linksgewinde" HorizontalAlignment="Left" Margin="141,44,0,0" VerticalAlignment="Top" GroupName="GewinderichtungSenk" />
+            <RadioButton x:Name="RechtsgewindeSenk" Content="Rechtsgewinde" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="GewinderichtungSenk" Checked="RechtsgewindeSenk_Checked" />
+            <RadioButton x:Name="LinksgewindeSenk" Content="Linksgewinde" HorizontalAlignment="Left" Margin="141,44,0,0" VerticalAlignment="Top" GroupName="GewinderichtungSenk" Checked="LinksgewindeSenk_Checked" />
 
             <Label x:Name="lab_GewindelaengeSenk" Content="Gewindelänge:" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.252,1.469"/>
             <TextBox x:Name="tb_GewindelaengeSenk" HorizontalAlignment="Left" Height="23" Margin="141,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_GewindelaengeSenk_LostFocus"/>
@@ -322,7 +322,8 @@
             <Button x:Name="btn_ContinueSenk" Content="Continue" HorizontalAlignment="Left" Margin="476,230,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueSenk_Click"  />
         </Grid>
 
-        <Grid x:Name="grid_Ausgabe" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFDDE0E1" Visibility="Hidden">
+        <!-- Ausgabe -->
+        <Grid x:Name="grid_Ausgabe" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFDDE0E1">
 
             <TextBox x:Name="tb_ihreSchraube" HorizontalAlignment="Left" Height="23" Margin="60,15,0,0" TextWrapping="Wrap" Text="Ihre Schraube:" VerticalAlignment="Top" Width="300" Background="#FFDDE0E1" BorderBrush="{x:Null}" FontWeight="Bold"/>
 
@@ -330,11 +331,16 @@
             <TextBox x:Name="tb_GewindeAg" HorizontalAlignment="Left" Height="23" Margin="60,75,0,0" TextWrapping="Wrap" Text="Gewinde" VerticalAlignment="Top" Width="300" Background="#FFDDE0E1" BorderBrush="{x:Null}"/>
             <TextBox x:Name="tb_BezeichnungAg" HorizontalAlignment="Left" Height="23" Margin="60,95,0,0" TextWrapping="Wrap" Text="Bezeichnung" VerticalAlignment="Top" Width="300" Background="#FFDDE0E1" BorderBrush="{x:Null}"/>
             <TextBox x:Name="tb_KopfAg" HorizontalAlignment="Left" Height="23" Margin="60,115,0,0" TextWrapping="Wrap" Text="Kopf" VerticalAlignment="Top" Width="300" Background="#FFDDE0E1" BorderBrush="{x:Null}"/>
-       
-        <TextBox x:Name="tb_GewichtAg" HorizontalAlignment="Left" Height="23" Margin="60,155,0,0" TextWrapping="Wrap" Text="Gewicht" VerticalAlignment="Top" Width="300" Background="#FFDDE0E1" BorderBrush="{x:Null}"/>
+
+            <TextBox x:Name="tb_GewichtAg" HorizontalAlignment="Left" Height="23" Margin="60,155,0,0" TextWrapping="Wrap" Text="Gewicht" VerticalAlignment="Top" Width="300" Background="#FFDDE0E1" BorderBrush="{x:Null}"/>
             <TextBox x:Name="tb_MaterialAg" HorizontalAlignment="Left" Height="23" Margin="60,175,0,0" TextWrapping="Wrap" Text="Dichte" VerticalAlignment="Top" Width="300" Background="#FFDDE0E1" BorderBrush="{x:Null}"/>
             <TextBox x:Name="tb_PreisAg" HorizontalAlignment="Left" Height="23" Margin="60,215,0,0" TextWrapping="Wrap" Text="Preis" VerticalAlignment="Top" Width="300" Background="#FFDDE0E1" BorderBrush="{x:Null}" TextDecorations="{x:Null}" FontWeight="Bold"/>
-            
+            <Button x:Name="btn_home" Content="Home" HorizontalAlignment="Left" Margin="576,253,0,0" VerticalAlignment="Top" Width="75" Background="White" Click="btn_home_Click"/>
+            <Image x:Name="img_Sechskantschraube" Source="Sechskantschraube.png" HorizontalAlignment="Left" Height="203" Margin="391,10,0,0" VerticalAlignment="Top" Width="260" Visibility="Hidden"/>
+            <Image x:Name="img_Zylinderschraube" Source="Zylinderkopfschraube.png" HorizontalAlignment="Left" Height="188" Margin="466,10,0,0" VerticalAlignment="Top" Width="185" Visibility="Hidden"/>
+            <Image x:Name="img_Gewindestift" Source="Gewindestift.png" HorizontalAlignment="Left" Height="168" Margin="481,10,0,0" VerticalAlignment="Top" Width="170" Visibility="Hidden"/>
+            <Image x:Name="img_Senkschraube" Source="senkschraube.png" HorizontalAlignment="Left" Height="188" Margin="466,10,0,0" VerticalAlignment="Top" Width="185" Visibility="Hidden"/>
+
         </Grid>
 
     </Grid>

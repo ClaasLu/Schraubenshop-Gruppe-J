@@ -6,10 +6,10 @@
         const double dichteStahl = 0.00000785;
         const double dichtetitan = 0.0000045;
         const double dichtemessing = 0.00000896;
-        const double faktorStahl = 1;
-        const double faktorEdelstahl = 2;
-        const double faktorTitan = 4;
-        const double faktorMessing = 1.5;
+        const double faktorStahl = 0.03;
+        const double faktorEdelstahl = 0.05;
+        const double faktorTitan = 0.08;
+        const double faktorMessing = 0.04;
         
 
         public int Materialschraube { get; set; }

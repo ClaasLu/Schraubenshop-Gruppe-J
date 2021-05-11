@@ -5,7 +5,6 @@ namespace Schraubenshop
     public class Schraube
     {
 
-        public int Kopfart { get; set; }
         public double Kopfhoehe { get; set; }
         public double Kopfdurchmesser { get; set; }
         public double Gewindedurchmesser { get; set; }
@@ -17,9 +16,7 @@ namespace Schraubenshop
         public double Dichte { get; set; }
         public double Preisfaktor { get; set; }
         public double Gesamtlaenge { get; set; }
-
-
-
+        public string Gewinderichtung { get; set; }
 
 
         //Konstruktor
@@ -32,8 +29,10 @@ namespace Schraubenshop
         public void BerechnungSK()
         {
             this.Volumen = (3 / 2 * Math.Sqrt(3) * Kopfhoehe * (Kopfdurchmesser / 2) * (Kopfdurchmesser / 2)) + (Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2) * (Gewindelaenge + Schaftlaenge));
-            this.Gewicht = Dichte * Volumen;
+            this.Gewicht = Dichte * Volumen * 1000;
+            this.Gewicht = Math.Round(this.Gewicht, 2);
             this.Preis = 2 + Preisfaktor * Gewicht;
+            this.Preis = Math.Round(this.Preis, 2);            
             this.Gesamtlaenge = Gewindelaenge + Schaftlaenge;
         }
 
@@ -41,8 +40,10 @@ namespace Schraubenshop
         public void BerechnungZK()
        {
             this.Volumen = Math.PI * Kopfhoehe * (Kopfdurchmesser / 2) * (Kopfdurchmesser / 2) + Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2) * (Gewindelaenge + Schaftlaenge);
-            this.Gewicht = Dichte * Volumen;
+            this.Gewicht = Dichte * Volumen * 1000;
+            this.Gewicht = Math.Round(this.Gewicht, 2);
             this.Preis = 2 + Preisfaktor * Gewicht;
+            this.Preis = Math.Round(this.Preis, 2);
             this.Gesamtlaenge = Gewindelaenge + Schaftlaenge;
         }
 
@@ -51,8 +52,10 @@ namespace Schraubenshop
         public void BerechnungGS()
         {
             this.Volumen = Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2) * Gewindelaenge;
-            this.Gewicht = Dichte * Volumen;
+            this.Gewicht = Dichte * Volumen * 1000;
+            this.Gewicht = Math.Round(this.Gewicht, 2);
             this.Preis = 2 + Preisfaktor * Gewicht;
+            this.Preis = Math.Round(this.Preis, 2);
 
         }
 
@@ -62,8 +65,10 @@ namespace Schraubenshop
         public void BerechnungSenk()
         {
             this.Volumen = 1/3 * Math.PI * ((Kopfdurchmesser - Gewindedurchmesser)/2) * ((Kopfdurchmesser/2)* (Kopfdurchmesser / 2) + (Gewindedurchmesser/2)*(Gewindedurchmesser / 2) + (Kopfdurchmesser/2)*(Gewindedurchmesser/2)) + Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2) * (Gewindelaenge + Schaftlaenge);
-            this.Gewicht = Dichte * Volumen;
+            this.Gewicht = Dichte * Volumen * 1000;
+            this.Gewicht = Math.Round(this.Gewicht, 2);
             this.Preis = 2 + Preisfaktor * Gewicht;
+            this.Preis = Math.Round(this.Preis, 2);
             this.Gesamtlaenge = Gewindelaenge + Schaftlaenge;
         }       
     }
