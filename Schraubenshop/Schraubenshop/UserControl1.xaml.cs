@@ -28,8 +28,7 @@ namespace Schraubenshop
 
         const int maxKh = 30;
         const int maxKd = 46;
-        const int maxGl = 75;
-        const int maxSl = maxGl - 10;
+        const int maxGl = 75;        
 
         Schraube myScrew = new Schraube();
         Material myMaterial = new Material();
@@ -144,7 +143,7 @@ namespace Schraubenshop
 
             double res;
 
-            if (Double.TryParse(tb.Text, out res) && res >= 0 && res <= maxSl)
+            if (Double.TryParse(tb.Text, out res) && res >= 0 && res < myScrew.Gewindelaenge)
             {
                 tb.Background = Brushes.LightGreen;
             }
@@ -173,7 +172,7 @@ namespace Schraubenshop
             if (double.TryParse(tb_Kopfhoehe.Text, out kopfhoehe) && kopfhoehe >= minKh && kopfhoehe <= maxKh
                 && double.TryParse(tb_Gewindelaenge.Text, out laenge) && laenge >= minGl && laenge <= maxGl
                 && double.TryParse(tb_Kopfdurchmesser.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser
-                && double.TryParse(tb_Schaftlänge.Text, out schaftlaenge) && schaftlaenge >= 0 && schaftlaenge <= maxSl
+                && double.TryParse(tb_Schaftlänge.Text, out schaftlaenge) && schaftlaenge >= 0 && schaftlaenge < myScrew.Gewindelaenge
                 && dichte != 0
                 && myScrew.Gewindedurchmesser != 0)
             {
@@ -381,7 +380,7 @@ namespace Schraubenshop
 
             double res;
 
-            if (Double.TryParse(tb.Text, out res) && res >= 0 && res <= maxSl)
+            if (Double.TryParse(tb.Text, out res) && res >= 0 && res < myScrew.Gewindelaenge)
             {
                 tb.Background = Brushes.LightGreen;
             }
@@ -408,7 +407,7 @@ namespace Schraubenshop
             if (double.TryParse(tb_KopfhoeheZk.Text, out kopfhoehe) && kopfhoehe >= minKh && kopfhoehe <= maxKh
                 && double.TryParse(tb_GewindelaengeZk.Text, out laenge) && laenge >= minGl && laenge <= maxGl
                 && double.TryParse(tb_KopfdurchmesserZk.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser
-                && double.TryParse(tb_SchaftlängeZk.Text, out schaftlaenge) && schaftlaenge >= 0 && schaftlaenge <= maxSl
+                && double.TryParse(tb_SchaftlängeZk.Text, out schaftlaenge) && schaftlaenge >= 0 && schaftlaenge < myScrew.Gewindelaenge
                 && dichte != 0
                 && myScrew.Gewindedurchmesser != 0)
             {
@@ -776,7 +775,7 @@ namespace Schraubenshop
 
             double res;
 
-            if (Double.TryParse(tb.Text, out res) && res >= 0 && res <= maxSl)
+            if (Double.TryParse(tb.Text, out res) && res >= 0 && res < myScrew.Gewindelaenge)
             {
                 tb.Background = Brushes.LightGreen;
             }
@@ -805,7 +804,7 @@ namespace Schraubenshop
             if (double.TryParse(tb_KopfhoeheSenk.Text, out kopfhoehe) && kopfhoehe >= minKh && kopfhoehe <= maxKh
                 && double.TryParse(tb_GewindelaengeSenk.Text, out laenge) && laenge >= minGl && laenge <= maxGl
                 && double.TryParse(tb_KopfdurchmesserSenk.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser
-                && double.TryParse(tb_Schaftlänge.Text, out schaftlaenge) && schaftlaenge >= 0 && schaftlaenge <= maxSl
+                && double.TryParse(tb_Schaftlänge.Text, out schaftlaenge) && schaftlaenge >= 0 && schaftlaenge < myScrew.Gewindelaenge
                 && dichte != 0
                 && myScrew.Gewindedurchmesser != 0)
             {
