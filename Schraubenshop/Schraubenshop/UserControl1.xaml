@@ -6,8 +6,11 @@
              xmlns:local="clr-namespace:Schraubenshop"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Height="450" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center" MaxHeight="450" MinHeight="450" MaxWidth="800" MinWidth="800" Loaded="Window_Loaded">
+
     <Grid Background="White" RenderTransformOrigin="1.168,0.73" HorizontalAlignment="Right" Width="800" Height="450" VerticalAlignment="Top">
+
         <Label x:Name="lab_Name" Content="SchraubenShop JJ" HorizontalAlignment="Left" Margin="39,42,0,0" Width="415" Height="72" VerticalAlignment="Top" FontSize="36"/>
+
         <Image x:Name="img_Logo" Margin="539,0,86,0" Source="LOGO.png" VerticalAlignment="Top" Height="132" />
 
         <!-- Startauswahl -->
@@ -16,18 +19,23 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
+
             <Button x:Name="btn_Sechskant" Margin="35,25,515,160" Click="btn_Sechskant_Click">
                 <Image x:Name="img_Sechskant" Source="/Sechskantschraube.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Width="123"/>
             </Button>
+
             <Button x:Name="btn_Zylinderkopf" Margin="351,25,0,0" Click="btn_Zylinderkopf_Click" RenderTransformOrigin="-0.254,0.445" HorizontalAlignment="Left" Width="110" Height="98" VerticalAlignment="Top">
                 <Image x:Name="Zylinderkopfschraube" Source="Zylinderkopfschraube.png" RenderTransformOrigin="0.348,0.485" Height="108" Width="120"/>
             </Button>
+
             <Button x:Name="btn_Gewindestift" HorizontalAlignment="Left" Margin="35,158,0,0" VerticalAlignment="Top" Width="111" Height="100" Click="btn_Gewindestift_Click">
                 <Image Source="Gewindestift.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="115" Width="121" />
             </Button>
+
             <Button x:Name="btn_Senkschraube" HorizontalAlignment="Left" Margin="351,158,0,0" VerticalAlignment="Top" Width="110" Height="100" Click="btn_Senkschraube_Click">
                 <Image Source="senkschraube.png" Height="110" Width="150" />
             </Button>
+
             <Label Content="Sechskantschraube" HorizontalAlignment="Left" Margin="151,97,0,0" VerticalAlignment="Top"/>
             <Label Content="Zylinderkopfschraube" HorizontalAlignment="Left" Margin="466,97,0,0" VerticalAlignment="Top"/>
             <Label Content="Gewindestift" HorizontalAlignment="Left" Margin="151,233,0,0" VerticalAlignment="Top"/>
@@ -36,11 +44,14 @@
             <Label Content="DIN 912" HorizontalAlignment="Left" Margin="466,79,0,0" VerticalAlignment="Top"/>
             <Label Content="DIN 913" HorizontalAlignment="Left" Margin="151,215,0,0" VerticalAlignment="Top"/>
             <Label Content="DIN 7991" HorizontalAlignment="Left" Margin="466,214,0,0" VerticalAlignment="Top"/>
+
         </Grid>
+
         <Button x:Name="btn_Exit" Content="Exit" HorizontalAlignment="Left" Margin="705,420,0,0" VerticalAlignment="Top" Width="75" Click="btn_Exit_Click"/>
 
+
         <!-- Sechskantschraube -->
-        <Grid x:Name="grid_Sechskant" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" >
+        <Grid x:Name="grid_Sechskant" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" Visibility="Hidden" >
 
             <Label Content="Kopfhöhe:" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="70"/>
             <TextBox x:Name="tb_Kopfhoehe" HorizontalAlignment="Left" Height="23" Margin="141,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_Kopfhoehe_LostFocus" />
@@ -85,7 +96,8 @@
 
             <Button x:Name="btn_CalculateSK" Content="Calculate" HorizontalAlignment="Left" Margin="576,230,0,0" VerticalAlignment="Top" Width="75" Click="btn_CalculateSK_Click" />
             <Button x:Name="btn_back" Content="Back" Margin="576,0,10,10" VerticalAlignment="Bottom" RenderTransformOrigin="-0.12,0" Click="btn_back_Click" Width="75"/>
-            <Button x:Name="btn_ContinueSk" Content="Order" HorizontalAlignment="Left" Margin="476,230,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueSk_Click"  />
+
+            <Button x:Name="btn_ContinueSk" Content="Order Overview" HorizontalAlignment="Left" Margin="469,230,0,0" VerticalAlignment="Top" Width="88" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueSk_Click"  />
 
 
             <Image Source="/Sechskantschraube_Zeichnungt.PNG" HorizontalAlignment="Left" Height="161" Margin="366,10,0,0" VerticalAlignment="Top" Width="285"/>
@@ -120,10 +132,13 @@
 
         <!-- Zylinderkopfschraube -->
         <Grid x:Name="grid_Zylinderkopf" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" Visibility="Hidden" >
+
             <Label Content="Kopfhöhe:" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="70"/>
             <TextBox x:Name="tb_KopfhoeheZk" HorizontalAlignment="Left" Height="23" Margin="141,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_KopfhoeheZk_LostFocus"/>
+
             <Label Content="Kopfdurchmesser:" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="tb_KopfdurchmesserZk" HorizontalAlignment="Left" Height="23" Margin="141,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_KopfdurchmesserZk_LostFocus"/>
+
             <Label x:Name="lab_GewindedurchmesserZk" Content="Gewindedurchmesser:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="cb_GewindedurchmesserZk" HorizontalAlignment="Left" Margin="141,67,0,0" VerticalAlignment="Top" Width="120" >
                 <ComboBoxItem x:Name="cb_M1ZK" Content="M1" Selected="cb_M1ZK_Selected"/>
@@ -189,7 +204,8 @@
                     </TransformGroup>
                 </TextBox.RenderTransform>
             </TextBox>
-            <Button x:Name="btn_ContinueZk" Content="Order" HorizontalAlignment="Left" Margin="476,230,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueZk_Click"  />
+
+            <Button x:Name="btn_ContinueZk" Content="Order Overview" HorizontalAlignment="Left" Margin="462,230,0,0" VerticalAlignment="Top" Width="89" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueZk_Click"  />
         </Grid>
 
         <!-- Gewindestift -->
@@ -243,7 +259,8 @@
                     </TransformGroup>
                 </TextBox.RenderTransform>
             </TextBox>
-            <Button x:Name="btn_ContinueGs" Content="Order" HorizontalAlignment="Left" Margin="476,230,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueGs_Click"  />
+
+            <Button x:Name="btn_ContinueGs" Content="Order Overview" HorizontalAlignment="Left" Margin="460,230,0,0" VerticalAlignment="Top" Width="91" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueGs_Click"  />
 
         </Grid>
 
@@ -319,7 +336,9 @@
                     </TransformGroup>
                 </TextBox.RenderTransform>
             </TextBox>
-            <Button x:Name="btn_ContinueSenk" Content="Order" HorizontalAlignment="Left" Margin="476,230,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueSenk_Click"  />
+
+            <Button x:Name="btn_ContinueSenk" Content="Order Overview" HorizontalAlignment="Left" Margin="459,230,0,0" VerticalAlignment="Top" Width="92" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueSenk_Click"  />
+
         </Grid>
 
         <!-- Ausgabe -->
@@ -335,7 +354,9 @@
             <TextBox x:Name="tb_GewichtAg" HorizontalAlignment="Left" Height="23" Margin="60,155,0,0" TextWrapping="Wrap" Text="Gewicht" VerticalAlignment="Top" Width="300" Background="#FFDDE0E1" BorderBrush="{x:Null}"/>
             <TextBox x:Name="tb_MaterialAg" HorizontalAlignment="Left" Height="23" Margin="60,175,0,0" TextWrapping="Wrap" Text="Dichte" VerticalAlignment="Top" Width="300" Background="#FFDDE0E1" BorderBrush="{x:Null}"/>
             <TextBox x:Name="tb_PreisAg" HorizontalAlignment="Left" Height="23" Margin="60,215,0,0" TextWrapping="Wrap" Text="Preis" VerticalAlignment="Top" Width="300" Background="#FFDDE0E1" BorderBrush="{x:Null}" TextDecorations="{x:Null}" FontWeight="Bold"/>
-            <Button x:Name="btn_home" Content="Home" HorizontalAlignment="Left" Margin="576,253,0,0" VerticalAlignment="Top" Width="75" Background="White" Click="btn_home_Click"/>
+
+            <Button x:Name="btn_home" Content="Order" HorizontalAlignment="Left" Margin="576,253,0,0" VerticalAlignment="Top" Width="75" Background="White" Click="btn_home_Click"/>
+
             <Image x:Name="img_Sechskantschraube" Source="Sechskantschraube.png" HorizontalAlignment="Left" Height="203" Margin="391,10,0,0" VerticalAlignment="Top" Width="260" Visibility="Hidden"/>
             <Image x:Name="img_Zylinderschraube" Source="Zylinderkopfschraube.png" HorizontalAlignment="Left" Height="188" Margin="466,10,0,0" VerticalAlignment="Top" Width="185" Visibility="Hidden"/>
             <Image x:Name="img_Gewindestift" Source="Gewindestift.png" HorizontalAlignment="Left" Height="168" Margin="481,10,0,0" VerticalAlignment="Top" Width="170" Visibility="Hidden"/>

@@ -64,10 +64,13 @@ namespace Schraubenshop
             ((Window)Parent).ResizeMode = ResizeMode.NoResize;
         }
 
-        //Home Button in Ausgabe
+        //Order Button in Ausgabe
         private void btn_home_Click(object sender, RoutedEventArgs e)
         {
             hideAllGrids();
+
+            MessageBox.Show("Vielen Dank für Ihre Bestellung!");            
+
             grid_Startauswahl.Visibility = Visibility.Visible;
         }
 
