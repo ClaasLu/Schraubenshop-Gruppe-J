@@ -40,7 +40,7 @@
         <Button x:Name="btn_Exit" Content="Exit" HorizontalAlignment="Left" Margin="705,420,0,0" VerticalAlignment="Top" Width="75" Click="btn_Exit_Click"/>
 
         <!-- Sechskantschraube -->
-        <Grid x:Name="grid_Sechskant" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" Visibility="Hidden" >
+        <Grid x:Name="grid_Sechskant" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" >
 
             <Label Content="Kopfhöhe:" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="70"/>
             <TextBox x:Name="tb_Kopfhoehe" HorizontalAlignment="Left" Height="23" Margin="141,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_Kopfhoehe_LostFocus" />
@@ -85,7 +85,7 @@
 
             <Button x:Name="btn_CalculateSK" Content="Calculate" HorizontalAlignment="Left" Margin="576,230,0,0" VerticalAlignment="Top" Width="75" Click="btn_CalculateSK_Click" />
             <Button x:Name="btn_back" Content="Back" Margin="576,0,10,10" VerticalAlignment="Bottom" RenderTransformOrigin="-0.12,0" Click="btn_back_Click" Width="75"/>
-            <Button x:Name="btn_ContinueSk" Content="Continue" HorizontalAlignment="Left" Margin="476,230,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueSk_Click"  />
+            <Button x:Name="btn_ContinueSk" Content="Order" HorizontalAlignment="Left" Margin="476,230,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueSk_Click"  />
 
 
             <Image Source="/Sechskantschraube_Zeichnungt.PNG" HorizontalAlignment="Left" Height="161" Margin="366,10,0,0" VerticalAlignment="Top" Width="285"/>
@@ -189,7 +189,7 @@
                     </TransformGroup>
                 </TextBox.RenderTransform>
             </TextBox>
-            <Button x:Name="btn_ContinueZk" Content="Continue" HorizontalAlignment="Left" Margin="476,230,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueZk_Click"  />
+            <Button x:Name="btn_ContinueZk" Content="Order" HorizontalAlignment="Left" Margin="476,230,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueZk_Click"  />
         </Grid>
 
         <!-- Gewindestift -->
@@ -243,7 +243,7 @@
                     </TransformGroup>
                 </TextBox.RenderTransform>
             </TextBox>
-            <Button x:Name="btn_ContinueGs" Content="Continue" HorizontalAlignment="Left" Margin="476,230,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueGs_Click"  />
+            <Button x:Name="btn_ContinueGs" Content="Order" HorizontalAlignment="Left" Margin="476,230,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueGs_Click"  />
 
         </Grid>
 
@@ -319,13 +319,13 @@
                     </TransformGroup>
                 </TextBox.RenderTransform>
             </TextBox>
-            <Button x:Name="btn_ContinueSenk" Content="Continue" HorizontalAlignment="Left" Margin="476,230,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueSenk_Click"  />
+            <Button x:Name="btn_ContinueSenk" Content="Order" HorizontalAlignment="Left" Margin="476,230,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueSenk_Click"  />
         </Grid>
 
         <!-- Ausgabe -->
-        <Grid x:Name="grid_Ausgabe" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFDDE0E1">
+        <Grid x:Name="grid_Ausgabe" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFDDE0E1" Visibility="Hidden">
 
-            <TextBox x:Name="tb_ihreSchraube" HorizontalAlignment="Left" Height="23" Margin="60,15,0,0" TextWrapping="Wrap" Text="Ihre Schraube:" VerticalAlignment="Top" Width="300" Background="#FFDDE0E1" BorderBrush="{x:Null}" FontWeight="Bold"/>
+            <TextBox x:Name="tb_ihreBestellung" HorizontalAlignment="Left" Height="23" Margin="60,15,0,0" TextWrapping="Wrap" Text="Ihre Bestellung:" VerticalAlignment="Top" Width="300" Background="#FFDDE0E1" BorderBrush="{x:Null}" FontWeight="Bold"/>
 
             <TextBox x:Name="tb_SchraubenartAg" HorizontalAlignment="Left" Height="23" Margin="60,55,0,0" TextWrapping="Wrap" Text="Schraubenart" VerticalAlignment="Top" Width="300" Background="#FFDDE0E1" BorderBrush="{x:Null}"/>
             <TextBox x:Name="tb_GewindeAg" HorizontalAlignment="Left" Height="23" Margin="60,75,0,0" TextWrapping="Wrap" Text="Gewinde" VerticalAlignment="Top" Width="300" Background="#FFDDE0E1" BorderBrush="{x:Null}"/>
