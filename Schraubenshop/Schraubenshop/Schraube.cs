@@ -58,47 +58,6 @@ namespace Schraubenshop
             this.Volumen = 1/3 * Math.PI * Kopfhoehe * ((Kopfdurchmesser/2)*(Kopfdurchmesser/ 2) + (Gewindedurchmesser/2)*(Kopfdurchmesser/2) + (Gewindedurchmesser / 2) *(Gewindedurchmesser / 2))+ Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2);
             this.Gewicht = Dichte * Volumen;
             this.Preis = 2 + Preisfaktor * Gewicht;
-        }
-
-
-        // Ausgabe der Schraubendaten
-       /* public void Ausgabe()
-        {
-            Console.Clear();
-            Console.WriteLine("Sie haben ausgewählt:");
-            if (Kopfart == 1)
-            {
-                Console.WriteLine("Sechskantschraube");
-            }
-            else
-            {
-                Console.WriteLine("Zylinderkopfschraube");
-            }
-
-            
-            switch (Preisfaktor)
-            {
-                case 1:
-                    Console.WriteLine("Material: Stahl (verz.)");
-                    break;
-                case 2:
-                    Console.WriteLine("Material: Edelstahl");
-                    break;
-                case 4:
-                    Console.WriteLine("Material: Titan");
-                    break;
-                default:
-                    Console.WriteLine("Material: Messing");
-                    break;
-            }
-
-            Console.WriteLine("Kopf: h=" + Kopfhoehe + "mm;" + "d=" + Kopfdurchmesser + "mm;");
-            Console.WriteLine("M" + Gewindedurchmesser + "x" + Gewindelaenge);
-            Console.WriteLine();
-            Console.WriteLine("Volumen:" + Volumen + " mm^3");
-            Console.WriteLine("Gewicht:" + Gewicht + " kg");
-            Console.WriteLine("Preis:" + Preis + " Euro");
-            Console.WriteLine();
-        }*/
+        }       
     }
 }

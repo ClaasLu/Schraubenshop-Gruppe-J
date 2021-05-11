@@ -48,7 +48,7 @@ namespace Schraubenshop
         // Shutdown
         private void btn_Exit_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Environment.Exit(0);
 
         }
 
