@@ -66,10 +66,11 @@ namespace Schraubenshop
 
         //Order Button in Ausgabe
         private void btn_home_Click(object sender, RoutedEventArgs e)
-        {
-            hideAllGrids();
+        {           
 
-            MessageBox.Show("Vielen Dank für Ihre Bestellung!");            
+            MessageBox.Show("Vielen Dank für Ihre Bestellung!");
+
+            hideAllGrids();
 
             grid_Startauswahl.Visibility = Visibility.Visible;
         }
