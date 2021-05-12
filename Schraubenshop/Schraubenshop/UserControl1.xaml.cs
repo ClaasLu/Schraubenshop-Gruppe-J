@@ -55,7 +55,29 @@ namespace Schraubenshop
             btn_ContinueSk.Visibility = Visibility.Hidden;
             btn_ContinueZk.Visibility = Visibility.Hidden;
             btn_ContinueGs.Visibility = Visibility.Hidden;
-            btn_ContinueSenk.Visibility = Visibility.Hidden;  
+            btn_ContinueSenk.Visibility = Visibility.Hidden;
+
+            lab_kdmax.Visibility = Visibility.Hidden;
+            lab_khmax.Visibility = Visibility.Hidden;
+            lab_glmax.Visibility = Visibility.Hidden;
+            lab_slmax.Visibility = Visibility.Hidden;
+
+            lab_kdmaxZk.Visibility = Visibility.Hidden;
+            lab_khmaxZk.Visibility = Visibility.Hidden;
+            lab_glmaxZk.Visibility = Visibility.Hidden;
+            lab_slmaxZk.Visibility = Visibility.Hidden;
+
+            lab_glmaxGs.Visibility = Visibility.Hidden;
+
+            lab_kdmaxSenk.Visibility = Visibility.Hidden;
+            lab_khmaxSenk.Visibility = Visibility.Hidden;
+            lab_glmaxSenk.Visibility = Visibility.Hidden;
+            lab_slmaxSenk.Visibility = Visibility.Hidden;
+
+            chb_Info.IsChecked = false;
+            chb_InfoZk.IsChecked = false;
+            chb_InfoGs.IsChecked = false;
+            chb_InfoSenk.IsChecked = false;
         }
 
         //Fensterfixierung
@@ -92,6 +114,7 @@ namespace Schraubenshop
         {
             hideAllGrids();
             grid_Sechskant.Visibility = Visibility.Visible;
+
         }
 
         // Back button
@@ -99,6 +122,27 @@ namespace Schraubenshop
         {
             hideAllGrids();
             grid_Startauswahl.Visibility = Visibility.Visible;
+
+        }
+
+        // InfoBox
+        private void chb_Info_Click(object sender, RoutedEventArgs e)
+        {
+            if (lab_kdmax.Visibility == Visibility.Hidden)
+            {
+                lab_kdmax.Visibility = Visibility.Visible;
+                lab_khmax.Visibility = Visibility.Visible;
+                lab_glmax.Visibility = Visibility.Visible;
+                lab_slmax.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                lab_kdmax.Visibility = Visibility.Hidden;
+                lab_khmax.Visibility = Visibility.Hidden;
+                lab_glmax.Visibility = Visibility.Hidden;
+                lab_slmax.Visibility = Visibility.Hidden;
+            }
+
         }
 
         #region Hintergrund färben
@@ -388,6 +432,28 @@ namespace Schraubenshop
         {
             hideAllGrids();
             grid_Startauswahl.Visibility = Visibility.Visible;
+        }
+
+        // Info Box
+        private void chb_InfoZk_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (lab_kdmaxZk.Visibility == Visibility.Hidden)
+            {
+                lab_kdmaxZk.Visibility = Visibility.Visible;
+                lab_khmaxZk.Visibility = Visibility.Visible;
+                lab_glmaxZk.Visibility = Visibility.Visible;
+                lab_slmaxZk.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                lab_kdmaxZk.Visibility = Visibility.Hidden;
+                lab_khmaxZk.Visibility = Visibility.Hidden;
+                lab_glmaxZk.Visibility = Visibility.Hidden;
+                lab_slmaxZk.Visibility = Visibility.Hidden;
+            }
+
+
         }
 
         #region Hintergrund färben
@@ -681,6 +747,19 @@ namespace Schraubenshop
             grid_Startauswahl.Visibility = Visibility.Visible;
         }
 
+        // Info Box
+        private void chb_InfoGs_Click(object sender, RoutedEventArgs e)
+        {
+            if (lab_glmaxGs.Visibility == Visibility.Hidden)
+            {
+                lab_glmaxGs.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                lab_glmaxGs.Visibility = Visibility.Hidden;
+            }
+        }
+
 
         #region Hintergrund färben
 
@@ -876,6 +955,25 @@ namespace Schraubenshop
         {
             hideAllGrids();
             grid_Startauswahl.Visibility = Visibility.Visible;
+        }
+
+        // Info Box
+        private void chb_InfoSenk_Click(object sender, RoutedEventArgs e)
+        {
+            if (lab_kdmaxSenk.Visibility == Visibility.Hidden)
+            {
+                lab_kdmaxSenk.Visibility = Visibility.Visible;
+                lab_khmaxSenk.Visibility = Visibility.Visible;
+                lab_glmaxSenk.Visibility = Visibility.Visible;
+                lab_slmaxSenk.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                lab_kdmaxSenk.Visibility = Visibility.Hidden;
+                lab_khmaxSenk.Visibility = Visibility.Hidden;
+                lab_glmaxSenk.Visibility = Visibility.Hidden;
+                lab_slmaxSenk.Visibility = Visibility.Hidden;
+            }
         }
 
         #region Hintergrund färben
@@ -1146,10 +1244,17 @@ namespace Schraubenshop
 
 
 
-        #endregion
+
+
+
+
+
 
         #endregion
 
+        #endregion
+
+       
     }
 }
 

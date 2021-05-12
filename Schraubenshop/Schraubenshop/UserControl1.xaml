@@ -60,7 +60,7 @@
             <TextBox x:Name="tb_Kopfdurchmesser" HorizontalAlignment="Left" Height="23" Margin="141,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_Kopfdurchmesser_LostFocus"/>
 
             <Label x:Name="lab_Gewindedurchmesser" Content="Gewindedurchmesser:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="cb_Gewindedurchmesser" HorizontalAlignment="Left" Margin="141,67,0,0" VerticalAlignment="Top" Width="120" >
+            <ComboBox x:Name="cb_Gewindedurchmesser" HorizontalAlignment="Left" Margin="141,67,0,0" VerticalAlignment="Top" Width="120" MaxDropDownHeight="150" >
                 <ComboBoxItem x:Name="cb_M1" Content="M1" Selected="cb_M1_Selected" />
                 <ComboBoxItem x:Name="cb_M2" Content="M2" Selected="cb_M2_Selected" />
                 <ComboBoxItem x:Name="cb_M3" Content="M3" Selected="cb_M3_Selected" />
@@ -127,6 +127,13 @@
                 </TextBox.RenderTransform>
             </TextBox>
 
+            <Label x:Name="lab_khmax" Content="min: 3; max: 30" HorizontalAlignment="Left" Margin="266,98,0,0" VerticalAlignment="Top" Height="23" Width="80" FontSize="10"/>
+            <Label x:Name="lab_kdmax" Content="min: 5; max: 46" HorizontalAlignment="Left" Margin="266,128,0,0" VerticalAlignment="Top" Height="23" Width="80" FontSize="10"/>
+            <Label x:Name="lab_glmax" Content="min: 5; max: 75" HorizontalAlignment="Left" Margin="266,158,0,0" VerticalAlignment="Top" Height="23" Width="80" FontSize="10"/>
+            <Label x:Name="lab_slmax" Content="min: 5; max: 75" HorizontalAlignment="Left" Margin="266,188,0,0" VerticalAlignment="Top" Height="23" Width="80" FontSize="10"/>
+
+            <CheckBox x:Name="chb_Info" Content="Info" HorizontalAlignment="Left" Margin="278,46,0,0" VerticalAlignment="Top"  Click="chb_Info_Click"/>
+
 
         </Grid>
 
@@ -140,7 +147,7 @@
             <TextBox x:Name="tb_KopfdurchmesserZk" HorizontalAlignment="Left" Height="23" Margin="141,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_KopfdurchmesserZk_LostFocus"/>
 
             <Label x:Name="lab_GewindedurchmesserZk" Content="Gewindedurchmesser:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="cb_GewindedurchmesserZk" HorizontalAlignment="Left" Margin="141,67,0,0" VerticalAlignment="Top" Width="120" >
+            <ComboBox x:Name="cb_GewindedurchmesserZk" HorizontalAlignment="Left" Margin="141,67,0,0" VerticalAlignment="Top" Width="120" MaxDropDownHeight="150" >
                 <ComboBoxItem x:Name="cb_M1ZK" Content="M1" Selected="cb_M1ZK_Selected"/>
                 <ComboBoxItem x:Name="cb_M2ZK" Content="M2" Selected="cb_M2ZK_Selected"/>
                 <ComboBoxItem x:Name="cb_M3ZK" Content="M3" Selected="cb_M3ZK_Selected"/>
@@ -205,14 +212,21 @@
                 </TextBox.RenderTransform>
             </TextBox>
 
+            <Label x:Name="lab_khmaxZk" Content="min: 3; max: 30" HorizontalAlignment="Left" Margin="266,98,0,0" VerticalAlignment="Top" Height="23" Width="80" FontSize="10"/>
+            <Label x:Name="lab_kdmaxZk" Content="min: 5; max: 46" HorizontalAlignment="Left" Margin="266,128,0,0" VerticalAlignment="Top" Height="23" Width="80" FontSize="10"/>
+            <Label x:Name="lab_glmaxZk" Content="min: 5; max: 75" HorizontalAlignment="Left" Margin="266,158,0,0" VerticalAlignment="Top" Height="23" Width="80" FontSize="10"/>
+            <Label x:Name="lab_slmaxZk" Content="min: 5; max: 75" HorizontalAlignment="Left" Margin="266,188,0,0" VerticalAlignment="Top" Height="23" Width="80" FontSize="10"/>
+
+            <CheckBox x:Name="chb_InfoZk" Content="Info" HorizontalAlignment="Left" Margin="278,46,0,0" VerticalAlignment="Top" Click="chb_InfoZk_Click"/>
+
             <Button x:Name="btn_ContinueZk" Content="Order Overview" HorizontalAlignment="Left" Margin="462,230,0,0" VerticalAlignment="Top" Width="89" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueZk_Click"  />
         </Grid>
 
         <!-- Gewindestift -->
-        <Grid x:Name="grid_Gewindestift" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" Visibility="Hidden">
+        <Grid x:Name="grid_Gewindestift" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7">
 
             <Label x:Name="lab_GewindedurchmesserGS" Content="Gewindedurchmesser:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="cb_GewindedurchmesserGS" HorizontalAlignment="Left" Margin="141,67,0,0" VerticalAlignment="Top" Width="120" >
+            <ComboBox x:Name="cb_GewindedurchmesserGS" HorizontalAlignment="Left" Margin="141,67,0,0" VerticalAlignment="Top" Width="120" MaxDropDownHeight="150" >
                 <ComboBoxItem x:Name="cb_M1GS" Content="M1" Selected="cb_M1GS_Selected" />
                 <ComboBoxItem x:Name="cb_M2GS" Content="M2" Selected="cb_M2GS_Selected" />
                 <ComboBoxItem x:Name="cb_M3GS" Content="M3" Selected="cb_M3GS_Selected" />
@@ -261,6 +275,10 @@
             </TextBox>
 
             <Button x:Name="btn_ContinueGs" Content="Order Overview" HorizontalAlignment="Left" Margin="460,230,0,0" VerticalAlignment="Top" Width="91" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueGs_Click"  />
+            <Label x:Name="lab_glmaxGs" Content="min: 5; max: 75" HorizontalAlignment="Left" Margin="266,97,0,0" VerticalAlignment="Top" Height="29" Width="83" FontSize="10" RenderTransformOrigin="0.096,0.517"/>
+            <CheckBox x:Name="chb_InfoGs" Content="Info" HorizontalAlignment="Left" Margin="278,46,0,0" VerticalAlignment="Top" Click="chb_InfoGs_Click"/>
+            
+            
 
         </Grid>
 
@@ -274,7 +292,7 @@
             <TextBox x:Name="tb_KopfdurchmesserSenk" HorizontalAlignment="Left" Height="23" Margin="141,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_KopfdurchmesserSenk_LostFocus" />
 
             <Label x:Name="lab_GewindedurchmesserSenk" Content="Gewindedurchmesser:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="cb_GewindedurchmesserSenk" HorizontalAlignment="Left" Margin="141,67,0,0" VerticalAlignment="Top" Width="120" >
+            <ComboBox x:Name="cb_GewindedurchmesserSenk" HorizontalAlignment="Left" Margin="141,67,0,0" VerticalAlignment="Top" Width="120" MaxDropDownHeight="150" >
                 <ComboBoxItem x:Name="cb_M1Senk" Content="M1" Selected="cb_M1Senk_Selected" />
                 <ComboBoxItem x:Name="cb_M2Senk" Content="M2" Selected="cb_M2Senk_Selected" />
                 <ComboBoxItem x:Name="cb_M3Senk" Content="M3" Selected="cb_M3Senk_Selected" />
@@ -336,6 +354,13 @@
                     </TransformGroup>
                 </TextBox.RenderTransform>
             </TextBox>
+
+            <Label x:Name="lab_khmaxSenk" Content="min: 3; max: 30" HorizontalAlignment="Left" Margin="266,98,0,0" VerticalAlignment="Top" Height="23" Width="80" FontSize="10"/>
+            <Label x:Name="lab_kdmaxSenk" Content="min: 5; max: 46" HorizontalAlignment="Left" Margin="266,128,0,0" VerticalAlignment="Top" Height="23" Width="80" FontSize="10"/>
+            <Label x:Name="lab_glmaxSenk" Content="min: 5; max: 75" HorizontalAlignment="Left" Margin="266,158,0,0" VerticalAlignment="Top" Height="23" Width="80" FontSize="10"/>
+            <Label x:Name="lab_slmaxSenk" Content="min: 5; max: 75" HorizontalAlignment="Left" Margin="266,188,0,0" VerticalAlignment="Top" Height="23" Width="80" FontSize="10"/>
+
+            <CheckBox x:Name="chb_InfoSenk" Content="Info" HorizontalAlignment="Left" Margin="278,46,0,0" VerticalAlignment="Top" Click="chb_InfoSenk_Click"/>
 
             <Button x:Name="btn_ContinueSenk" Content="Order Overview" HorizontalAlignment="Left" Margin="459,230,0,0" VerticalAlignment="Top" Width="92" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueSenk_Click"  />
 
