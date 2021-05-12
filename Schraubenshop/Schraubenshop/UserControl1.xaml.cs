@@ -220,6 +220,7 @@ namespace Schraubenshop
 
         private void btn_CalculateSK_Click(object sender, RoutedEventArgs e)
         {
+            
             double kopfhoehe;
             double kd;
             double laenge;
@@ -395,24 +396,71 @@ namespace Schraubenshop
         #region Ausgabe
         private void btn_ContinueSk_Click(object sender, RoutedEventArgs e)
         {
+            double kopfhoehe;
+            double kd;
+            double laenge;
+            double schaftlaenge;
+            double dichte = myMaterial.Dichteauswahl();
+            double preisfaktor = myMaterial.Preisfaktorauswahl();
 
-            hideAllGrids();
 
-            imgHidden();
-            img_Sechskantschraube.Visibility = Visibility.Visible;
 
-            myMaterial.MaterialAg();
-            grid_Ausgabe.Visibility = Visibility.Visible;
+            if (double.TryParse(tb_Kopfhoehe.Text, out kopfhoehe) && kopfhoehe >= minKh && kopfhoehe <= maxKh
+                && double.TryParse(tb_Gewindelaenge.Text, out laenge) && laenge >= minGl && laenge <= maxGl
+                && double.TryParse(tb_Kopfdurchmesser.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser
+                && double.TryParse(tb_Schaftlänge.Text, out schaftlaenge) && schaftlaenge >= 0 && schaftlaenge <= maxSl
+                && dichte != 0
+                && myScrew.Gewindedurchmesser != 0)
+            {
+                myScrew.Kopfhoehe = kopfhoehe;
+                myScrew.Gewindelaenge = laenge;
+                myScrew.Kopfdurchmesser = kd;
+                myScrew.Schaftlaenge = schaftlaenge;
+                myScrew.Dichte = dichte;
+                myScrew.Preisfaktor = preisfaktor;
 
-            tb_SchraubenartAg.Text = "Sechskantschraube";
-            tb_GewindeAg.Text = myScrew.Gewinderichtung;
-            tb_BezeichnungAg.Text = "M" + Convert.ToString(myScrew.Gewindedurchmesser) + "x" + Convert.ToString(myScrew.Gesamtlaenge);
-            tb_KopfAg.Text = "SW: " + Convert.ToString(myScrew.Kopfdurchmesser) + ";    Kopfhöhe: " + Convert.ToString(myScrew.Kopfhoehe) + "mm";
+                myScrew.BerechnungSK();
 
-            tb_GewichtAg.Text = "Gewicht: " + Convert.ToString(myScrew.Gewicht) + "g";
-            tb_MaterialAg.Text = "Material: " + myMaterial.Materialausgabe;
+                tb_Sechskant_Kd.Text = Convert.ToString(myScrew.Kopfdurchmesser);
+                tb_Sechskant_Kh.Text = Convert.ToString(myScrew.Kopfhoehe);
+                tb_Sechskant_Sl.Text = Convert.ToString(myScrew.Schaftlaenge);
+                tb_Sechskant_Gl.Text = Convert.ToString(myScrew.Gewindelaenge);
+                tb_Sechskant_Gd.Text = Convert.ToString(myScrew.Gewindedurchmesser);
+                
 
-            tb_PreisAg.Text = "Preis: " + Convert.ToString(myScrew.Preis) + " Euro";
+                hideAllGrids();
+
+                imgHidden();
+                img_Sechskantschraube.Visibility = Visibility.Visible;
+
+                myMaterial.MaterialAg();
+                grid_Ausgabe.Visibility = Visibility.Visible;
+
+                tb_SchraubenartAg.Text = "Sechskantschraube";
+                tb_GewindeAg.Text = myScrew.Gewinderichtung;
+                tb_BezeichnungAg.Text = "M" + Convert.ToString(myScrew.Gewindedurchmesser) + "x" + Convert.ToString(myScrew.Gesamtlaenge);
+                tb_KopfAg.Text = "SW: " + Convert.ToString(myScrew.Kopfdurchmesser) + ";    Kopfhöhe: " + Convert.ToString(myScrew.Kopfhoehe) + "mm";
+
+                tb_GewichtAg.Text = "Gewicht: " + Convert.ToString(myScrew.Gewicht) + "g";
+                tb_MaterialAg.Text = "Material: " + myMaterial.Materialausgabe;
+
+                tb_PreisAg.Text = "Preis: " + Convert.ToString(myScrew.Preis) + " Euro";
+            }
+            else
+            {
+                MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
+
+                if (double.TryParse(tb_Kopfdurchmesser.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser)
+                {
+                    tb_Kopfdurchmesser.Background = Brushes.LightGreen;
+                }
+                else
+                {
+                    tb_Kopfdurchmesser.Background = Brushes.Red;
+                }
+            }
+
+            
         }
         #endregion
 
@@ -707,23 +755,73 @@ namespace Schraubenshop
         #region Ausgabe
         private void btn_ContinueZk_Click(object sender, RoutedEventArgs e)
         {
-            hideAllGrids();
+            double kopfhoehe;
+            double kd;
+            double laenge;
+            double schaftlaenge;
+            double dichte = myMaterial.Dichteauswahl();
+            double preisfaktor = myMaterial.Preisfaktorauswahl();
 
-            imgHidden();
-            img_Zylinderschraube.Visibility = Visibility.Visible;
 
-            myMaterial.MaterialAg();
-            grid_Ausgabe.Visibility = Visibility.Visible;
 
-            tb_SchraubenartAg.Text = "Zylinderkopfschraube";
-            tb_GewindeAg.Text = myScrew.Gewinderichtung;
-            tb_BezeichnungAg.Text = "M" + Convert.ToString(myScrew.Gewindedurchmesser) + "x" + Convert.ToString(myScrew.Gesamtlaenge);
-            tb_KopfAg.Text = "Kopfdurchmesser: " + Convert.ToString(myScrew.Kopfdurchmesser) + "mm;    Kopfhöhe: " + Convert.ToString(myScrew.Kopfhoehe) + "mm";
+            if (double.TryParse(tb_KopfhoeheZk.Text, out kopfhoehe) && kopfhoehe >= minKh && kopfhoehe <= maxKh
+                && double.TryParse(tb_GewindelaengeZk.Text, out laenge) && laenge >= minGl && laenge <= maxGl
+                && double.TryParse(tb_KopfdurchmesserZk.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser
+                && double.TryParse(tb_SchaftlängeZk.Text, out schaftlaenge) && schaftlaenge >= 0 && schaftlaenge <= maxSl
+                && dichte != 0
+                && myScrew.Gewindedurchmesser != 0)
+            {
+                myScrew.Kopfhoehe = kopfhoehe;
+                myScrew.Gewindelaenge = laenge;
+                myScrew.Kopfdurchmesser = kd;
+                myScrew.Schaftlaenge = schaftlaenge;
+                myScrew.Dichte = dichte;
+                myScrew.Preisfaktor = preisfaktor;
 
-            tb_GewichtAg.Text = "Gewicht: " + Convert.ToString(myScrew.Gewicht) + "g";
-            tb_MaterialAg.Text = "Material: " + myMaterial.Materialausgabe;
+                myScrew.BerechnungSenk();
 
-            tb_PreisAg.Text = "Preis: " + Convert.ToString(myScrew.Preis) + " Euro";
+                tb_Zylinderkopf_Kd.Text = Convert.ToString(myScrew.Kopfdurchmesser);
+                tb_Zylinderkopf_Kh.Text = Convert.ToString(myScrew.Kopfhoehe);
+                tb_Zylinderkopf_Sl.Text = Convert.ToString(myScrew.Schaftlaenge);
+                tb_Zylinderkopf_Gl.Text = Convert.ToString(myScrew.Gewindelaenge);
+                tb_Zylinderkopf_Gd.Text = Convert.ToString(myScrew.Gewindedurchmesser);
+
+              
+
+                hideAllGrids();
+
+                imgHidden();
+                img_Zylinderschraube.Visibility = Visibility.Visible;
+
+                myMaterial.MaterialAg();
+                grid_Ausgabe.Visibility = Visibility.Visible;
+
+                tb_SchraubenartAg.Text = "Zylinderkopfschraube";
+                tb_GewindeAg.Text = myScrew.Gewinderichtung;
+                tb_BezeichnungAg.Text = "M" + Convert.ToString(myScrew.Gewindedurchmesser) + "x" + Convert.ToString(myScrew.Gesamtlaenge);
+                tb_KopfAg.Text = "Kopfdurchmesser: " + Convert.ToString(myScrew.Kopfdurchmesser) + "mm;    Kopfhöhe: " + Convert.ToString(myScrew.Kopfhoehe) + "mm";
+
+                tb_GewichtAg.Text = "Gewicht: " + Convert.ToString(myScrew.Gewicht) + "g";
+                tb_MaterialAg.Text = "Material: " + myMaterial.Materialausgabe;
+
+                tb_PreisAg.Text = "Preis: " + Convert.ToString(myScrew.Preis) + " Euro";
+
+            }
+            else
+            {
+                MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
+
+                if (double.TryParse(tb_KopfdurchmesserZk.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser)
+                {
+                    tb_KopfdurchmesserZk.Background = Brushes.LightGreen;
+                }
+                else
+                {
+                    tb_KopfdurchmesserZk.Background = Brushes.Red;
+                }
+            }
+
+            
         }
         #endregion
 
@@ -918,23 +1016,50 @@ namespace Schraubenshop
         #region Ausgabe
         private void btn_ContinueGs_Click(object sender, RoutedEventArgs e)
         {
-            hideAllGrids();
+            double laenge;
+            double dichte = myMaterial.Dichteauswahl();
+            double preisfaktor = myMaterial.Preisfaktorauswahl();
 
-            imgHidden();
-            img_Gewindestift.Visibility = Visibility.Visible;
 
-            myMaterial.MaterialAg();
-            grid_Ausgabe.Visibility = Visibility.Visible;
-            tb_KopfAg.Visibility = Visibility.Hidden;
 
-            tb_SchraubenartAg.Text = "Gewindestift";
-            tb_GewindeAg.Text = myScrew.Gewinderichtung;               ;
-            tb_BezeichnungAg.Text = "M" + Convert.ToString(myScrew.Gewindedurchmesser) + "x" + Convert.ToString(myScrew.Gewindelaenge);
+            if (double.TryParse(tb_GewindelaengeGS.Text, out laenge) && laenge >= minGl && laenge <= maxGl
+                && dichte != 0
+                && myScrew.Gewindedurchmesser != 0)
+            {
+                myScrew.Gewindelaenge = laenge;
+                myScrew.Dichte = dichte;
+                myScrew.Preisfaktor = preisfaktor;
 
-            tb_GewichtAg.Text = "Gewicht: " + Convert.ToString(myScrew.Gewicht) + "g";
-            tb_MaterialAg.Text = "Material: " + myMaterial.Materialausgabe;
+                myScrew.BerechnungGS();
 
-            tb_PreisAg.Text = "Preis: " + Convert.ToString(myScrew.Preis) + " Euro";
+                tb_Gewindestift_Gl.Text = Convert.ToString(myScrew.Gewindelaenge);
+                tb_Gewindestift_Gd.Text = Convert.ToString(myScrew.Gewindedurchmesser);
+
+                
+                hideAllGrids();
+
+                imgHidden();
+                img_Gewindestift.Visibility = Visibility.Visible;
+
+                myMaterial.MaterialAg();
+                grid_Ausgabe.Visibility = Visibility.Visible;
+                tb_KopfAg.Visibility = Visibility.Hidden;
+
+                tb_SchraubenartAg.Text = "Gewindestift";
+                tb_GewindeAg.Text = myScrew.Gewinderichtung; ;
+                tb_BezeichnungAg.Text = "M" + Convert.ToString(myScrew.Gewindedurchmesser) + "x" + Convert.ToString(myScrew.Gewindelaenge);
+
+                tb_GewichtAg.Text = "Gewicht: " + Convert.ToString(myScrew.Gewicht) + "g";
+                tb_MaterialAg.Text = "Material: " + myMaterial.Materialausgabe;
+
+                tb_PreisAg.Text = "Preis: " + Convert.ToString(myScrew.Preis) + " Euro";
+            }
+            else
+            {
+                MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
+            }
+
+            
         }
         #endregion
 
@@ -1221,23 +1346,67 @@ namespace Schraubenshop
         #region Ausgabe
         private void btn_ContinueSenk_Click(object sender, RoutedEventArgs e)
         {
-            hideAllGrids();
+            double kopfhoehe;
+            double kd;
+            double laenge;
+            double schaftlaenge;
+            double dichte = myMaterial.Dichteauswahl();
+            double preisfaktor = myMaterial.Preisfaktorauswahl();
 
-            imgHidden();
-            img_Senkschraube.Visibility = Visibility.Visible;
 
-            myMaterial.MaterialAg();
-            grid_Ausgabe.Visibility = Visibility.Visible;
 
-            tb_SchraubenartAg.Text = "Senkschraube";
-            tb_GewindeAg.Text = myScrew.Gewinderichtung;
-            tb_BezeichnungAg.Text = "M" + Convert.ToString(myScrew.Gewindedurchmesser) + "x" + Convert.ToString(myScrew.Gesamtlaenge);
-            tb_KopfAg.Text = "Kopfdurchmesser: " + Convert.ToString(myScrew.Kopfdurchmesser) + "mm;    Kopfhöhe: " + Convert.ToString(myScrew.Kopfhoehe) + "mm";
+            if (double.TryParse(tb_KopfhoeheSenk.Text, out kopfhoehe) && kopfhoehe >= minKh && kopfhoehe <= maxKh
+                && double.TryParse(tb_GewindelaengeSenk.Text, out laenge) && laenge >= minGl && laenge <= maxGl
+                && double.TryParse(tb_KopfdurchmesserSenk.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser
+                && double.TryParse(tb_SchaftlängeSenk.Text, out schaftlaenge) && schaftlaenge >= 0 && schaftlaenge <= maxSl
+                && dichte != 0
+                && myScrew.Gewindedurchmesser != 0)
+            {
+                myScrew.Kopfhoehe = kopfhoehe;
+                myScrew.Gewindelaenge = laenge;
+                myScrew.Kopfdurchmesser = kd;
+                myScrew.Schaftlaenge = schaftlaenge;
+                myScrew.Dichte = dichte;
+                myScrew.Preisfaktor = preisfaktor;
 
-            tb_GewichtAg.Text = "Gewicht: " + Convert.ToString(myScrew.Gewicht) + "g";
-            tb_MaterialAg.Text = "Material: " + myMaterial.Materialausgabe;
+                myScrew.BerechnungSenk();
+                tb_Senkschraube_Kd.Text = Convert.ToString(myScrew.Kopfdurchmesser);
+                tb_Senkschraube_Sl.Text = Convert.ToString(myScrew.Schaftlaenge);
+                tb_Senkschraube_Gl.Text = Convert.ToString(myScrew.Gewindelaenge);
+                tb_Senkschraube_Gd.Text = Convert.ToString(myScrew.Gewindedurchmesser);                
 
-            tb_PreisAg.Text = "Preis: " + Convert.ToString(myScrew.Preis) + " Euro";
+                hideAllGrids();
+
+                imgHidden();
+                img_Senkschraube.Visibility = Visibility.Visible;
+
+                myMaterial.MaterialAg();
+                grid_Ausgabe.Visibility = Visibility.Visible;
+
+                tb_SchraubenartAg.Text = "Senkschraube";
+                tb_GewindeAg.Text = myScrew.Gewinderichtung;
+                tb_BezeichnungAg.Text = "M" + Convert.ToString(myScrew.Gewindedurchmesser) + "x" + Convert.ToString(myScrew.Gesamtlaenge);
+                tb_KopfAg.Text = "Kopfdurchmesser: " + Convert.ToString(myScrew.Kopfdurchmesser) + "mm;    Kopfhöhe: " + Convert.ToString(myScrew.Kopfhoehe) + "mm";
+
+                tb_GewichtAg.Text = "Gewicht: " + Convert.ToString(myScrew.Gewicht) + "g";
+                tb_MaterialAg.Text = "Material: " + myMaterial.Materialausgabe;
+
+                tb_PreisAg.Text = "Preis: " + Convert.ToString(myScrew.Preis) + " Euro";
+            }
+            else
+            {
+                MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
+
+                if (double.TryParse(tb_KopfdurchmesserSenk.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser)
+                {
+                    tb_KopfdurchmesserSenk.Background = Brushes.LightGreen;
+                }
+                else
+                {
+                    tb_KopfdurchmesserSenk.Background = Brushes.Red;
+                }
+            }
+
         }
 
 
