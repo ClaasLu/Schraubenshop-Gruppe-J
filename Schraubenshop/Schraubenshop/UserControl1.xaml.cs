@@ -106,7 +106,7 @@ namespace Schraubenshop
             img_Senkschraube.Visibility = Visibility.Hidden;
         }
         #endregion
-
+                
         #region Sechskant
 
         // Auswahl Sechskant
