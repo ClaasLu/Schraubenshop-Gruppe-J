@@ -51,7 +51,7 @@
 
 
         <!-- Sechskantschraube -->
-        <Grid x:Name="grid_Sechskant" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" Visibility="Hidden" >
+        <Grid x:Name="grid_Sechskant" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" >
 
             <Label Content="Kopfhöhe:" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="70"/>
             <TextBox x:Name="tb_Kopfhoehe" HorizontalAlignment="Left" Height="23" Margin="141,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_Kopfhoehe_LostFocus" />
@@ -223,7 +223,7 @@
         </Grid>
 
         <!-- Gewindestift -->
-        <Grid x:Name="grid_Gewindestift" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7">
+        <Grid x:Name="grid_Gewindestift" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" Visibility="Hidden">
 
             <Label x:Name="lab_GewindedurchmesserGS" Content="Gewindedurchmesser:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="cb_GewindedurchmesserGS" HorizontalAlignment="Left" Margin="141,67,0,0" VerticalAlignment="Top" Width="120" MaxDropDownHeight="150" >
