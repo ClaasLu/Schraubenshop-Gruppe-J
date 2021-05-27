@@ -1439,51 +1439,93 @@ namespace Schraubenshop
 
         private void btn_Catia_Click(object sender, RoutedEventArgs e)
         {
+            double kopfhoehe;
+            double kd;
             double laenge;
+            double schaftlaenge;
             double dichte = myMaterial.Dichteauswahl();
             double preisfaktor = myMaterial.Preisfaktorauswahl();
 
 
 
-            if (double.TryParse(tb_Gewindelaenge.Text, out laenge) && laenge >= minGl && laenge <= maxGl
+            if (double.TryParse(tb_Kopfhoehe.Text, out kopfhoehe) && kopfhoehe >= minKh && kopfhoehe <= maxKh
+                && double.TryParse(tb_Gewindelaenge.Text, out laenge) && laenge >= minGl && laenge <= maxGl
+                && double.TryParse(tb_Kopfdurchmesser.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser
+                && double.TryParse(tb_Schaftlänge.Text, out schaftlaenge) && schaftlaenge >= 0 && schaftlaenge <= maxSl
                 && dichte != 0
                 && myScrew.Gewindedurchmesser != 0)
             {
+                myScrew.Kopfhoehe = kopfhoehe;
                 myScrew.Gewindelaenge = laenge;
+                myScrew.Kopfdurchmesser = kd;
+                myScrew.Schaftlaenge = schaftlaenge;
                 myScrew.Dichte = dichte;
                 myScrew.Preisfaktor = preisfaktor;
+                myScrew.Gesamtlaenge = laenge + schaftlaenge;
 
                 myScrew.Schraubenart = 1;
                 new CatiaControl(myScrew);
+
+
             }
             else
             {
                 MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
+
+                if (double.TryParse(tb_Kopfdurchmesser.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser)
+                {
+                    tb_Kopfdurchmesser.Background = Brushes.LightGreen;
+                }
+                else
+                {
+                    tb_Kopfdurchmesser.Background = Brushes.Red;
+                }
             }
         }
 
         private void btn_CatiaZk_Click(object sender, RoutedEventArgs e)
         {
+            double kopfhoehe;
+            double kd;
             double laenge;
+            double schaftlaenge;
             double dichte = myMaterial.Dichteauswahl();
             double preisfaktor = myMaterial.Preisfaktorauswahl();
 
 
 
-            if (double.TryParse(tb_GewindelaengeZk.Text, out laenge) && laenge >= minGl && laenge <= maxGl
+            if (double.TryParse(tb_KopfhoeheZk.Text, out kopfhoehe) && kopfhoehe >= minKh && kopfhoehe <= maxKh
+                && double.TryParse(tb_GewindelaengeZk.Text, out laenge) && laenge >= minGl && laenge <= maxGl
+                && double.TryParse(tb_KopfdurchmesserZk.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser
+                && double.TryParse(tb_SchaftlängeZk.Text, out schaftlaenge) && schaftlaenge >= 0 && schaftlaenge <= maxSl
                 && dichte != 0
                 && myScrew.Gewindedurchmesser != 0)
             {
+                myScrew.Kopfhoehe = kopfhoehe;
                 myScrew.Gewindelaenge = laenge;
+                myScrew.Kopfdurchmesser = kd;
+                myScrew.Schaftlaenge = schaftlaenge;
                 myScrew.Dichte = dichte;
                 myScrew.Preisfaktor = preisfaktor;
+                myScrew.Gesamtlaenge = laenge + schaftlaenge;
 
                 myScrew.Schraubenart = 2;
                 new CatiaControl(myScrew);
+
+
             }
             else
             {
                 MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
+
+                if (double.TryParse(tb_Kopfdurchmesser.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser)
+                {
+                    tb_Kopfdurchmesser.Background = Brushes.LightGreen;
+                }
+                else
+                {
+                    tb_Kopfdurchmesser.Background = Brushes.Red;
+                }
             }
         }
 
@@ -1514,26 +1556,48 @@ namespace Schraubenshop
 
         private void btn_CatiaSenk_Click(object sender, RoutedEventArgs e)
         {
+            double kopfhoehe;
+            double kd;
             double laenge;
+            double schaftlaenge;
             double dichte = myMaterial.Dichteauswahl();
             double preisfaktor = myMaterial.Preisfaktorauswahl();
+            
 
 
 
-            if (double.TryParse(tb_GewindelaengeSenk.Text, out laenge) && laenge >= minGl && laenge <= maxGl
+            if (double.TryParse(tb_KopfhoeheSenk.Text, out kopfhoehe) && kopfhoehe >= minKh && kopfhoehe <= maxKh
+                && double.TryParse(tb_GewindelaengeSenk.Text, out laenge) && laenge >= minGl && laenge <= maxGl
+                && double.TryParse(tb_KopfdurchmesserSenk.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser
+                && double.TryParse(tb_SchaftlängeSenk.Text, out schaftlaenge) && schaftlaenge >= 0 && schaftlaenge <= maxSl
                 && dichte != 0
                 && myScrew.Gewindedurchmesser != 0)
             {
+                myScrew.Kopfhoehe = kopfhoehe;
                 myScrew.Gewindelaenge = laenge;
+                myScrew.Kopfdurchmesser = kd;
+                myScrew.Schaftlaenge = schaftlaenge;
                 myScrew.Dichte = dichte;
                 myScrew.Preisfaktor = preisfaktor;
+                myScrew.Gesamtlaenge = laenge + schaftlaenge;
 
                 myScrew.Schraubenart = 4;
                 new CatiaControl(myScrew);
+
+
             }
             else
             {
                 MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
+
+                if (double.TryParse(tb_Kopfdurchmesser.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser)
+                {
+                    tb_Kopfdurchmesser.Background = Brushes.LightGreen;
+                }
+                else
+                {
+                    tb_Kopfdurchmesser.Background = Brushes.Red;
+                }
             }
         }
     }

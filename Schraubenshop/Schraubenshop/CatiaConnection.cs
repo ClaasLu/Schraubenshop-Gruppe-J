@@ -326,5 +326,155 @@ namespace Schraubenshop
         }
 
         #endregion
+
+        public void OffsetEbene(Schraube myScrew)
+        {
+                      
+            OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
+            Reference RefmyPlaneYZ = (Reference)catOriginElements.PlaneYZ;
+            myPart.InWorkObject = myPart;
+            HybridShapeFactory hybridShapeFactory1 = (HybridShapeFactory)myPart.HybridShapeFactory;
+            HybridShapePlaneOffset OffsetEbene = hybridShapeFactory1.AddNewPlaneOffset(RefmyPlaneYZ, -myScrew.Gesamtlaenge, true);
+            OffsetEbene.set_Name("OffsetEbene");
+            Reference RefOffsetEbene = myPart.CreateReferenceFromObject(OffsetEbene);
+            HybridBodies hybridBodies1 = myPart.HybridBodies;
+            HybridBody hybridBody1 = hybridBodies1.Item("Profile");
+            hybridBody1.AppendHybridShape(OffsetEbene);
+
+
+            myPart.Update();            
+            Sketches catSketches2 = hybridBody1.HybridSketches;
+            Sketch SkizzeaufOffset = catSketches2.Add(RefOffsetEbene);
+            myPart.InWorkObject = SkizzeaufOffset;
+            SkizzeaufOffset.set_Name("OffsetSkizze");
+            SkizzeaufOffset = mySketches.Add(RefOffsetEbene);
+            // Achsensystem in Skizze erstellen 
+            ErzeugeAchsensystem();
+            // Skizzierer verlassen
+            SkizzeaufOffset.CloseEdition();
+
+
+            // Part aktualisieren
+            myPart.Update();
+            myPart = hsp_catiaPartDoc.Part;
+            Bodies bodies = myPart.Bodies;
+            myBody = myPart.MainBody;
+            // myBody = bodies.Add();
+
+            // Hauptkoerper in Bearbeitung definieren
+            myPart.InWorkObject = myPart.MainBody;
+
+            // Skizze umbenennen
+            SkizzeaufOffset.set_Name("Kreis2");
+
+            // Skizze...
+            // ... oeffnen für die Bearbeitung
+            Factory2D catFactory2D2 = SkizzeaufOffset.OpenEdition();
+
+            // ... Kreis erstellen
+            double H0 = 0;
+            double V0 = 0;
+            Point2D Ursprung = catFactory2D2.CreatePoint(H0, V0);
+            Circle2D Kreis = catFactory2D2.CreateCircle(H0, V0, myScrew.Kopfdurchmesser / 2, 0, 0);
+            Kreis.CenterPoint = Ursprung;
+
+            // ... schliessen
+            SkizzeaufOffset.CloseEdition();
+
+            // Schraubenschaft durch ein Pad erstellen
+            Reference RefMySchaft = myPart.CreateReferenceFromObject(SkizzeaufOffset);
+            mySchaft = SF.AddNewPadFromRef(RefMySchaft, myScrew.Kopfhoehe);
+            myPart.Update();
+
+        }
+
+        public void OffsetEbeneSk(Schraube myScrew)
+        {
+
+            OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
+            Reference RefmyPlaneYZ = (Reference)catOriginElements.PlaneYZ;
+            myPart.InWorkObject = myPart;
+            HybridShapeFactory hybridShapeFactory1 = (HybridShapeFactory)myPart.HybridShapeFactory;
+            HybridShapePlaneOffset OffsetEbene = hybridShapeFactory1.AddNewPlaneOffset(RefmyPlaneYZ, -myScrew.Gesamtlaenge, true);
+            OffsetEbene.set_Name("OffsetEbene");
+            Reference RefOffsetEbene = myPart.CreateReferenceFromObject(OffsetEbene);
+            HybridBodies hybridBodies1 = myPart.HybridBodies;
+            HybridBody hybridBody1 = hybridBodies1.Item("Profile");
+            hybridBody1.AppendHybridShape(OffsetEbene);
+
+
+            myPart.Update();
+            Sketches catSketches2 = hybridBody1.HybridSketches;
+            Sketch SkizzeaufOffset = catSketches2.Add(RefOffsetEbene);
+            myPart.InWorkObject = SkizzeaufOffset;
+            SkizzeaufOffset.set_Name("OffsetSkizze");
+            SkizzeaufOffset = mySketches.Add(RefOffsetEbene);
+            // Achsensystem in Skizze erstellen 
+            ErzeugeAchsensystem();
+            // Skizzierer verlassen
+            SkizzeaufOffset.CloseEdition();
+
+
+            // Part aktualisieren
+            myPart.Update();
+            myPart = hsp_catiaPartDoc.Part;
+            Bodies bodies = myPart.Bodies;
+            myBody = myPart.MainBody;
+            // myBody = bodies.Add();
+
+            // Hauptkoerper in Bearbeitung definieren
+            myPart.InWorkObject = myPart.MainBody;
+
+            // Skizze umbenennen
+            SkizzeaufOffset.set_Name("Kreis2");
+
+            // Skizze...
+            // ... oeffnen für die Bearbeitung
+            Factory2D catFactory2D2 = SkizzeaufOffset.OpenEdition();
+
+            // Sechskant Punkte erstellen
+            Point2D point2D1 = catFactory2D2.CreatePoint(-Math.Sqrt(3)/6 * myScrew.Kopfdurchmesser, -0.5* myScrew.Kopfdurchmesser);
+            Point2D point2D2 = catFactory2D2.CreatePoint(Math.Sqrt(3) / 6 * myScrew.Kopfdurchmesser, -0.5 * myScrew.Kopfdurchmesser);
+            Point2D point2D3 = catFactory2D2.CreatePoint(Math.Sqrt(3) / 3 * myScrew.Kopfdurchmesser, 0);
+            Point2D point2D4 = catFactory2D2.CreatePoint(Math.Sqrt(3) / 6 * myScrew.Kopfdurchmesser, 0.5 * myScrew.Kopfdurchmesser);
+            Point2D point2D5 = catFactory2D2.CreatePoint(-Math.Sqrt(3) / 6 * myScrew.Kopfdurchmesser, 0.5 * myScrew.Kopfdurchmesser);
+            Point2D point2D6 = catFactory2D2.CreatePoint(-Math.Sqrt(3) / 3 * myScrew.Kopfdurchmesser, 0);
+
+
+            // Linien
+            Line2D line2D1 = catFactory2D2.CreateLine(-Math.Sqrt(3) / 6 * myScrew.Kopfdurchmesser, -0.5 * myScrew.Kopfdurchmesser, Math.Sqrt(3) / 6 * myScrew.Kopfdurchmesser, -0.5 * myScrew.Kopfdurchmesser);
+            line2D1.StartPoint = point2D1;
+            line2D1.EndPoint = point2D2;
+
+            Line2D line2D2 = catFactory2D2.CreateLine(Math.Sqrt(3) / 6 * myScrew.Kopfdurchmesser, -0.5 * myScrew.Kopfdurchmesser, Math.Sqrt(3) / 3 * myScrew.Kopfdurchmesser, 0);
+            line2D2.StartPoint = point2D2;
+            line2D2.EndPoint = point2D3;
+
+            Line2D line2D3 = catFactory2D2.CreateLine(Math.Sqrt(3) / 3 * myScrew.Kopfdurchmesser, 0, Math.Sqrt(3) / 6 * myScrew.Kopfdurchmesser, 0.5 * myScrew.Kopfdurchmesser);
+            line2D3.StartPoint = point2D3;
+            line2D3.EndPoint = point2D4;
+
+            Line2D line2D4 = catFactory2D2.CreateLine( Math.Sqrt(3) / 6 * myScrew.Kopfdurchmesser, 0.5 * myScrew.Kopfdurchmesser, -Math.Sqrt(3) / 6 * myScrew.Kopfdurchmesser, 0.5 * myScrew.Kopfdurchmesser);
+            line2D4.StartPoint = point2D4;
+            line2D4.EndPoint = point2D5;
+
+            Line2D line2D5 = catFactory2D2.CreateLine( -Math.Sqrt(3) / 6 * myScrew.Kopfdurchmesser, 0.5 * myScrew.Kopfdurchmesser, -Math.Sqrt(3) / 3 * myScrew.Kopfdurchmesser, 0);
+            line2D5.StartPoint = point2D5;
+            line2D5.EndPoint = point2D6;
+
+            Line2D line2D6 = catFactory2D2.CreateLine( -Math.Sqrt(3) / 3 * myScrew.Kopfdurchmesser, 0, -Math.Sqrt(3) / 6 * myScrew.Kopfdurchmesser, -0.5 * myScrew.Kopfdurchmesser);
+            line2D6.StartPoint = point2D6;
+            line2D6.EndPoint = point2D1;
+
+            // ... schliessen
+            SkizzeaufOffset.CloseEdition();
+
+            // Schraubenschaft durch ein Pad erstellen
+            Reference RefMySchaft = myPart.CreateReferenceFromObject(SkizzeaufOffset);
+            mySchaft = SF.AddNewPadFromRef(RefMySchaft, myScrew.Kopfhoehe);
+            myPart.Update();
+
+        }
+
     }
 }

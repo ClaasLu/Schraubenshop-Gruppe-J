@@ -31,6 +31,9 @@ namespace Schraubenshop
 
                         // cc.ErzeugeGewindeFeature();
                         cc.ErzeugeGewindeHelix(dieSchraube);
+
+                        // Kopf und Offset Ebene
+                        cc.OffsetEbeneSk(dieSchraube);
                         MessageBox.Show("Daten wurden erfolgreich an Catia übergeben!");
 
                     }
@@ -48,7 +51,14 @@ namespace Schraubenshop
 
                         // cc.ErzeugeGewindeFeature();
                         cc.ErzeugeGewindeHelix(dieSchraube);
+                        
+
+                        // Offset Ebene und Kopf erzeugen
+                        cc.OffsetEbene(dieSchraube);
+
                         MessageBox.Show("Daten wurden erfolgreich an Catia übergeben!");
+
+
                     }
 
 
