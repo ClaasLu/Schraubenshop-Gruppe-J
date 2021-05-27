@@ -33,6 +33,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Interop.HybridShapeTypeLib">
+      <HintPath>..\Verweise\Interop.HybridShapeTypeLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.INFITF">
+      <HintPath>..\Verweise\Interop.INFITF.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.KnowledgewareTypeLib">
+      <HintPath>..\Verweise\Interop.KnowledgewareTypeLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.MECMOD">
+      <HintPath>..\Verweise\Interop.MECMOD.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.PARTITF">
+      <HintPath>..\Verweise\Interop.PARTITF.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.ProductStructureTypeLib">
+      <HintPath>..\Verweise\Interop.ProductStructureTypeLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -47,6 +71,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CatiaControl.cs" />
+    <Compile Include="CatiaConnection.cs" />
     <Compile Include="GUI_control.cs" />
     <Compile Include="Material.cs" />
     <Compile Include="Schraube.cs" />
@@ -93,6 +119,17 @@
     <Content Include="Zylinderkopfschraube_Zeichnungt.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="VPMEditorContextIDL">
+      <Guid>{F8329C77-3AB5-41F7-88FE-06F1DDB7EF79}</Guid>
+      <VersionMajor>0</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

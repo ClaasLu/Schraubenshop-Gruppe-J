@@ -1,10 +1,11 @@
 ﻿using System;
 
+
 namespace Schraubenshop
 {
     public class Schraube
     {
-
+        public int Schraubenart { get; set; }
         public double Kopfhoehe { get; set; }
         public double Kopfdurchmesser { get; set; }
         public double Gewindedurchmesser { get; set; }

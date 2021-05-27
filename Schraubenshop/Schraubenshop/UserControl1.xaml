@@ -51,7 +51,7 @@
 
 
         <!-- Sechskantschraube -->
-        <Grid x:Name="grid_Sechskant" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" >
+        <Grid x:Name="grid_Sechskant" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" Visibility="Hidden" >
 
             <Label Content="Kopfhöhe:" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="70"/>
             <TextBox x:Name="tb_Kopfhoehe" HorizontalAlignment="Left" Height="23" Margin="141,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_Kopfhoehe_LostFocus" />
@@ -133,6 +133,7 @@
             <Label x:Name="lab_slmax" Content="min: 5; max: 75" HorizontalAlignment="Left" Margin="266,188,0,0" VerticalAlignment="Top" Height="23" Width="80" FontSize="10"/>
 
             <CheckBox x:Name="chb_Info" Content="Info" HorizontalAlignment="Left" Margin="278,46,0,0" VerticalAlignment="Top"  Click="chb_Info_Click"/>
+            <Button x:Name="btn_Catia" Content="Show in Catia" HorizontalAlignment="Left" Margin="469,253,0,0" VerticalAlignment="Top" Width="88" Click="btn_Catia_Click"/>
 
 
         </Grid>
@@ -220,6 +221,7 @@
             <CheckBox x:Name="chb_InfoZk" Content="Info" HorizontalAlignment="Left" Margin="278,46,0,0" VerticalAlignment="Top" Click="chb_InfoZk_Click"/>
 
             <Button x:Name="btn_ContinueZk" Content="Order Overview" HorizontalAlignment="Left" Margin="462,230,0,0" VerticalAlignment="Top" Width="89" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueZk_Click"  />
+            <Button x:Name="btn_CatiaZk" Content="Show in Catia" HorizontalAlignment="Left" Margin="462,253,0,0" VerticalAlignment="Top" Width="89" Click="btn_CatiaZk_Click"/>
         </Grid>
 
         <!-- Gewindestift -->
@@ -277,13 +279,14 @@
             <Button x:Name="btn_ContinueGs" Content="Order Overview" HorizontalAlignment="Left" Margin="460,230,0,0" VerticalAlignment="Top" Width="91" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueGs_Click"  />
             <Label x:Name="lab_glmaxGs" Content="min: 5; max: 75" HorizontalAlignment="Left" Margin="266,97,0,0" VerticalAlignment="Top" Height="29" Width="83" FontSize="10" RenderTransformOrigin="0.096,0.517"/>
             <CheckBox x:Name="chb_InfoGs" Content="Info" HorizontalAlignment="Left" Margin="278,46,0,0" VerticalAlignment="Top" Click="chb_InfoGs_Click"/>
-            
-            
+            <Button x:Name="btn_CatiaGs" Content="Show in Catia" HorizontalAlignment="Left" Margin="460,253,0,0" VerticalAlignment="Top" Width="91" Click="btn_CatiaGs_Click"/>
+
+
 
         </Grid>
 
         <!-- Senkschraube -->
-        <Grid x:Name="grid_Senkschraube" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7" Visibility="Hidden">
+        <Grid x:Name="grid_Senkschraube" HorizontalAlignment="Left" Height="283" Margin="39,132,0,0" VerticalAlignment="Top" Width="661" RenderTransformOrigin="0.491,0.58" Background="#FFD7EFF7">
 
             <Label Content="Kopfhöhe:" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="70"/>
             <TextBox x:Name="tb_KopfhoeheSenk" HorizontalAlignment="Left" Height="23" Margin="141,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="tb_KopfhoeheSenk_LostFocus" />
@@ -363,7 +366,7 @@
             <CheckBox x:Name="chb_InfoSenk" Content="Info" HorizontalAlignment="Left" Margin="278,46,0,0" VerticalAlignment="Top" Click="chb_InfoSenk_Click"/>
 
             <Button x:Name="btn_ContinueSenk" Content="Order Overview" HorizontalAlignment="Left" Margin="459,230,0,0" VerticalAlignment="Top" Width="92" RenderTransformOrigin="0.539,2.828" Click="btn_ContinueSenk_Click"  />
-
+            <Button x:Name="btn_CatiaSenk" Content="Show in Catia" HorizontalAlignment="Left" Margin="459,253,0,0" VerticalAlignment="Top" Width="92" Click="btn_CatiaSenk_Click"/>
         </Grid>
 
         <!-- Ausgabe -->

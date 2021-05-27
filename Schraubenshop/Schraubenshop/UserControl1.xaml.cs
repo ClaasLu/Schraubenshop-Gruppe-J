@@ -57,6 +57,11 @@ namespace Schraubenshop
             btn_ContinueGs.Visibility = Visibility.Hidden;
             btn_ContinueSenk.Visibility = Visibility.Hidden;
 
+            btn_Catia.Visibility = Visibility.Hidden;
+            btn_CatiaZk.Visibility = Visibility.Hidden;
+            btn_CatiaGs.Visibility = Visibility.Hidden;
+            btn_CatiaSenk.Visibility = Visibility.Hidden;
+
             lab_kdmax.Visibility = Visibility.Hidden;
             lab_khmax.Visibility = Visibility.Hidden;
             lab_glmax.Visibility = Visibility.Hidden;
@@ -253,6 +258,7 @@ namespace Schraubenshop
                 tb_Sechskant_Gd.Text = Convert.ToString(myScrew.Gewindedurchmesser);
 
                 btn_ContinueSk.Visibility = Visibility.Visible;
+                btn_Catia.Visibility = Visibility.Visible;
             }
             else
             {
@@ -611,6 +617,7 @@ namespace Schraubenshop
                 tb_Zylinderkopf_Gd.Text = Convert.ToString(myScrew.Gewindedurchmesser);
 
                 btn_ContinueZk.Visibility = Visibility.Visible;
+                btn_CatiaZk.Visibility = Visibility.Visible;
 
             }
             else
@@ -902,6 +909,9 @@ namespace Schraubenshop
                 tb_Gewindestift_Gd.Text = Convert.ToString(myScrew.Gewindedurchmesser);
 
                 btn_ContinueGs.Visibility = Visibility.Visible;
+                btn_CatiaGs.Visibility = Visibility.Visible;
+
+
             }
             else
             {
@@ -1053,6 +1063,8 @@ namespace Schraubenshop
                 tb_MaterialAg.Text = "Material: " + myMaterial.Materialausgabe;
 
                 tb_PreisAg.Text = "Preis: " + Convert.ToString(myScrew.Preis) + " Euro";
+
+                
             }
             else
             {
@@ -1204,6 +1216,7 @@ namespace Schraubenshop
                 tb_Senkschraube_Gd.Text = Convert.ToString(myScrew.Gewindedurchmesser);
 
                 btn_ContinueSenk.Visibility = Visibility.Visible;
+                btn_CatiaSenk.Visibility = Visibility.Visible;
             }
             else
             {
@@ -1419,11 +1432,110 @@ namespace Schraubenshop
 
 
 
-        #endregion
 
         #endregion
 
-       
+        #endregion
+
+        private void btn_Catia_Click(object sender, RoutedEventArgs e)
+        {
+            double laenge;
+            double dichte = myMaterial.Dichteauswahl();
+            double preisfaktor = myMaterial.Preisfaktorauswahl();
+
+
+
+            if (double.TryParse(tb_Gewindelaenge.Text, out laenge) && laenge >= minGl && laenge <= maxGl
+                && dichte != 0
+                && myScrew.Gewindedurchmesser != 0)
+            {
+                myScrew.Gewindelaenge = laenge;
+                myScrew.Dichte = dichte;
+                myScrew.Preisfaktor = preisfaktor;
+
+                myScrew.Schraubenart = 1;
+                new CatiaControl(myScrew);
+            }
+            else
+            {
+                MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
+            }
+        }
+
+        private void btn_CatiaZk_Click(object sender, RoutedEventArgs e)
+        {
+            double laenge;
+            double dichte = myMaterial.Dichteauswahl();
+            double preisfaktor = myMaterial.Preisfaktorauswahl();
+
+
+
+            if (double.TryParse(tb_GewindelaengeZk.Text, out laenge) && laenge >= minGl && laenge <= maxGl
+                && dichte != 0
+                && myScrew.Gewindedurchmesser != 0)
+            {
+                myScrew.Gewindelaenge = laenge;
+                myScrew.Dichte = dichte;
+                myScrew.Preisfaktor = preisfaktor;
+
+                myScrew.Schraubenart = 2;
+                new CatiaControl(myScrew);
+            }
+            else
+            {
+                MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
+            }
+        }
+
+        private void btn_CatiaGs_Click(object sender, RoutedEventArgs e)
+        {
+            double laenge;
+            double dichte = myMaterial.Dichteauswahl();
+            double preisfaktor = myMaterial.Preisfaktorauswahl();
+
+
+
+            if (double.TryParse(tb_GewindelaengeGS.Text, out laenge) && laenge >= minGl && laenge <= maxGl
+                && dichte != 0
+                && myScrew.Gewindedurchmesser != 0)
+            {
+                myScrew.Gewindelaenge = laenge;
+                myScrew.Dichte = dichte;
+                myScrew.Preisfaktor = preisfaktor;                
+
+                myScrew.Schraubenart = 3;
+                new CatiaControl(myScrew);
+            }
+            else
+            {
+                MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
+            }
+        }
+
+        private void btn_CatiaSenk_Click(object sender, RoutedEventArgs e)
+        {
+            double laenge;
+            double dichte = myMaterial.Dichteauswahl();
+            double preisfaktor = myMaterial.Preisfaktorauswahl();
+
+
+
+            if (double.TryParse(tb_GewindelaengeSenk.Text, out laenge) && laenge >= minGl && laenge <= maxGl
+                && dichte != 0
+                && myScrew.Gewindedurchmesser != 0)
+            {
+                myScrew.Gewindelaenge = laenge;
+                myScrew.Dichte = dichte;
+                myScrew.Preisfaktor = preisfaktor;
+
+                myScrew.Schraubenart = 4;
+                new CatiaControl(myScrew);
+            }
+            else
+            {
+                MessageBox.Show("Bitte überprüfen Sie Ihre Eingaben!");
+            }
+        }
     }
 }
 
