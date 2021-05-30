@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>LOGO.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Interop.HybridShapeTypeLib">
       <HintPath>..\Verweise\Interop.HybridShapeTypeLib.dll</HintPath>
@@ -98,6 +101,7 @@
     <Content Include="Gewindestif_Zeichnungt.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="LOGO.ico" />
     <Content Include="LOGO.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
