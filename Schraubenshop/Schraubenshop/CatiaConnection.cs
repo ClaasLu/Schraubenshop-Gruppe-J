@@ -538,6 +538,9 @@ namespace Schraubenshop
             Line2D line2D4 = catFactory2D1.CreateLine(myScrew.Gewindedurchmesser / 2, myScrew.Gesamtlaenge, 0, myScrew.Gesamtlaenge);
             line2D4.StartPoint = point2D4;
             line2D4.EndPoint = point2D1;
+
+            // Centerline setzen
+            hsp_catiaSkizze.CenterLine = line2D1;
             
             
             // ... schliessen
@@ -545,11 +548,11 @@ namespace Schraubenshop
 
             // Rotationskörper erstellen
             Reference skizze = myPart.CreateReferenceFromObject(hsp_catiaSkizze);
-            //Reference rotationsachse = myPart.CreateReferenceFromBRepName("Achse", hsp_catiaSkizze);
+            Reference rotationsachse = (Reference) hsp_catiaSkizze.CenterLine;
             myWelle = SF.AddNewShaftFromRef(skizze);
-            //myWelle.RevoluteAxis = rotationsachse;
+            myWelle.RevoluteAxis = rotationsachse;
 
-
+            hsp_catiaPartDoc.Part.Update();
         }
 
     }
