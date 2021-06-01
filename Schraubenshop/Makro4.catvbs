@@ -1,0 +1,23 @@
+Language="VBSCRIPT"
+
+Sub CATMain()
+
+Set partDocument1 = CATIA.ActiveDocument
+
+Set part1 = partDocument1.Part
+
+Set parameters1 = part1.Parameters
+
+Set strParam1 = parameters1.Item("Part1\Hauptkörper\Material")
+
+Dim bSTR1
+bSTR1 = strParam1.Comment
+
+Dim bSTR2
+bSTR2 = strParam1.Comment
+
+strParam1.Value = "Stahl"
+
+part1.Update 
+
+End Sub
