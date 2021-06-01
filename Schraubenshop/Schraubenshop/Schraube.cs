@@ -65,6 +65,7 @@ namespace Schraubenshop
         // Kopfhöhe ersetzt durch ((Kopfdurchmesser - Gewindedurchmesser)/2)
         public void BerechnungSenk()
         {
+            this.Kopfhoehe = (Kopfdurchmesser - Gewindedurchmesser) / 2;
             this.Volumen = 1/3 * Math.PI * ((Kopfdurchmesser - Gewindedurchmesser)/2) * ((Kopfdurchmesser/2)* (Kopfdurchmesser / 2) + (Gewindedurchmesser/2)*(Gewindedurchmesser / 2) + (Kopfdurchmesser/2)*(Gewindedurchmesser/2)) + Math.PI * (Gewindedurchmesser / 2) * (Gewindedurchmesser / 2) * (Gewindelaenge + Schaftlaenge);
             this.Gewicht = Dichte * Volumen * 1000;
             this.Gewicht = Math.Round(this.Gewicht, 2);

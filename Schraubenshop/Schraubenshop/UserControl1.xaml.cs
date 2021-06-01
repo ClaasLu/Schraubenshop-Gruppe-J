@@ -66,18 +66,22 @@ namespace Schraubenshop
             lab_khmax.Visibility = Visibility.Hidden;
             lab_glmax.Visibility = Visibility.Hidden;
             lab_slmax.Visibility = Visibility.Hidden;
+            lab_Gewinde.Visibility = Visibility.Hidden;
 
             lab_kdmaxZk.Visibility = Visibility.Hidden;
             lab_khmaxZk.Visibility = Visibility.Hidden;
             lab_glmaxZk.Visibility = Visibility.Hidden;
             lab_slmaxZk.Visibility = Visibility.Hidden;
+            lab_GewindeZk.Visibility = Visibility.Hidden;
+
 
             lab_glmaxGs.Visibility = Visibility.Hidden;
 
-            lab_kdmaxSenk.Visibility = Visibility.Hidden;
-            lab_khmaxSenk.Visibility = Visibility.Hidden;
+            lab_kdmaxSenk.Visibility = Visibility.Hidden;           
             lab_glmaxSenk.Visibility = Visibility.Hidden;
             lab_slmaxSenk.Visibility = Visibility.Hidden;
+            lab_GewindeSk.Visibility = Visibility.Hidden;
+
 
             chb_Info.IsChecked = false;
             chb_InfoZk.IsChecked = false;
@@ -139,6 +143,7 @@ namespace Schraubenshop
                 lab_khmax.Visibility = Visibility.Visible;
                 lab_glmax.Visibility = Visibility.Visible;
                 lab_slmax.Visibility = Visibility.Visible;
+                lab_Gewinde.Visibility = Visibility.Visible;
             }
             else
             {
@@ -146,6 +151,7 @@ namespace Schraubenshop
                 lab_khmax.Visibility = Visibility.Hidden;
                 lab_glmax.Visibility = Visibility.Hidden;
                 lab_slmax.Visibility = Visibility.Hidden;
+                lab_Gewinde.Visibility = Visibility.Hidden;
             }
 
         }
@@ -498,6 +504,7 @@ namespace Schraubenshop
                 lab_khmaxZk.Visibility = Visibility.Visible;
                 lab_glmaxZk.Visibility = Visibility.Visible;
                 lab_slmaxZk.Visibility = Visibility.Visible;
+                lab_GewindeZk.Visibility = Visibility.Visible;
             }
             else
             {
@@ -505,6 +512,7 @@ namespace Schraubenshop
                 lab_khmaxZk.Visibility = Visibility.Hidden;
                 lab_glmaxZk.Visibility = Visibility.Hidden;
                 lab_slmaxZk.Visibility = Visibility.Hidden;
+                lab_GewindeZk.Visibility = Visibility.Hidden;
             }
 
 
@@ -1099,17 +1107,17 @@ namespace Schraubenshop
         {
             if (lab_kdmaxSenk.Visibility == Visibility.Hidden)
             {
-                lab_kdmaxSenk.Visibility = Visibility.Visible;
-                lab_khmaxSenk.Visibility = Visibility.Visible;
+                lab_kdmaxSenk.Visibility = Visibility.Visible;                
                 lab_glmaxSenk.Visibility = Visibility.Visible;
                 lab_slmaxSenk.Visibility = Visibility.Visible;
+                lab_GewindeSk.Visibility = Visibility.Visible;
             }
             else
             {
-                lab_kdmaxSenk.Visibility = Visibility.Hidden;
-                lab_khmaxSenk.Visibility = Visibility.Hidden;
+                lab_kdmaxSenk.Visibility = Visibility.Hidden;                
                 lab_glmaxSenk.Visibility = Visibility.Hidden;
                 lab_slmaxSenk.Visibility = Visibility.Hidden;
+                lab_GewindeSk.Visibility = Visibility.Hidden;
             }
         }
 
@@ -1186,7 +1194,7 @@ namespace Schraubenshop
 
         private void btn_CalculateSenk_Click(object sender, RoutedEventArgs e)
         {
-            double kopfhoehe;
+            
             double kd;
             double laenge;
             double schaftlaenge;
@@ -1195,14 +1203,13 @@ namespace Schraubenshop
 
 
 
-            if (double.TryParse(tb_KopfhoeheSenk.Text, out kopfhoehe) && kopfhoehe >= minKh && kopfhoehe <= maxKh
-                && double.TryParse(tb_GewindelaengeSenk.Text, out laenge) && laenge >= minGl && laenge <= maxGl
+            if (double.TryParse(tb_GewindelaengeSenk.Text, out laenge) && laenge >= minGl && laenge <= maxGl
                 && double.TryParse(tb_KopfdurchmesserSenk.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser
                 && double.TryParse(tb_SchaftlängeSenk.Text, out schaftlaenge) && schaftlaenge >= 0 && schaftlaenge <= maxSl
                 && dichte != 0
                 && myScrew.Gewindedurchmesser != 0)
             {
-                myScrew.Kopfhoehe = kopfhoehe;
+                
                 myScrew.Gewindelaenge = laenge;
                 myScrew.Kopfdurchmesser = kd;
                 myScrew.Schaftlaenge = schaftlaenge;
@@ -1359,7 +1366,7 @@ namespace Schraubenshop
         #region Ausgabe
         private void btn_ContinueSenk_Click(object sender, RoutedEventArgs e)
         {
-            double kopfhoehe;
+           
             double kd;
             double laenge;
             double schaftlaenge;
@@ -1368,14 +1375,13 @@ namespace Schraubenshop
 
 
 
-            if (double.TryParse(tb_KopfhoeheSenk.Text, out kopfhoehe) && kopfhoehe >= minKh && kopfhoehe <= maxKh
-                && double.TryParse(tb_GewindelaengeSenk.Text, out laenge) && laenge >= minGl && laenge <= maxGl
+            if (double.TryParse(tb_GewindelaengeSenk.Text, out laenge) && laenge >= minGl && laenge <= maxGl
                 && double.TryParse(tb_KopfdurchmesserSenk.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser
                 && double.TryParse(tb_SchaftlängeSenk.Text, out schaftlaenge) && schaftlaenge >= 0 && schaftlaenge <= maxSl
                 && dichte != 0
                 && myScrew.Gewindedurchmesser != 0)
             {
-                myScrew.Kopfhoehe = kopfhoehe;
+                
                 myScrew.Gewindelaenge = laenge;
                 myScrew.Kopfdurchmesser = kd;
                 myScrew.Schaftlaenge = schaftlaenge;
@@ -1556,7 +1562,7 @@ namespace Schraubenshop
 
         private void btn_CatiaSenk_Click(object sender, RoutedEventArgs e)
         {
-            double kopfhoehe;
+           
             double kd;
             double laenge;
             double schaftlaenge;
@@ -1566,14 +1572,13 @@ namespace Schraubenshop
 
 
 
-            if (double.TryParse(tb_KopfhoeheSenk.Text, out kopfhoehe) && kopfhoehe >= minKh && kopfhoehe <= maxKh
-                && double.TryParse(tb_GewindelaengeSenk.Text, out laenge) && laenge >= minGl && laenge <= maxGl
+            if (double.TryParse(tb_GewindelaengeSenk.Text, out laenge) && laenge >= minGl && laenge <= maxGl
                 && double.TryParse(tb_KopfdurchmesserSenk.Text, out kd) && kd >= minKd && kd <= maxKd && kd > myScrew.Gewindedurchmesser
                 && double.TryParse(tb_SchaftlängeSenk.Text, out schaftlaenge) && schaftlaenge >= 0 && schaftlaenge <= maxSl
                 && dichte != 0
                 && myScrew.Gewindedurchmesser != 0)
             {
-                myScrew.Kopfhoehe = kopfhoehe;
+                
                 myScrew.Gewindelaenge = laenge;
                 myScrew.Kopfdurchmesser = kd;
                 myScrew.Schaftlaenge = schaftlaenge;
