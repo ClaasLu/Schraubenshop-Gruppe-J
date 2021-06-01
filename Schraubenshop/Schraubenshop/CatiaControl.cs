@@ -91,6 +91,10 @@ namespace Schraubenshop
 
                         // cc.ErzeugeGewindeFeature();
                         cc.ErzeugeGewindeHelix(dieSchraube);
+
+                        // Erzeuge neue Skizze
+                        cc.ErstelleLeereSkizzeZX();
+
                         MessageBox.Show("Daten wurden erfolgreich an Catia übergeben!");
                     }
                     

@@ -327,6 +327,7 @@ namespace Schraubenshop
 
         #endregion
 
+        // Offset Ebene Sechskant und Sechskantkopf
         public void OffsetEbene(Schraube myScrew)
         {
                       
@@ -388,6 +389,7 @@ namespace Schraubenshop
 
         }
 
+        // Offsetebene und Kopf Zylinderkopfschraube
         public void OffsetEbeneSk(Schraube myScrew)
         {
 
@@ -475,6 +477,8 @@ namespace Schraubenshop
             myPart.Update();
 
         }
+        
+        
 
     }
 }
