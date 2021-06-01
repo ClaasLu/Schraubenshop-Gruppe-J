@@ -16,6 +16,7 @@ namespace Schraubenshop
         ShapeFactory SF;
         HybridShapeFactory HSF;
         Pad mySchaft;
+        Shaft myWelle;
         Body myBody;
         Part myPart;
         Sketches mySketches;
@@ -478,7 +479,78 @@ namespace Schraubenshop
 
         }
         
-        
+        public void ErzeugeSkizzeSenkkopf(Schraube myScrew)
+        {
+            // geometrisches Set auswaehlen und umbenennen
+            SF = (ShapeFactory)hsp_catiaPartDoc.Part.ShapeFactory;
+            HybridBodies catHybridBodies1 = hsp_catiaPartDoc.Part.HybridBodies;
+            HybridBody catHybridBody1;
+
+            catHybridBody1 = catHybridBodies1.Item("Profile");
+            // neue Skizze im ausgewaehlten geometrischen Set anlegen
+            mySketches = catHybridBody1.HybridSketches;
+            OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
+            Reference catReference1 = (Reference)catOriginElements.PlaneZX;
+            hsp_catiaSkizze = mySketches.Add(catReference1);
+            
+                  
+
+            // Part aktualisieren
+            hsp_catiaPartDoc.Part.Update();
+        }
+
+        public void ErzeugeSenkkopf(Schraube myScrew)
+        {
+            myPart = hsp_catiaPartDoc.Part;
+            Bodies bodies = myPart.Bodies;
+            myBody = myPart.MainBody;
+            // myBody = bodies.Add();
+
+            // Hauptkoerper in Bearbeitung definieren
+            myPart.InWorkObject = myPart.MainBody;
+
+            // Skizze umbennen
+            hsp_catiaSkizze.set_Name("Kopf");
+
+            // Skizze...
+            // ... oeffnen für die Bearbeitung
+            Factory2D catFactory2D1 = hsp_catiaSkizze.OpenEdition();
+
+            //Punkte erstellen
+            Point2D point2D1 = catFactory2D1.CreatePoint(0, myScrew.Gesamtlaenge);
+            Point2D point2D2 = catFactory2D1.CreatePoint(0, ((myScrew.Kopfdurchmesser - myScrew.Gewindedurchmesser) / 2) + myScrew.Gesamtlaenge);
+            Point2D point2D3 = catFactory2D1.CreatePoint(myScrew.Kopfdurchmesser/2, ((myScrew.Kopfdurchmesser - myScrew.Gewindedurchmesser) / 2) + myScrew.Gesamtlaenge);
+            Point2D point2D4 = catFactory2D1.CreatePoint(myScrew.Gewindedurchmesser/2, myScrew.Gesamtlaenge);
+
+            
+            Line2D line2D1 = catFactory2D1.CreateLine(0, myScrew.Gesamtlaenge, 0, ((myScrew.Kopfdurchmesser - myScrew.Gewindedurchmesser) / 2) + myScrew.Gesamtlaenge);
+            line2D1.StartPoint = point2D1;
+            line2D1.EndPoint = point2D2;
+
+            Line2D line2D2 = catFactory2D1.CreateLine(0, ((myScrew.Kopfdurchmesser - myScrew.Gewindedurchmesser) / 2) + myScrew.Gesamtlaenge, myScrew.Kopfdurchmesser / 2, ((myScrew.Kopfdurchmesser - myScrew.Gewindedurchmesser) / 2) + myScrew.Gesamtlaenge);
+            line2D2.StartPoint = point2D2;
+            line2D2.EndPoint = point2D3;
+
+            Line2D line2D3 = catFactory2D1.CreateLine(myScrew.Kopfdurchmesser / 2, ((myScrew.Kopfdurchmesser - myScrew.Gewindedurchmesser) / 2) + myScrew.Gesamtlaenge, myScrew.Gewindedurchmesser / 2, myScrew.Gesamtlaenge);
+            line2D3.StartPoint = point2D3;
+            line2D3.EndPoint = point2D4;
+
+            Line2D line2D4 = catFactory2D1.CreateLine(myScrew.Gewindedurchmesser / 2, myScrew.Gesamtlaenge, 0, myScrew.Gesamtlaenge);
+            line2D4.StartPoint = point2D4;
+            line2D4.EndPoint = point2D1;
+            
+            
+            // ... schliessen
+            hsp_catiaSkizze.CloseEdition();
+
+            // Rotationskörper erstellen
+            Reference skizze = myPart.CreateReferenceFromObject(hsp_catiaSkizze);
+            //Reference rotationsachse = myPart.CreateReferenceFromBRepName("Achse", hsp_catiaSkizze);
+            myWelle = SF.AddNewShaftFromRef(skizze);
+            //myWelle.RevoluteAxis = rotationsachse;
+
+
+        }
 
     }
 }
