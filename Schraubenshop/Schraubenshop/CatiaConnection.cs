@@ -201,7 +201,19 @@ namespace Schraubenshop
             HybridShapePointCoord HelixStartpunkt = HSF.AddNewPointCoord(0, 0, Ri);
             Reference RefHelixStartpunkt = myPart.CreateReferenceFromObject(HelixStartpunkt);
 
-            HybridShapeHelix Helix = HSF.AddNewHelix(RefHelixDir, false, RefHelixStartpunkt, P, myScrew.Gewindelaenge, false, 0, 0, false);
+            Boolean DrehrichtungLinks;
+
+            if (myScrew.Drehsinn == true)
+            {
+                DrehrichtungLinks = false;
+            }
+
+            else
+            {
+                DrehrichtungLinks = true;
+            }
+
+            HybridShapeHelix Helix = HSF.AddNewHelix(RefHelixDir, false, RefHelixStartpunkt, P, myScrew.Gewindelaenge, DrehrichtungLinks, 0, 0, false);
 
             Reference RefHelix = myPart.CreateReferenceFromObject(Helix);
             Reference RefmyGewinde = myPart.CreateReferenceFromObject(myGewinde);

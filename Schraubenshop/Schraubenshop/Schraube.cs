@@ -19,6 +19,8 @@ namespace Schraubenshop
         public double Gesamtlaenge { get; set; }
         public string Gewinderichtung { get; set; }
 
+        public Boolean Drehsinn { get; set; }
+
 
         //Konstruktor
         public Schraube()

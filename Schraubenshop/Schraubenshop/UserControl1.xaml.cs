@@ -396,12 +396,13 @@ namespace Schraubenshop
         private void Rechtsgewinde_Checked(object sender, RoutedEventArgs e)
         {
             myScrew.Gewinderichtung = "Rechtsgewinde";
+            myScrew.Drehsinn = true;
         }
 
         private void Linksgewinde_Checked(object sender, RoutedEventArgs e)
         {
             myScrew.Gewinderichtung = "Linksgewinde";
-
+            myScrew.Drehsinn = false;
         }
         #endregion
 
@@ -759,11 +760,13 @@ namespace Schraubenshop
         private void RechtsgewindeZk_Checked(object sender, RoutedEventArgs e)
         {
             myScrew.Gewinderichtung = "Rechtsgewinde";
+            myScrew.Drehsinn = true;
         }
 
         private void LinksgewindeZk_Checked(object sender, RoutedEventArgs e)
         {
             myScrew.Gewinderichtung = "Linkssgewinde";
+            myScrew.Drehsinn = false;
         }
         #endregion
 
@@ -1023,11 +1026,13 @@ namespace Schraubenshop
         private void RechtsgewindeGS_Checked(object sender, RoutedEventArgs e)
         {
             myScrew.Gewinderichtung = "Rechtsgewinde";
+            myScrew.Drehsinn = true;
         }
 
         private void LinksgewindeGS_Checked(object sender, RoutedEventArgs e)
         {
             myScrew.Gewinderichtung = "Linksgewinde";
+            myScrew.Drehsinn = false;
         }
         #endregion
 
@@ -1355,11 +1360,13 @@ namespace Schraubenshop
         private void RechtsgewindeSenk_Checked(object sender, RoutedEventArgs e)
         {
             myScrew.Gewinderichtung = "Rechtsgewinde";
+            myScrew.Drehsinn = true;
         }
 
         private void LinksgewindeSenk_Checked(object sender, RoutedEventArgs e)
         {
             myScrew.Gewinderichtung = "Linksgewinde";
+            myScrew.Drehsinn = false;
         }
         #endregion
 
