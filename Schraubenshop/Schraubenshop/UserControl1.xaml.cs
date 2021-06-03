@@ -315,23 +315,30 @@ namespace Schraubenshop
         private void cb_M1_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 1;
+            myScrew.Steigung = 0.25;
         }
 
         private void cb_M2_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 2;
+            myScrew.Steigung = 0.4;
+
 
         }
 
         private void cb_M3_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 3;
+            myScrew.Steigung = 0.5;
+
 
         }
 
         private void cb_M4_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 4;
+            myScrew.Steigung = 0.7;
+
 
 
         }
@@ -339,54 +346,72 @@ namespace Schraubenshop
         private void cb_M5_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 5;
+            myScrew.Steigung = 0.8;
+
 
         }
 
         private void cb_M6_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 6;
+            myScrew.Steigung = 1;
+
 
         }
 
         private void cb_M8_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 8;
+            myScrew.Steigung = 1.25;
+
 
         }
 
         private void cb_M10_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 10;
+            myScrew.Steigung = 1.5;
+
 
         }
 
         private void cb_M12_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 12;
+            myScrew.Steigung = 1.75;
+
+
 
         }
 
         private void cb_M16_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 16;
+            myScrew.Steigung = 2;
+
 
         }
 
         private void cb_M20_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 20;
+            myScrew.Steigung = 2.5;
+
 
         }
 
         private void cb_M24_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 24;
+            myScrew.Steigung = 3;
+
 
         }
 
         private void cb_M30_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 30;
+            myScrew.Steigung = 3.5;
 
         }
 
@@ -679,78 +704,103 @@ namespace Schraubenshop
         private void cb_M1ZK_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 1;
+            myScrew.Steigung = 0.25;
+
 
         }
 
         private void cb_M2ZK_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 2;
+            myScrew.Steigung = 0.4;
+
 
         }
 
         private void cb_M3ZK_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 3;
+            myScrew.Steigung = 0.5;
+
 
         }
 
         private void cb_M4ZK_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 4;
+            myScrew.Steigung = 0.7;
+
 
         }
 
         private void cb_M5ZK_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 5;
+            myScrew.Steigung = 0.8;
+
 
         }
 
         private void cb_M6ZK_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 6;
+            myScrew.Steigung = 1;
+
 
         }
 
         private void cb_M8ZK_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 8;
+            myScrew.Steigung = 1.25;
 
         }
 
         private void cb_M10ZK_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 10;
+            myScrew.Steigung = 1.5;
+
 
         }
 
         private void cb_M12ZK_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 12;
+            myScrew.Steigung = 1.75;
+
 
         }
 
         private void cb_M16ZK_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 16;
+            myScrew.Steigung = 2;
+
 
         }
 
         private void cb_M20ZK_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 20;
+            myScrew.Steigung = 2.5;
+
 
         }
 
         private void cb_M24ZK_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 24;
+            myScrew.Steigung = 3;
+
 
         }
 
         private void cb_M30ZK_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 30;
+            myScrew.Steigung = 3.5;
+
 
         }
 
@@ -959,66 +1009,92 @@ namespace Schraubenshop
         private void cb_M1GS_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 1;
+            myScrew.Steigung = 0.25;
+
         }
 
         private void cb_M2GS_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 2;
+            myScrew.Steigung = 0.4;
+
         }
 
         private void cb_M3GS_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 3;
+            myScrew.Steigung = 0.5;
+
         }
 
         private void cb_M4GS_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 4;
+            myScrew.Steigung = 0.7;
+
         }
 
         private void cb_M5GS_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 5;
+            myScrew.Steigung = 0.8;
+
         }
 
         private void cb_M6GS_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 6;
+            myScrew.Steigung = 1;
+
         }
 
         private void cb_M8GS_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 8;
+            myScrew.Steigung = 1.25;
+
         }
 
         private void cb_M10GS_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 10;
+            myScrew.Steigung = 1.5;
+
         }
 
         private void cb_M12GS_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 12;
+            myScrew.Steigung = 1.75;
+
         }
 
         private void cb_M16GS_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 16;
+            myScrew.Steigung = 2;
+
         }
 
         private void cb_M20GS_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 20;
+            myScrew.Steigung = 2.5;
+
         }
 
         private void cb_M24GS_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 24;
+            myScrew.Steigung = 3;
+
         }
 
         private void cb_M30GS_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 30;
+            myScrew.Steigung = 3.5;
+
         }
         #endregion
 
@@ -1281,66 +1357,92 @@ namespace Schraubenshop
         private void cb_M1Senk_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 1;
+            myScrew.Steigung = 0.25;
+
         }
 
         private void cb_M2Senk_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 2;
+            myScrew.Steigung = 0.4;
+
         }
 
         private void cb_M3Senk_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 3;
+            myScrew.Steigung = 0.5;
+
         }
 
         private void cb_M4Senk_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 4;
+            myScrew.Steigung = 0.7;
+
         }
 
         private void cb_M5Senk_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 5;
+            myScrew.Steigung = 0.8;
+
         }
 
         private void cb_M6Senk_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 6;
+            myScrew.Steigung = 1;
+
         }
 
         private void cb_M8Senk_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 8;
+            myScrew.Steigung = 1.25;
+
         }
 
         private void cb_M10Senk_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 10;
+            myScrew.Steigung = 1.5;
+
         }
 
         private void cb_M12Senk_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 12;
+            myScrew.Steigung = 1.75;
+
         }
 
         private void cb_M16Senk_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 16;
+            myScrew.Steigung = 2;
+
         }
 
         private void cb_M20Senk_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 20;
+            myScrew.Steigung = 2.5;
+
         }
 
         private void cb_M24Senk_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 24;
+            myScrew.Steigung = 3;
+
         }
 
         private void cb_M30Senk_Selected(object sender, RoutedEventArgs e)
         {
             myScrew.Gewindedurchmesser = 30;
+            myScrew.Steigung = 3.5;
+
         }
 
 

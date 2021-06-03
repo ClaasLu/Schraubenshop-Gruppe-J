@@ -20,6 +20,7 @@ namespace Schraubenshop
         public string Gewinderichtung { get; set; }
 
         public Boolean Drehsinn { get; set; }
+        public double Steigung { get; set; }
 
 
         //Konstruktor

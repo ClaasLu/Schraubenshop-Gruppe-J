@@ -189,7 +189,7 @@ namespace Schraubenshop
         // Erzeugt eine Helix 
         internal void ErzeugeGewindeHelix(Schraube myScrew)
         {
-            Double P = 1.25;
+            double P = 1.25;
             Double Ri = myScrew.Gewindedurchmesser / 2;
             HSF = (HybridShapeFactory)myPart.HybridShapeFactory;
 
