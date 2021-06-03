@@ -189,7 +189,7 @@ namespace Schraubenshop
         // Erzeugt eine Helix 
         internal void ErzeugeGewindeHelix(Schraube myScrew)
         {
-            double P = 1.25;
+            double P = myScrew.Steigung;
             Double Ri = myScrew.Gewindedurchmesser / 2;
             HSF = (HybridShapeFactory)myPart.HybridShapeFactory;
 
@@ -282,7 +282,7 @@ namespace Schraubenshop
         // Separate Skizzenerzeugung für die Helix
         private Sketch makeGewindeSkizze(Schraube myScrew)
         {
-            Double P = 1.25;
+            Double P = myScrew.Steigung;
             Double Ri = myScrew.Gewindedurchmesser/2;
 
             OriginElements catOriginElements = hsp_catiaPartDoc.Part.OriginElements;
